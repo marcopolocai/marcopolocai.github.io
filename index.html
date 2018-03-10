@@ -142,19 +142,181 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-Mac command line" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-mogodb-note" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/08/Mac command line/">Mac command line</a>
+      <a class="article-title" href="/2018/03/09/mogodb-note/">mogodb note</a>
     </h1>
   
 
         
-        <a href="/2018/03/08/Mac command line/" class="archive-article-date">
+        <a href="/2018/03/09/mogodb-note/" class="archive-article-date">
+  	<time datetime="2018-03-09T22:04:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-09</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>To start mongodb,<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mongod</span><br><span class="line"><span class="comment">#then open another terminal,</span></span><br><span class="line">mongo</span><br></pre></td></tr></table></figure></p>
+<h3 id="basic"><a href="#basic" class="headerlink" title="basic"></a>basic</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># show </span></span><br><span class="line">show dbs</span><br><span class="line">show tables/collection</span><br><span class="line">db </span><br><span class="line">use db_name</span><br><span class="line"></span><br><span class="line"><span class="comment"># delete current database</span></span><br><span class="line">db.dropDatabase() </span><br><span class="line"></span><br><span class="line"><span class="comment"># create collection </span></span><br><span class="line">db.createCollection(<span class="string">"col_name"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># create fixed collection with space 6142800 KB, documents &lt; 10000</span></span><br><span class="line">db.createCollection(<span class="string">"col_name"</span>, &#123; capped : <span class="literal">true</span>, autoIndexId : <span class="literal">true</span>, size : </span><br><span class="line">   6142800, max : 10000 &#125; )</span><br><span class="line"></span><br><span class="line"><span class="comment"># delete collection</span></span><br><span class="line">db.collection.drop()</span><br><span class="line"></span><br><span class="line"><span class="comment"># insert documents (collection auto created if not exiested)</span></span><br><span class="line">db.collection.insertOne(&#123;<span class="string">"a"</span>: 3&#125;)</span><br><span class="line">db.collection.insert(&#123;<span class="string">"name"</span>:<span class="string">"MarcoCai"</span>&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment"># insert document indirectly</span></span><br><span class="line">document = &#123;...&#125;</span><br><span class="line">db.collection.insert(document)</span><br><span class="line"></span><br><span class="line"><span class="comment"># inset multiple </span></span><br><span class="line">db.collection.insertMany([&#123;<span class="string">"b"</span>: 3&#125;, &#123;<span class="string">'c'</span>: 4&#125;])</span><br><span class="line"></span><br><span class="line"><span class="comment"># find documents under a collection</span></span><br><span class="line">db.collection.find()</span><br><span class="line">db.collection.find().pretty()</span><br><span class="line">db.col.find(&#123;key1:value1, key2:value2&#125;).pretty()</span><br><span class="line">db.col.find(</span><br><span class="line">   &#123;</span><br><span class="line">      <span class="variable">$or</span>: [</span><br><span class="line">         &#123;key1: value1&#125;, &#123;key2:value2&#125;</span><br><span class="line">      ]</span><br><span class="line">   &#125;</span><br><span class="line">).pretty()</span><br><span class="line">db.col.find(&#123;<span class="string">"likes"</span>: &#123;<span class="variable">$gt</span>:50&#125;, <span class="variable">$or</span>: [&#123;<span class="string">"by"</span>: <span class="string">"菜鸟教程"</span>&#125;,&#123;<span class="string">"title"</span>: <span class="string">"MongoDB 教程"</span>&#125;]&#125;).pretty()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># high level find</span></span><br><span class="line">db.col.find(&#123;<span class="string">"title"</span> : &#123;<span class="variable">$type</span> : 2&#125;&#125;)</span><br><span class="line">db.collection.find(query, &#123;title: 1, by: 1&#125;) // inclusion模式 指定返回的键，不返回其他键</span><br><span class="line">db.collection.find(query, &#123;title: 0, by: 0&#125;) // exclusion模式 指定不返回的键,返回其他键</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># update document</span></span><br><span class="line">db.test_collection.updateOne(&#123;<span class="string">"name"</span>:<span class="string">"abc"</span>&#125;,&#123;<span class="variable">$set</span>:&#123;<span class="string">"age"</span>:<span class="string">"28"</span>&#125;&#125;)</span><br><span class="line">db.test_collection.updateMany(&#123;<span class="string">"age"</span>:&#123;<span class="variable">$gt</span>:<span class="string">"10"</span>&#125;&#125;,&#123;<span class="variable">$set</span>:&#123;<span class="string">"status"</span>:<span class="string">"xyz"</span>&#125;&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment"># replace document</span></span><br><span class="line">db.collection.save(</span><br><span class="line">   &lt;document&gt;</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment"># delete document</span></span><br><span class="line"><span class="comment"># 如删除集合下全部文档：</span></span><br><span class="line">db.inventory.deleteMany(&#123;&#125;)</span><br><span class="line"><span class="comment"># 删除 status 等于 A 的全部文档：</span></span><br><span class="line">db.inventory.deleteMany(&#123; status : <span class="string">"A"</span> &#125;)</span><br><span class="line"><span class="comment"># 删除 status 等于 D 的一个文档：</span></span><br><span class="line">db.inventory.deleteOne( &#123; status: <span class="string">"D"</span> &#125; )</span><br></pre></td></tr></table></figure>
+<h3 id="symbol"><a href="#symbol" class="headerlink" title="symbol"></a>symbol</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$gt</span> -------- greater than  &gt;</span><br><span class="line"></span><br><span class="line"><span class="variable">$gte</span> --------- gt equal  &gt;=</span><br><span class="line"></span><br><span class="line"><span class="variable">$lt</span> -------- less than  &lt;</span><br><span class="line"></span><br><span class="line"><span class="variable">$lte</span> --------- lt equal  &lt;=</span><br><span class="line"></span><br><span class="line"><span class="variable">$ne</span> ----------- not equal  !=</span><br><span class="line"></span><br><span class="line"><span class="variable">$eq</span>  --------  equal  =</span><br></pre></td></tr></table></figure>
+<h3 id="Objectid"><a href="#Objectid" class="headerlink" title="Objectid"></a>Objectid</h3><p>MongoDB 中存储的文档必须有一个 _id 键。这个键的值可以是任何类型的，默认是个 ObjectId 对象。</p>
+<p>由于 ObjectId 中保存了创建的时间戳，所以你不需要为你的文档保存时间戳字段，你可以通过 getTimestamp 函数来获取文档的创建时间:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var newObject = ObjectId()</span><br><span class="line">newObject.getTimestamp()</span><br></pre></td></tr></table></figure>
+<h3 id="data-type"><a href="#data-type" class="headerlink" title="data type"></a>data type</h3><table class="table"><br><tbody><tr><br><th>数据类型</th><br><th>描述</th><br></tr><br><tr><td>String</td><td>字符串。存储数据常用的数据类型。在 MongoDB 中，UTF-8 编码的字符串才是合法的。   </td></tr><br><tr><td>Integer</td><td>整型数值。用于存储数值。根据你所采用的服务器，可分为 32 位或 64 位。  </td></tr><br><tr><td>Boolean</td><td>布尔值。用于存储布尔值（真/假）。  </td></tr><br><tr><td>Double</td><td>双精度浮点值。用于存储浮点值。  </td></tr><br><tr><td>Min/Max keys</td><td>将一个值与 BSON（二进制的 JSON）元素的最低值和最高值相对比。  </td></tr><br><tr><td>Array</td><td>用于将数组或列表或多个值存储为一个键。  </td></tr><br><tr><td>Timestamp</td><td>时间戳。记录文档修改或添加的具体时间。  </td></tr><br><tr><td>Object</td><td>用于内嵌文档。  </td></tr><br><tr><td>Null</td><td>用于创建空值。  </td></tr><br><tr><td>Symbol</td><td>符号。该数据类型基本上等同于字符串类型，但不同的是，它一般用于采用特殊符号类型的语言。</td></tr><br><tr><td>Date</td><td>日期时间。用 UNIX 时间格式来存储当前日期或时间。你可以指定自己的日期时间：创建 Date 对象，传入年月日信息。  </td></tr><br><tr><td>Object ID</td><td>对象 ID。用于创建文档的 ID。  </td></tr><br><tr><td>Binary Data</td><td>二进制数据。用于存储二进制数据。</td></tr><br><tr><td>Code</td><td>代码类型。用于在文档中存储 JavaScript 代码。</td></tr><br><tr><td>Regular expression</td><td>正则表达式类型。用于存储正则表达式。</td></tr><br></tbody></table>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">database</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">mongodb</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/03/09/mogodb-note/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Database-knowledges" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/09/Database-knowledges/">Database Knowledges</a>
+    </h1>
+  
+
+        
+        <a href="/2018/03/09/Database-knowledges/" class="archive-article-date">
+  	<time datetime="2018-03-09T21:30:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-09</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Useful links:</p>
+<ol>
+<li>nosql intro： <a href="http://www.runoob.com/mongodb/nosql.html" target="_blank" rel="noopener">http://www.runoob.com/mongodb/nosql.html</a></li>
+<li>Different kinds of databases summaries: <a href="https://www.jianshu.com/p/107c6b045245" target="_blank" rel="noopener">https://www.jianshu.com/p/107c6b045245</a></li>
+</ol>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">database</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/03/09/Database-knowledges/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Mac-command-line" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/08/Mac-command-line/">Mac command line</a>
+    </h1>
+  
+
+        
+        <a href="/2018/03/08/Mac-command-line/" class="archive-article-date">
   	<time datetime="2018-03-09T06:24:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-08</time>
 </a>
         
@@ -189,7 +351,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/03/08/Mac command line/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/03/08/Mac-command-line/">展开全文 >></a>
         </p>
       
 
@@ -390,11 +552,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">mac</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+                <a href="javascript:void(0)" class="js-tag color4">database</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">mongodb</a>
               </li>
             
             <div class="clearfix"></div>
