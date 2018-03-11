@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>mogodb note | Marco Cai&#39;s Tech Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="start12345678910# run in the backgroundmongod# open interactive shellmongo# in python from pymongo import MongoClientClient = MongoClient()db = Client[dbname] database12345678# basicshow dbsshow table">
+  <meta name="description" content="start12345678910# run in the backgroundmongod# open interactive shellmongo# in python from pymongo import MongoClientClient = MongoClient()db = Client[dbname]">
 <meta name="keywords" content="database,mongodb">
 <meta property="og:type" content="article">
 <meta property="og:title" content="mogodb note">
 <meta property="og:url" content="http://yoursite.com/2018/03/09/mogodb-note/index.html">
 <meta property="og:site_name" content="Marco Cai&#39;s Tech Blog">
-<meta property="og:description" content="start12345678910# run in the backgroundmongod# open interactive shellmongo# in python from pymongo import MongoClientClient = MongoClient()db = Client[dbname] database12345678# basicshow dbsshow table">
+<meta property="og:description" content="start12345678910# run in the backgroundmongod# open interactive shellmongo# in python from pymongo import MongoClientClient = MongoClient()db = Client[dbname]">
 <meta property="og:locale" content="English">
-<meta property="og:updated_time" content="2018-03-10T20:10:38.798Z">
+<meta property="og:updated_time" content="2018-03-10T20:54:44.511Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="mogodb note">
-<meta name="twitter:description" content="start12345678910# run in the backgroundmongod# open interactive shellmongo# in python from pymongo import MongoClientClient = MongoClient()db = Client[dbname] database12345678# basicshow dbsshow table">
+<meta name="twitter:description" content="start12345678910# run in the backgroundmongod# open interactive shellmongo# in python from pymongo import MongoClientClient = MongoClient()db = Client[dbname]">
   
     <link rel="alternative" href="/atom.xml" title="Marco Cai&#39;s Tech Blog" type="application/atom+xml">
   
@@ -48,7 +48,7 @@
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
-			<img src="https://farm8.staticflickr.com/7412/9578414905_70da089b01_q.jpg" class="js-avatar">
+			<img src="https://farm5.staticflickr.com/4799/40693242182_4698f2e783_q.jpg" class="js-avatar">
 		</a>
 		<hgroup>
 		  <h1 class="header-author"><a href="/">Mingxiang Cai</a></h1>
@@ -100,7 +100,7 @@
 	<div class="intrude-less">
 		<header id="header" class="inner">
 			<div class="profilepic">
-				<img src="https://farm8.staticflickr.com/7412/9578414905_70da089b01_q.jpg" class="js-avatar">
+				<img src="https://farm5.staticflickr.com/4799/40693242182_4698f2e783_q.jpg" class="js-avatar">
 			</div>
 			<hgroup>
 			  <h1 class="header-author js-header-author">Mingxiang Cai</h1>
@@ -166,6 +166,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h3 id="start"><a href="#start" class="headerlink" title="start"></a>start</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># run in the background</span></span><br><span class="line">mongod</span><br><span class="line"></span><br><span class="line"><span class="comment"># open interactive shell</span></span><br><span class="line">mongo</span><br><span class="line"></span><br><span class="line"><span class="comment"># in python </span></span><br><span class="line"><span class="keyword">from</span> pymongo <span class="keyword">import</span> MongoClient</span><br><span class="line">Client = MongoClient()</span><br><span class="line">db = Client[dbname]</span><br></pre></td></tr></table></figure>
+ <a id="more"></a>
 <h3 id="database"><a href="#database" class="headerlink" title="database"></a>database</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># basic</span></span><br><span class="line">show dbs</span><br><span class="line">show tables/collection</span><br><span class="line">db </span><br><span class="line">use db_name</span><br><span class="line"></span><br><span class="line"><span class="comment"># delete current database</span></span><br><span class="line">db.dropDatabase()</span><br></pre></td></tr></table></figure>
 <h3 id="collection"><a href="#collection" class="headerlink" title="collection"></a>collection</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># create collection </span></span><br><span class="line">db.createCollection(<span class="string">"col_name"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># create fixed collection with space 6142800 KB, documents &lt; 10000</span></span><br><span class="line">db.createCollection(<span class="string">"col_name"</span>, &#123; capped : true, autoIndexId : true, size : </span><br><span class="line">   <span class="number">6142800</span>, max : <span class="number">10000</span> &#125; )</span><br><span class="line"></span><br><span class="line"><span class="comment"># delete collection</span></span><br><span class="line">db.collection.drop()</span><br></pre></td></tr></table></figure>
 <h3 id="documents"><a href="#documents" class="headerlink" title="documents"></a>documents</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># insert documents (collection auto created if not exiested)</span></span><br><span class="line">db.collection.insertOne(&#123;<span class="string">"a"</span>: <span class="number">3</span>&#125;)</span><br><span class="line">db.collection.insert(&#123;<span class="string">"name"</span>:<span class="string">"MarcoCai"</span>&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment"># insert document indirectly</span></span><br><span class="line">document = &#123;...&#125;</span><br><span class="line">db.collection.insert(document)</span><br><span class="line"></span><br><span class="line"><span class="comment"># inset multiple </span></span><br><span class="line">db.collection.insertMany([&#123;<span class="string">"b"</span>: <span class="number">3</span>&#125;, &#123;<span class="string">'c'</span>: <span class="number">4</span>&#125;])</span><br><span class="line"></span><br><span class="line"><span class="comment"># find documents under a collection</span></span><br><span class="line">db.collection.find()</span><br><span class="line">db.collection.find().pretty()</span><br><span class="line">db.col.find(&#123;key1:value1, key2:value2&#125;).pretty()</span><br><span class="line">db.col.find( &#123;$<span class="keyword">or</span>: [ &#123;key1: value1&#125;, &#123;key2:value2&#125; ] &#125;).pretty()</span><br><span class="line">db.col.find(&#123;<span class="string">"likes"</span>: &#123;$gt:<span class="number">50</span>&#125;, $<span class="keyword">or</span>: [&#123;<span class="string">"by"</span>: <span class="string">"菜鸟教程"</span>&#125;,&#123;<span class="string">"title"</span>: <span class="string">"MongoDB 教程"</span>&#125;]&#125;).pretty()</span><br><span class="line"></span><br><span class="line"><span class="comment"># high level find</span></span><br><span class="line">db.col.find(&#123;<span class="string">"title"</span> : &#123;$type : <span class="number">2</span>&#125;&#125;)</span><br><span class="line">db.collection.find(query, &#123;title: <span class="number">1</span>, by: <span class="number">1</span>&#125;) // inclusion模式 指定返回的键，不返回其他键</span><br><span class="line">db.collection.find(query, &#123;title: <span class="number">0</span>, by: <span class="number">0</span>&#125;) // exclusion模式 指定不返回的键,返回其他键</span><br><span class="line"></span><br><span class="line"><span class="comment"># update document</span></span><br><span class="line">db.test_collection.updateOne(&#123;<span class="string">"name"</span>:<span class="string">"abc"</span>&#125;,&#123;$set:&#123;<span class="string">"age"</span>:<span class="string">"28"</span>&#125;&#125;)</span><br><span class="line">db.test_collection.updateMany(&#123;<span class="string">"age"</span>:&#123;$gt:<span class="string">"10"</span>&#125;&#125;,&#123;$set:&#123;<span class="string">"status"</span>:<span class="string">"xyz"</span>&#125;&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment"># replace document</span></span><br><span class="line">db.collection.save( &lt;document&gt; )</span><br><span class="line"></span><br><span class="line"><span class="comment"># delete document</span></span><br><span class="line">db.inventory.deleteMany(&#123;&#125;)</span><br><span class="line">db.inventory.deleteMany(&#123; status : <span class="string">"A"</span> &#125;)</span><br><span class="line">db.inventory.deleteOne( &#123; status: <span class="string">"D"</span> &#125; )</span><br></pre></td></tr></table></figure>
@@ -385,6 +386,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">mac</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">database</a>
               </li>
              
@@ -394,10 +399,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">mongodb</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">mac</a>
               </li>
             
             <div class="clearfix"></div>

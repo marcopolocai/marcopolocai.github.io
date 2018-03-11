@@ -43,7 +43,7 @@
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
-			<img src="https://farm8.staticflickr.com/7412/9578414905_70da089b01_q.jpg" class="js-avatar">
+			<img src="https://farm5.staticflickr.com/4799/40693242182_4698f2e783_q.jpg" class="js-avatar">
 		</a>
 		<hgroup>
 		  <h1 class="header-author"><a href="/">Mingxiang Cai</a></h1>
@@ -95,7 +95,7 @@
 	<div class="intrude-less">
 		<header id="header" class="inner">
 			<div class="profilepic">
-				<img src="https://farm8.staticflickr.com/7412/9578414905_70da089b01_q.jpg" class="js-avatar">
+				<img src="https://farm5.staticflickr.com/4799/40693242182_4698f2e783_q.jpg" class="js-avatar">
 			</div>
 			<hgroup>
 			  <h1 class="header-author js-header-author">Mingxiang Cai</h1>
@@ -163,15 +163,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h3 id="start"><a href="#start" class="headerlink" title="start"></a>start</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># run in the background</span></span><br><span class="line">mongod</span><br><span class="line"></span><br><span class="line"><span class="comment"># open interactive shell</span></span><br><span class="line">mongo</span><br><span class="line"></span><br><span class="line"><span class="comment"># in python </span></span><br><span class="line"><span class="keyword">from</span> pymongo <span class="keyword">import</span> MongoClient</span><br><span class="line">Client = MongoClient()</span><br><span class="line">db = Client[dbname]</span><br></pre></td></tr></table></figure>
-<h3 id="database"><a href="#database" class="headerlink" title="database"></a>database</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># basic</span></span><br><span class="line">show dbs</span><br><span class="line">show tables/collection</span><br><span class="line">db </span><br><span class="line">use db_name</span><br><span class="line"></span><br><span class="line"><span class="comment"># delete current database</span></span><br><span class="line">db.dropDatabase()</span><br></pre></td></tr></table></figure>
-<h3 id="collection"><a href="#collection" class="headerlink" title="collection"></a>collection</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># create collection </span></span><br><span class="line">db.createCollection(<span class="string">"col_name"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># create fixed collection with space 6142800 KB, documents &lt; 10000</span></span><br><span class="line">db.createCollection(<span class="string">"col_name"</span>, &#123; capped : true, autoIndexId : true, size : </span><br><span class="line">   <span class="number">6142800</span>, max : <span class="number">10000</span> &#125; )</span><br><span class="line"></span><br><span class="line"><span class="comment"># delete collection</span></span><br><span class="line">db.collection.drop()</span><br></pre></td></tr></table></figure>
-<h3 id="documents"><a href="#documents" class="headerlink" title="documents"></a>documents</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># insert documents (collection auto created if not exiested)</span></span><br><span class="line">db.collection.insertOne(&#123;<span class="string">"a"</span>: <span class="number">3</span>&#125;)</span><br><span class="line">db.collection.insert(&#123;<span class="string">"name"</span>:<span class="string">"MarcoCai"</span>&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment"># insert document indirectly</span></span><br><span class="line">document = &#123;...&#125;</span><br><span class="line">db.collection.insert(document)</span><br><span class="line"></span><br><span class="line"><span class="comment"># inset multiple </span></span><br><span class="line">db.collection.insertMany([&#123;<span class="string">"b"</span>: <span class="number">3</span>&#125;, &#123;<span class="string">'c'</span>: <span class="number">4</span>&#125;])</span><br><span class="line"></span><br><span class="line"><span class="comment"># find documents under a collection</span></span><br><span class="line">db.collection.find()</span><br><span class="line">db.collection.find().pretty()</span><br><span class="line">db.col.find(&#123;key1:value1, key2:value2&#125;).pretty()</span><br><span class="line">db.col.find( &#123;$<span class="keyword">or</span>: [ &#123;key1: value1&#125;, &#123;key2:value2&#125; ] &#125;).pretty()</span><br><span class="line">db.col.find(&#123;<span class="string">"likes"</span>: &#123;$gt:<span class="number">50</span>&#125;, $<span class="keyword">or</span>: [&#123;<span class="string">"by"</span>: <span class="string">"菜鸟教程"</span>&#125;,&#123;<span class="string">"title"</span>: <span class="string">"MongoDB 教程"</span>&#125;]&#125;).pretty()</span><br><span class="line"></span><br><span class="line"><span class="comment"># high level find</span></span><br><span class="line">db.col.find(&#123;<span class="string">"title"</span> : &#123;$type : <span class="number">2</span>&#125;&#125;)</span><br><span class="line">db.collection.find(query, &#123;title: <span class="number">1</span>, by: <span class="number">1</span>&#125;) // inclusion模式 指定返回的键，不返回其他键</span><br><span class="line">db.collection.find(query, &#123;title: <span class="number">0</span>, by: <span class="number">0</span>&#125;) // exclusion模式 指定不返回的键,返回其他键</span><br><span class="line"></span><br><span class="line"><span class="comment"># update document</span></span><br><span class="line">db.test_collection.updateOne(&#123;<span class="string">"name"</span>:<span class="string">"abc"</span>&#125;,&#123;$set:&#123;<span class="string">"age"</span>:<span class="string">"28"</span>&#125;&#125;)</span><br><span class="line">db.test_collection.updateMany(&#123;<span class="string">"age"</span>:&#123;$gt:<span class="string">"10"</span>&#125;&#125;,&#123;$set:&#123;<span class="string">"status"</span>:<span class="string">"xyz"</span>&#125;&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment"># replace document</span></span><br><span class="line">db.collection.save( &lt;document&gt; )</span><br><span class="line"></span><br><span class="line"><span class="comment"># delete document</span></span><br><span class="line">db.inventory.deleteMany(&#123;&#125;)</span><br><span class="line">db.inventory.deleteMany(&#123; status : <span class="string">"A"</span> &#125;)</span><br><span class="line">db.inventory.deleteOne( &#123; status: <span class="string">"D"</span> &#125; )</span><br></pre></td></tr></table></figure>
-<h3 id="symbol"><a href="#symbol" class="headerlink" title="symbol"></a>symbol</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$gt</span> -------- greater than  &gt;</span><br><span class="line"><span class="variable">$gte</span> --------- gt equal  &gt;=</span><br><span class="line"><span class="variable">$lt</span> -------- less than  &lt;</span><br><span class="line"><span class="variable">$lte</span> --------- lt equal  &lt;=</span><br><span class="line"><span class="variable">$ne</span> ----------- not equal  !=</span><br><span class="line"><span class="variable">$eq</span>  --------  equal  =</span><br></pre></td></tr></table></figure>
-<h3 id="Objectid"><a href="#Objectid" class="headerlink" title="Objectid"></a>Objectid</h3><p>MongoDB 中存储的文档必须有一个 _id 键。这个键的值可以是任何类型的，默认是个 ObjectId 对象。</p>
-<p>由于 ObjectId 中保存了创建的时间戳，所以你不需要为你的文档保存时间戳字段，你可以通过 getTimestamp 函数来获取文档的创建时间:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var newObject = ObjectId()</span><br><span class="line">newObject.getTimestamp()</span><br></pre></td></tr></table></figure>
-<h3 id="data-type"><a href="#data-type" class="headerlink" title="data type"></a>data type</h3><table class="table"><br><tbody><tr><br><th>数据类型</th><br><th>描述</th><br></tr><br><tr><td>String</td><td>字符串。存储数据常用的数据类型。在 MongoDB 中，UTF-8 编码的字符串才是合法的。   </td></tr><br><tr><td>Integer</td><td>整型数值。用于存储数值。根据你所采用的服务器，可分为 32 位或 64 位。  </td></tr><br><tr><td>Boolean</td><td>布尔值。用于存储布尔值（真/假）。  </td></tr><br><tr><td>Double</td><td>双精度浮点值。用于存储浮点值。  </td></tr><br><tr><td>Min/Max keys</td><td>将一个值与 BSON（二进制的 JSON）元素的最低值和最高值相对比。  </td></tr><br><tr><td>Array</td><td>用于将数组或列表或多个值存储为一个键。  </td></tr><br><tr><td>Timestamp</td><td>时间戳。记录文档修改或添加的具体时间。  </td></tr><br><tr><td>Object</td><td>用于内嵌文档。  </td></tr><br><tr><td>Null</td><td>用于创建空值。  </td></tr><br><tr><td>Symbol</td><td>符号。该数据类型基本上等同于字符串类型，但不同的是，它一般用于采用特殊符号类型的语言。</td></tr><br><tr><td>Date</td><td>日期时间。用 UNIX 时间格式来存储当前日期或时间。你可以指定自己的日期时间：创建 Date 对象，传入年月日信息。  </td></tr><br><tr><td>Object ID</td><td>对象 ID。用于创建文档的 ID。  </td></tr><br><tr><td>Binary Data</td><td>二进制数据。用于存储二进制数据。</td></tr><br><tr><td>Code</td><td>代码类型。用于在文档中存储 JavaScript 代码。</td></tr><br><tr><td>Regular expression</td><td>正则表达式类型。用于存储正则表达式。</td></tr><br></tbody></table>
-
+        
       
 
       
@@ -252,7 +244,9 @@
 <ol>
 <li>nosql intro： <a href="http://www.runoob.com/mongodb/nosql.html" target="_blank" rel="noopener">http://www.runoob.com/mongodb/nosql.html</a></li>
 <li>Different kinds of databases summaries: <a href="https://www.jianshu.com/p/107c6b045245" target="_blank" rel="noopener">https://www.jianshu.com/p/107c6b045245</a></li>
-<li>pymongo <a href="https://zhuanlan.zhihu.com/p/20500518" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/20500518</a></li>
+<li>pymongo: <a href="https://zhuanlan.zhihu.com/p/20500518" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/20500518</a></li>
+<li>从MySQL和MongoDB的对比，看SQL与NoSQL的较量– 运维派: <a href="http://www.yunweipai.com/archives/23797.html" target="_blank" rel="noopener">http://www.yunweipai.com/archives/23797.html</a></li>
+<li>SQL与mongoDB对比及映射: <a href="http://blog.csdn.net/leshami/article/details/52692912" target="_blank" rel="noopener">http://blog.csdn.net/leshami/article/details/52692912</a></li>
 </ol>
 
       
@@ -329,9 +323,7 @@
       
         <p>Marking down some commonly used shell command:</p>
 <h3 id="Mac-命令行命令"><a href="#Mac-命令行命令" class="headerlink" title="Mac 命令行命令"></a>Mac 命令行命令</h3><p>history 显示命令历史列表<br>[Tab] =命令行自动补全<br>↑(Ctrl+p) 显示上一条命令<br>↓(Ctrl+n) 显示下一条命令<br>clear 清除 shell 提示屏幕<br>exit 注销<br>history 显示命令历史<br>reset 刷新 shell 提示屏幕</p>
-<h3 id="Mac-命令行编辑快捷键"><a href="#Mac-命令行编辑快捷键" class="headerlink" title="Mac 命令行编辑快捷键"></a>Mac 命令行编辑快捷键</h3><p>↑(Ctrl+p) 显示上一条命令<br>↓(Ctrl+n) 显示下一条命令<br>!num 执行命令历史列表的第num条命令<br>!! 执行上一条命令<br>!?string? 执行含有string字符串的最新命令<br>Ctrl+r 然后输入若干字符，开始向上搜索包含该字符的命令，继续按Ctrl+r，搜索上一条匹配的命令<br>Ctrl+s 与Ctrl+r类似,只是正向检索<br>Ctrl+f 光标向前移动一个字符,相当与-&gt;<br>Ctrl+b 光标向后移动一个字符,相当与&lt;-<br>opt+&lt;- 光标向前移动一个单词<br>opt+-&gt; 光标向后移动一个单词<br>ls !$ 执行命令ls，并以上一条命令的参数为其参数<br>Ctrl+a 移动到当前行的开头<br>Ctrl+e 移动到当前行的结尾<br>Esc+b 移动到当前单词的开头<br>Esc+f 移动到当前单词的结尾<br>Ctrl+l 清屏<br>Ctrl+u 剪切命令行中光标所在处之前的所有字符（不包括自身）<br>Ctrl+k 剪切命令行中光标所在处之后的所有字符（包括自身）<br>Ctrl+d 删除光标所在处字符<br>Ctrl+h 删除光标所在处前一个字符<br>Ctrl+y 粘贴刚才所删除的字符<br>Ctrl+w 剪切光标所在处之前的一个词（以空格、标点等为分隔符）<br>Ctrl+t 颠倒光标所在处及其之前的字符位置，并将光标移动到下一个字符<br>Ctrl+v 插入特殊字符,如Ctrl+v+Tab加入Tab字符键<br>Esc+t 颠倒光标所在处及其相邻单词的位置<br>Ctrl+c 删除整行<br>Ctrl+(x u) 按住Ctrl的同时再先后按x和u，撤销刚才的操作<br>Ctrl+s 挂起当前shell<br>Ctrl+q 重新启用挂起的shell</p>
-<h3 id="下面的应用可能稍稍高级一点点"><a href="#下面的应用可能稍稍高级一点点" class="headerlink" title="下面的应用可能稍稍高级一点点"></a>下面的应用可能稍稍高级一点点</h3><p>!! - 上一条命令<br>!-n - 倒数第N条历史命令<br>!-n:p - 打印上一条命令（不执行）<br>!?string？- 最新一条含有“string”的命令<br>!-n:gs/str1/str2/ - 将倒数第N条命令的str1替换为str2，并执行（若不加g,则仅替换第一个）</p>
-
+        
       
 
       
@@ -405,15 +397,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
+        
       
 
       
@@ -555,6 +539,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">mac</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">database</a>
               </li>
              
@@ -564,10 +552,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">mongodb</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">mac</a>
               </li>
             
             <div class="clearfix"></div>
