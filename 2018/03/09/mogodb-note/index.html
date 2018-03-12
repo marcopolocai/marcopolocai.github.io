@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next gemini use-motion" lang="en">
+<html class="theme-next mist use-motion" lang="en">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -113,7 +113,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Gemini',
+    scheme: 'Mist',
     version: '6.0.5',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
     fancybox: false,
@@ -141,21 +141,18 @@
   <meta name="keywords" content="database,mongodb," />
 
 
-<meta name="description" content="Below are some self-collected commonly-used commands.  内容 加粗 (md partial supported)  start12345678910# run in the backgroundmongod# open interactive shellmongo# in python from pymongo import MongoClie">
+<meta name="description" content="Below are some self-collected commonly-used commands. start12345678910# run in the backgroundmongod# open interactive shellmongo# in python from pymongo import MongoClientClient = MongoClient()db = Cl">
 <meta name="keywords" content="database,mongodb">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Mongodb Notes">
 <meta property="og:url" content="https://marcopolocai.github.io/2018/03/09/mogodb-note/index.html">
 <meta property="og:site_name" content="Marco Cai&#39;s Tech Base">
-<meta property="og:description" content="Below are some self-collected commonly-used commands.  内容 加粗 (md partial supported)  start12345678910# run in the backgroundmongod# open interactive shellmongo# in python from pymongo import MongoClie">
+<meta property="og:description" content="Below are some self-collected commonly-used commands. start12345678910# run in the backgroundmongod# open interactive shellmongo# in python from pymongo import MongoClientClient = MongoClient()db = Cl">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="https://farm5.staticflickr.com/4772/40023973294_4b3d6f6741_h.jpg">
-<meta property="og:image" content="https://farm5.staticflickr.com/4772/40023973294_4b3d6f6741_h.jpg">
-<meta property="og:updated_time" content="2018-03-12T21:53:54.456Z">
+<meta property="og:updated_time" content="2018-03-12T22:56:11.560Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Mongodb Notes">
-<meta name="twitter:description" content="Below are some self-collected commonly-used commands.  内容 加粗 (md partial supported)  start12345678910# run in the backgroundmongod# open interactive shellmongo# in python from pymongo import MongoClie">
-<meta name="twitter:image" content="https://farm5.staticflickr.com/4772/40023973294_4b3d6f6741_h.jpg">
+<meta name="twitter:description" content="Below are some self-collected commonly-used commands. start12345678910# run in the backgroundmongod# open interactive shellmongo# in python from pymongo import MongoClientClient = MongoClient()db = Cl">
 
 
 
@@ -263,12 +260,6 @@
         <li class="menu-item menu-item-about">
           <a href="/about/" rel="section">
             ABOUT</a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-tags">
-          <a href="/tags/" rel="section">
-            TAGS</a>
         </li>
       
         
@@ -415,8 +406,6 @@
 
       
         <p>Below are some self-collected commonly-used commands.</p>
-<p><img src="https://farm5.staticflickr.com/4772/40023973294_4b3d6f6741_h.jpg" class="full-image"><br><span itemprop="image" itemscope="" itemtype="http://schema.org/ImageObject"><img itemprop="url image" src="https://farm5.staticflickr.com/4772/40023973294_4b3d6f6741_h.jpg" class="full-image" alt="alt" title="title"><meta itemprop="width" content="auto"><meta itemprop="height" content="auto"></span></p>
-<div class="note success"><p>内容 <strong>加粗</strong> (md partial supported) </p></div>
 <h3 id="start"><a href="#start" class="headerlink" title="start"></a>start</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># run in the background</span></span><br><span class="line">mongod</span><br><span class="line"></span><br><span class="line"><span class="comment"># open interactive shell</span></span><br><span class="line">mongo</span><br><span class="line"></span><br><span class="line"><span class="comment"># in python </span></span><br><span class="line"><span class="keyword">from</span> pymongo <span class="keyword">import</span> MongoClient</span><br><span class="line">Client = MongoClient()</span><br><span class="line">db = Client[dbname]</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
 <h3 id="database"><a href="#database" class="headerlink" title="database"></a>database</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># basic</span></span><br><span class="line">show dbs</span><br><span class="line">show tables/collection</span><br><span class="line">db </span><br><span class="line">use db_name</span><br><span class="line"></span><br><span class="line"><span class="comment"># delete current database</span></span><br><span class="line">db.dropDatabase()</span><br></pre></td></tr></table></figure>
@@ -533,17 +522,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Overview
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -625,22 +605,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#start"><span class="nav-text">start</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#database"><span class="nav-text">database</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#collection"><span class="nav-text">collection</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#documents"><span class="nav-text">documents</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#symbol"><span class="nav-text">symbol</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Objectid"><span class="nav-text">Objectid</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#data-type"><span class="nav-text">data type</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
@@ -762,13 +726,6 @@
 
   
   
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=6.0.5"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.0.5"></script>
-
-
 
   
   <script type="text/javascript" src="/js/src/scrollspy.js?v=6.0.5"></script>
