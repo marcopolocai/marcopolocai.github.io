@@ -41,6 +41,10 @@
 
 
 
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
 
 
 
@@ -115,8 +119,8 @@
     root: '/',
     scheme: 'Mist',
     version: '6.0.5',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
-    fancybox: false,
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
     fastclick: false,
     lazyload: false,
     tabs: true,
@@ -149,7 +153,7 @@
 <meta property="og:site_name" content="Marco Cai&#39;s Tech Base">
 <meta property="og:description" content="Below are some self-collected commonly-used commands. start12345678910# run in the backgroundmongod# open interactive shellmongo# in python from pymongo import MongoClientClient = MongoClient()db = Cl">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-03-12T22:56:11.560Z">
+<meta property="og:updated_time" content="2018-03-12T23:45:05.543Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Mongodb Notes">
 <meta name="twitter:description" content="Below are some self-collected commonly-used commands. start12345678910# run in the backgroundmongod# open interactive shellmongo# in python from pymongo import MongoClientClient = MongoClient()db = Cl">
@@ -253,19 +257,19 @@
         
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
-            HOME</a>
+            Home</a>
         </li>
       
         
         <li class="menu-item menu-item-about">
           <a href="/about/" rel="section">
-            ABOUT</a>
+            About</a>
         </li>
       
         
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
-            ARCHIVES</a>
+            Archives</a>
         </li>
       
 
@@ -274,7 +278,7 @@
           
             <a href="javascript:;" class="popup-trigger">
           
-            SEARCH</a>
+            Search</a>
         </li>
       
     </ul>
@@ -415,7 +419,76 @@
 <h3 id="Objectid"><a href="#Objectid" class="headerlink" title="Objectid"></a>Objectid</h3><p>MongoDB 中存储的文档必须有一个 _id 键。这个键的值可以是任何类型的，默认是个 ObjectId 对象。</p>
 <p>由于 ObjectId 中保存了创建的时间戳，所以你不需要为你的文档保存时间戳字段，你可以通过 getTimestamp 函数来获取文档的创建时间:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var newObject = ObjectId()</span><br><span class="line">newObject.getTimestamp()</span><br></pre></td></tr></table></figure>
-<h3 id="data-type"><a href="#data-type" class="headerlink" title="data type"></a>data type</h3><table class="table"><br><tbody><tr><br><th>数据类型</th><br><th>描述</th><br></tr><br><tr><td>String</td><td>字符串。存储数据常用的数据类型。在 MongoDB 中，UTF-8 编码的字符串才是合法的。   </td></tr><br><tr><td>Integer</td><td>整型数值。用于存储数值。根据你所采用的服务器，可分为 32 位或 64 位。  </td></tr><br><tr><td>Boolean</td><td>布尔值。用于存储布尔值（真/假）。  </td></tr><br><tr><td>Double</td><td>双精度浮点值。用于存储浮点值。  </td></tr><br><tr><td>Min/Max keys</td><td>将一个值与 BSON（二进制的 JSON）元素的最低值和最高值相对比。  </td></tr><br><tr><td>Array</td><td>用于将数组或列表或多个值存储为一个键。  </td></tr><br><tr><td>Timestamp</td><td>时间戳。记录文档修改或添加的具体时间。  </td></tr><br><tr><td>Object</td><td>用于内嵌文档。  </td></tr><br><tr><td>Null</td><td>用于创建空值。  </td></tr><br><tr><td>Symbol</td><td>符号。该数据类型基本上等同于字符串类型，但不同的是，它一般用于采用特殊符号类型的语言。</td></tr><br><tr><td>Date</td><td>日期时间。用 UNIX 时间格式来存储当前日期或时间。你可以指定自己的日期时间：创建 Date 对象，传入年月日信息。  </td></tr><br><tr><td>Object ID</td><td>对象 ID。用于创建文档的 ID。  </td></tr><br><tr><td>Binary Data</td><td>二进制数据。用于存储二进制数据。</td></tr><br><tr><td>Code</td><td>代码类型。用于在文档中存储 JavaScript 代码。</td></tr><br><tr><td>Regular expression</td><td>正则表达式类型。用于存储正则表达式。</td></tr><br></tbody></table>
+<h3 id="data-type"><a href="#data-type" class="headerlink" title="data type"></a>data type</h3><table>
+<thead>
+<tr>
+<th>数据类型</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>String</td>
+<td>字符串。存储数据常用的数据类型。在 MongoDB 中，UTF-8 编码的字符串才是合法的。</td>
+</tr>
+<tr>
+<td>Integer</td>
+<td>整型数值。用于存储数值。根据你所采用的服务器，可分为 32 位或 64 位。</td>
+</tr>
+<tr>
+<td>Boolean</td>
+<td>布尔值。用于存储布尔值（真/假）。</td>
+</tr>
+<tr>
+<td>Double</td>
+<td>双精度浮点值。用于存储浮点值。</td>
+</tr>
+<tr>
+<td>Min/Max keys</td>
+<td>将一个值与 BSON（二进制的 JSON）元素的最低值和最高值相对比。</td>
+</tr>
+<tr>
+<td>Array</td>
+<td>用于将数组或列表或多个值存储为一个键。</td>
+</tr>
+<tr>
+<td>Timestamp</td>
+<td>时间戳。记录文档修改或添加的具体时间。</td>
+</tr>
+<tr>
+<td>Object</td>
+<td>用于内嵌文档。</td>
+</tr>
+<tr>
+<td>Null</td>
+<td>用于创建空值。</td>
+</tr>
+<tr>
+<td>Symbol</td>
+<td>符号。该数据类型基本上等同于字符串类型，但不同的是，它一般用于采用特殊符号类型的语言。</td>
+</tr>
+<tr>
+<td>Date</td>
+<td>日期时间。用 UNIX 时间格式来存储当前日期或时间。你可以指定自己的日期时间：创建 Date 对象，传入年月日信息。</td>
+</tr>
+<tr>
+<td>Object ID</td>
+<td>对象 ID。用于创建文档的 ID。</td>
+</tr>
+<tr>
+<td>Binary Data</td>
+<td>二进制数据。用于存储二进制数据。</td>
+</tr>
+<tr>
+<td>Code</td>
+<td>代码类型。用于在文档中存储 JavaScript 代码。</td>
+</tr>
+<tr>
+<td>Regular expression</td>
+<td>正则表达式类型。用于存储正则表达式。</td>
+</tr>
+</tbody>
+</table>
 
       
     </div>
@@ -475,6 +548,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2018/03/12/Photo-Test/" rel="prev" title="Photo Test">
+                Photo Test <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -522,8 +599,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -542,7 +628,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">4</span>
+                    <span class="site-state-item-count">5</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -565,7 +651,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">4</span>
+                      
+                    
+                    <span class="site-state-item-count">5</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
@@ -606,14 +694,23 @@
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
 
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#start"><span class="nav-text">start</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#database"><span class="nav-text">database</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#collection"><span class="nav-text">collection</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#documents"><span class="nav-text">documents</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#symbol"><span class="nav-text">symbol</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Objectid"><span class="nav-text">Objectid</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#data-type"><span class="nav-text">data type</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
-        <div class="back-to-top">
-          <i class="fa fa-arrow-up"></i>
-          
-            <span id="scrollpercent"><span>0</span>%</span>
-          
-        </div>
+
       
 
     </div>
@@ -661,6 +758,13 @@
     </footer>
 
     
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
 
     
 
@@ -684,6 +788,8 @@
 
 
 
+
+  
 
 
 
@@ -712,6 +818,11 @@
   
   
     <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
   
 
 
