@@ -142,28 +142,30 @@
 
 
   
-  <meta name="keywords" content="unicode," />
+  <meta name="keywords" content="java," />
 
 
-<meta name="description" content="Excerpt from https://www.cnblogs.com/kingcat/archive/2012/10/16/2726334.html:    所以我们也可以这样理解,Unicode是用0至65535之间的数字来表示所有字符.其中0至127这128个数字表示的字符仍然跟ASCII完全一样.65536是2的16次方.这是第一步.第二步就是怎么把0至65535这些数字转化成01串保存">
-<meta name="keywords" content="unicode">
+<meta name="description" content="The  following notes are based on video series: 手把手教你用Java基础教程 - 北京尚学堂 - 马士兵">
+<meta name="keywords" content="java">
 <meta property="og:type" content="article">
-<meta property="og:title" content="[Notes] Unicode">
-<meta property="og:url" content="https://marcopolocai.github.io/2018/03/14/Notes-Unicode/index.html">
+<meta property="og:title" content="[Java Review] 4: Ram analysis">
+<meta property="og:url" content="https://marcopolocai.github.io/2018/03/16/Java-Review-4/index.html">
 <meta property="og:site_name" content="Marco Cai&#39;s Tech Base">
-<meta property="og:description" content="Excerpt from https://www.cnblogs.com/kingcat/archive/2012/10/16/2726334.html:    所以我们也可以这样理解,Unicode是用0至65535之间的数字来表示所有字符.其中0至127这128个数字表示的字符仍然跟ASCII完全一样.65536是2的16次方.这是第一步.第二步就是怎么把0至65535这些数字转化成01串保存">
+<meta property="og:description" content="The  following notes are based on video series: 手把手教你用Java基础教程 - 北京尚学堂 - 马士兵">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-03-16T22:29:22.447Z">
+<meta property="og:image" content="https://farm1.staticflickr.com/814/25977647857_50267023c5.jpg">
+<meta property="og:updated_time" content="2018-03-17T02:24:56.263Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="[Notes] Unicode">
-<meta name="twitter:description" content="Excerpt from https://www.cnblogs.com/kingcat/archive/2012/10/16/2726334.html:    所以我们也可以这样理解,Unicode是用0至65535之间的数字来表示所有字符.其中0至127这128个数字表示的字符仍然跟ASCII完全一样.65536是2的16次方.这是第一步.第二步就是怎么把0至65535这些数字转化成01串保存">
+<meta name="twitter:title" content="[Java Review] 4: Ram analysis">
+<meta name="twitter:description" content="The  following notes are based on video series: 手把手教你用Java基础教程 - 北京尚学堂 - 马士兵">
+<meta name="twitter:image" content="https://farm1.staticflickr.com/814/25977647857_50267023c5.jpg">
 
 
 
 
 
 
-  <link rel="canonical" href="https://marcopolocai.github.io/2018/03/14/Notes-Unicode/"/>
+  <link rel="canonical" href="https://marcopolocai.github.io/2018/03/16/Java-Review-4/"/>
 
 
 
@@ -172,7 +174,7 @@
     sidebar: "",
   };
 </script>
-  <title>[Notes] Unicode | Marco Cai's Tech Base</title>
+  <title>[Java Review] 4: Ram analysis | Marco Cai's Tech Base</title>
   
 
 
@@ -343,7 +345,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://marcopolocai.github.io/2018/03/14/Notes-Unicode/">
+    <link itemprop="mainEntityOfPage" href="https://marcopolocai.github.io/2018/03/16/Java-Review-4/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Mingxiang Cai">
@@ -360,7 +362,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">[Notes] Unicode</h1>
+          <h1 class="post-title" itemprop="name headline">[Java Review] 4: Ram analysis</h1>
         
 
         <div class="post-meta">
@@ -372,7 +374,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-14T16:20:02-07:00">2018-03-14</time>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-16T15:42:49-07:00">2018-03-16</time>
             
 
             
@@ -409,19 +411,10 @@
       
 
       
-        <p>Excerpt from <a href="https://www.cnblogs.com/kingcat/archive/2012/10/16/2726334.html" target="_blank" rel="noopener">https://www.cnblogs.com/kingcat/archive/2012/10/16/2726334.html</a>:</p>
-<blockquote>
-<p>  所以我们也可以这样理解,Unicode是用0至65535之间的数字来表示所有字符.其中0至127这128个数字表示的字符仍然跟ASCII完全一样.65536是2的16次方.这是第一步.第二步就是怎么把0至65535这些数字转化成01串保存到计算机中.这肯定就有不同的保存方式了.于是出现了UTF(unicode transformation format),有UTF-8,UTF-16.</p>
-</blockquote>
+        <div class="note default"><p>The  following notes are based on video series: <a href="https://www.youtube.com/playlist?list=PL3rfV4zNE8CDOkk6xcm1AGDbxwnnVDBfs" target="_blank" rel="noopener">手把手教你用Java基础教程 - 北京尚学堂 - 马士兵</a></p></div>
 <a id="more"></a>
-<p>There are many problems can be caused by encoding. So it is a must to know how different languages handles encoding issues:</p>
-<h3 id="Java"><a href="#Java" class="headerlink" title="Java"></a>Java</h3><p>java uses unicode = utf-16 internally, but it seems neccessary to set it up on the surface.</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// set and print encodeing type</span></span><br><span class="line">System.setProperty(<span class="string">"file.encoding"</span>, <span class="string">"UTF-16"</span>);</span><br><span class="line">String a = System.getProperty(<span class="string">"file.encoding"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//conversion </span></span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="comment">// Convert from Unicode to UTF-8</span></span><br><span class="line">    String string = <span class="string">"abc\u5639\u563b"</span>;</span><br><span class="line">    <span class="keyword">byte</span>[] utf8 = string.getBytes(<span class="string">"UTF-8"</span>);</span><br><span class="line">    <span class="comment">// Convert from UTF-8 to Unicode</span></span><br><span class="line">    string = <span class="keyword">new</span> String(utf8, <span class="string">"UTF-8"</span>);</span><br><span class="line">&#125; </span><br><span class="line"><span class="keyword">catch</span> (UnsupportedEncodingException e) &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h3><ul>
-<li>In Python 3, all strings are sequences of Unicode characters. There is a <code>bytes</code> type that holds raw bytes.</li>
-<li>In Python 2, a string may be of type <code>str</code> or of type <code>unicode</code>. You can tell which using code something like this: <code>isinstance(s,str/unicode)</code></li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># check encodeing type </span></span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line">sys.getdefaultencoding()</span><br><span class="line"></span><br><span class="line"><span class="comment"># set encoding type ("utf-8", "utf-16")</span></span><br><span class="line"><span class="comment">#coding=utf-8</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># conversion ("utf-8", "utf-16", "unicode-escape" )</span></span><br><span class="line">s = <span class="string">'你好'</span></span><br><span class="line">ec  = s.encode(<span class="string">"utf-8"</span>)</span><br><span class="line">dc =  ec.decode(<span class="string">"utf-8"</span>)</span><br></pre></td></tr></table></figure>
+<h5 id="Code-first"><a href="#Code-first" class="headerlink" title="Code first:"></a>Code first:</h5> <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Point</span> </span>&#123;</span><br><span class="line">	<span class="keyword">double</span> x;</span><br><span class="line">	<span class="keyword">double</span> y;</span><br><span class="line">	<span class="keyword">double</span> z;</span><br><span class="line">    </span><br><span class="line">	Point(<span class="keyword">double</span> _x, <span class="keyword">double</span> _y, <span class="keyword">double</span> _z)&#123;</span><br><span class="line">		x = _x;</span><br><span class="line">		y = _y;</span><br><span class="line">		z = _z;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setX</span><span class="params">(<span class="keyword">double</span> _x)</span></span>&#123;</span><br><span class="line">		x = _x;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setY</span><span class="params">(<span class="keyword">double</span> _y)</span></span>&#123;</span><br><span class="line">		y = _y;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setZ</span><span class="params">(<span class="keyword">double</span> _z)</span></span>&#123;</span><br><span class="line">		z = _z;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">getDistance</span><span class="params">(Point p)</span></span>&#123;</span><br><span class="line">		<span class="keyword">return</span> Math.pow(x-p.x,<span class="number">2</span>) + Math.pow(y-p.y,<span class="number">2</span>) + Math.pow(y-p.y,<span class="number">2</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TestPoint</span></span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">     	<span class="keyword">double</span> a = <span class="number">1.0</span>, b = <span class="number">2.0</span>, c = <span class="number">3.0</span>;</span><br><span class="line">		Point p1 = <span class="keyword">new</span> Point(a, b, c);</span><br><span class="line">		p1.setX(<span class="number">4</span>);</span><br><span class="line">		System.out.println(p1.getDistance(<span class="keyword">new</span> Point(<span class="number">3</span>,<span class="number">2</span>,<span class="number">1</span>)));</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="Step-by-step-ram-analysis"><a href="#Step-by-step-ram-analysis" class="headerlink" title="Step by step ram analysis"></a>Step by step ram analysis</h5><p><a data-flickr-embed="true" href="https://www.flickr.com/photos/95862377@N08/albums/72157691499163892" title="blog ram analysis" target="_blank" rel="noopener"><img src="https://farm1.staticflickr.com/814/25977647857_50267023c5.jpg" width="500" height="375" alt="blog ram analysis"></a><script async src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script></p>
 
       
     </div>
@@ -443,7 +436,7 @@
     <strong>Post author: </strong>Mingxiang Cai</li>
   <li class="post-copyright-link">
     <strong>Post link:</strong>
-    <a href="https://marcopolocai.github.io/2018/03/14/Notes-Unicode/" title="[Notes] Unicode">https://marcopolocai.github.io/2018/03/14/Notes-Unicode/</a>
+    <a href="https://marcopolocai.github.io/2018/03/16/Java-Review-4/" title="[Java Review] 4: Ram analysis">https://marcopolocai.github.io/2018/03/16/Java-Review-4/</a>
   </li>
   <li class="post-copyright-license">
     <strong>Copyright Notice: </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> unless stating additionally.</li>
@@ -456,7 +449,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/unicode/" rel="tag"># unicode</a>
+            <a href="/tags/java/" rel="tag"># java</a>
           
         </div>
       
@@ -469,8 +462,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/03/12/Java-Review-1/" rel="next" title="[Java Review] 1: The World of Java">
-                <i class="fa fa-chevron-left"></i> [Java Review] 1: The World of Java
+              <a href="/2018/03/16/Notes-Parameters-Parsing/" rel="next" title="[Notes] Parameters Parsing">
+                <i class="fa fa-chevron-left"></i> [Notes] Parameters Parsing
               </a>
             
           </div>
@@ -478,10 +471,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/03/15/Java-Review-2/" rel="prev" title="[Java Review] 2: Java syntax and more">
-                [Java Review] 2: Java syntax and more <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -640,7 +629,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Java"><span class="nav-text">Java</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Python"><span class="nav-text">Python</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#Code-first"><span class="nav-text">Code first:</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Step-by-step-ram-analysis"><span class="nav-text">Step by step ram analysis</span></a></li></ol></div>
             
 
           </div>
