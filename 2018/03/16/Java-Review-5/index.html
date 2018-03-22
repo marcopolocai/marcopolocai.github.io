@@ -142,23 +142,31 @@
 
 
   
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="java," />
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="Marco Cai&#39;s Tech Base">
-<meta property="og:url" content="https://marcopolocai.github.io/tags/python/index.html">
+<meta name="description" content="The  following notes are based on video series: 手把手教你用Java基础教程 - 北京尚学堂 - 马士兵">
+<meta name="keywords" content="java">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[Java Review] 5: this and static">
+<meta property="og:url" content="https://marcopolocai.github.io/2018/03/16/Java-Review-5/index.html">
 <meta property="og:site_name" content="Marco Cai&#39;s Tech Base">
+<meta property="og:description" content="The  following notes are based on video series: 手把手教你用Java基础教程 - 北京尚学堂 - 马士兵">
 <meta property="og:locale" content="en">
+<meta property="og:image" content="https://farm1.staticflickr.com/803/40067829305_a3e7492501_c.jpg">
+<meta property="og:image" content="https://farm1.staticflickr.com/810/40067829015_284ec3efe8_c.jpg">
+<meta property="og:updated_time" content="2018-03-22T23:32:00.974Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Marco Cai&#39;s Tech Base">
+<meta name="twitter:title" content="[Java Review] 5: this and static">
+<meta name="twitter:description" content="The  following notes are based on video series: 手把手教你用Java基础教程 - 北京尚学堂 - 马士兵">
+<meta name="twitter:image" content="https://farm1.staticflickr.com/803/40067829305_a3e7492501_c.jpg">
 
 
 
 
 
 
-  <link rel="canonical" href="https://marcopolocai.github.io/tags/python/"/>
+  <link rel="canonical" href="https://marcopolocai.github.io/2018/03/16/Java-Review-5/"/>
 
 
 
@@ -167,7 +175,7 @@
     sidebar: "",
   };
 </script>
-  <title>Tag: python | Marco Cai's Tech Base</title>
+  <title>[Java Review] 5: this and static | Marco Cai's Tech Base</title>
   
 
 
@@ -214,7 +222,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -322,58 +330,191 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block tag">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>python<small>Tag</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
+
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://marcopolocai.github.io/2018/03/16/Java-Review-5/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mingxiang Cai">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://farm5.staticflickr.com/4799/40693242182_6e176c7e8c_o.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Marco Cai's Tech Base">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2018/03/16/Notes-Parameters-Parsing/" itemprop="url">
-              
-                <span itemprop="name">[Notes] Parameters Parsing</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">[Java Review] 5: this and static</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-03-16T15:21:07-07:00"
-              content="2018-03-16" >
-          03-16
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-16T19:58:45-07:00">2018-03-16</time>
+            
 
-    </header>
-  </article>
+            
+            
 
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <div class="note default"><p>The  following notes are based on video series: <a href="https://www.youtube.com/playlist?list=PL3rfV4zNE8CDOkk6xcm1AGDbxwnnVDBfs" target="_blank" rel="noopener">手把手教你用Java基础教程 - 北京尚学堂 - 马士兵</a></p></div>
+<p><a data-flickr-embed="true" href="https://www.flickr.com/photos/95862377@N08/40067829305/in/dateposted-public/" title="this" target="_blank" rel="noopener"><img src="https://farm1.staticflickr.com/803/40067829305_a3e7492501_c.jpg" width="800" height="450" alt="this"></a><script async src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script></p>
+<a id="more"></a>
+<h5 id="Keyword-this"><a href="#Keyword-this" class="headerlink" title="Keyword this"></a>Keyword <code>this</code></h5><ul>
+<li>In a method of a class , <code>this</code> refers to the object that uses the method.</li>
+<li>Sometime it can be used to deal with the case that member varibales and method parameters have same names. (ref. uses the closest def.)</li>
+<li><code>this</code> can be view as a variable, whose value is the reference of the current object.</li>
+</ul>
+<p><a data-flickr-embed="true" href="https://www.flickr.com/photos/95862377@N08/40067829015/in/dateposted-public/" title="static" target="_blank" rel="noopener"><img src="https://farm1.staticflickr.com/810/40067829015_284ec3efe8_c.jpg" width="800" height="450" alt="static"></a><script async src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script></p>
+<h5 id="Keyword-static"><a href="#Keyword-static" class="headerlink" title="Keyword static"></a>Keyword <code>static</code></h5><ul>
+<li>In a class,  a <code>static</code> member variable is defined to be a shared variable for the class. When the class is first used, the<code>static</code> variable is initialized. For all the instance of the class, there is <strong>only one</strong> copy of this varible.</li>
+<li>When a method is defined as <code>static</code>, this method, as it is called, will not parsed the ref. of the instance to the method, and hence will not able to use <strong>non-</strong><code>static</code> variables.</li>
+<li>We can use either <em>instance ref.</em> or <em>class name</em> (without a instance) to access <code>static</code> members. </li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ex: use static var as counter</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Cat</span></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> sid = <span class="number">0</span>; </span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">int</span> id;</span><br><span class="line">    Cat(String name)&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">        id = sid++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">info</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println</span><br><span class="line">            (<span class="string">"My name is"</span> + name + <span class="string">"No."</span> + id);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String arg[])</span></span>&#123;</span><br><span class="line">        Cat.sid = <span class="number">100</span>;</span><br><span class="line">        Cat mimi = <span class="keyword">new</span> Cat(<span class="string">"mimi"</span>);</span><br><span class="line">        Cat pipi = <span class="keyword">new</span> Cat(<span class="string">"pipi"</span>);</span><br><span class="line">        mimi.info();</span><br><span class="line">        pipi.info();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
 
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author: </strong>Mingxiang Cai</li>
+  <li class="post-copyright-link">
+    <strong>Post link:</strong>
+    <a href="https://marcopolocai.github.io/2018/03/16/Java-Review-5/" title="[Java Review] 5: this and static">https://marcopolocai.github.io/2018/03/16/Java-Review-5/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice: </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> unless stating additionally.</li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/java/" rel="tag"># java</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/03/16/Java-Review-4/" rel="next" title="[Java Review] 4: Ram analysis">
+                <i class="fa fa-chevron-left"></i> [Java Review] 4: Ram analysis
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/03/21/Gundam-MG-ZZ-processing/" rel="prev" title="[Gundam] MG ZZ (processing)">
+                [Gundam] MG ZZ (processing) <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
           
+
+  
+
+
 
         </div>
         
@@ -394,8 +535,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -489,6 +639,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#Keyword-this"><span class="nav-text">Keyword this</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Keyword-static"><span class="nav-text">Keyword static</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -619,6 +785,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.0.5"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.0.5"></script>
+
+
 
   
 

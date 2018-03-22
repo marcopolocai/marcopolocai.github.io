@@ -145,19 +145,19 @@
   <meta name="keywords" content="java," />
 
 
-<meta name="description" content="The  following notes are based on video series: 手把手教你用Java基础教程 - 北京尚学堂 - 马士兵">
+<meta name="description" content="The  following notes are based on video series: 手把手教你用Java基础教程 - 北京尚学堂 - 马士兵 Step by step ram analysis">
 <meta name="keywords" content="java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[Java Review] 4: Ram analysis">
 <meta property="og:url" content="https://marcopolocai.github.io/2018/03/16/Java-Review-4/index.html">
 <meta property="og:site_name" content="Marco Cai&#39;s Tech Base">
-<meta property="og:description" content="The  following notes are based on video series: 手把手教你用Java基础教程 - 北京尚学堂 - 马士兵">
+<meta property="og:description" content="The  following notes are based on video series: 手把手教你用Java基础教程 - 北京尚学堂 - 马士兵 Step by step ram analysis">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://farm1.staticflickr.com/814/25977647857_50267023c5.jpg">
-<meta property="og:updated_time" content="2018-03-17T02:24:56.263Z">
+<meta property="og:updated_time" content="2018-03-17T07:01:52.513Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[Java Review] 4: Ram analysis">
-<meta name="twitter:description" content="The  following notes are based on video series: 手把手教你用Java基础教程 - 北京尚学堂 - 马士兵">
+<meta name="twitter:description" content="The  following notes are based on video series: 手把手教你用Java基础教程 - 北京尚学堂 - 马士兵 Step by step ram analysis">
 <meta name="twitter:image" content="https://farm1.staticflickr.com/814/25977647857_50267023c5.jpg">
 
 
@@ -259,19 +259,19 @@
         
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
-            HOME</a>
+            Home</a>
         </li>
       
         
         <li class="menu-item menu-item-about">
           <a href="/about/" rel="section">
-            ABOUT</a>
+            About</a>
         </li>
       
         
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
-            ARCHIVES</a>
+            Archives</a>
         </li>
       
 
@@ -280,7 +280,7 @@
           
             <a href="javascript:;" class="popup-trigger">
           
-            SEARCH</a>
+            Search</a>
         </li>
       
     </ul>
@@ -412,9 +412,9 @@
 
       
         <div class="note default"><p>The  following notes are based on video series: <a href="https://www.youtube.com/playlist?list=PL3rfV4zNE8CDOkk6xcm1AGDbxwnnVDBfs" target="_blank" rel="noopener">手把手教你用Java基础教程 - 北京尚学堂 - 马士兵</a></p></div>
-<a id="more"></a>
-<h5 id="Code-first"><a href="#Code-first" class="headerlink" title="Code first:"></a>Code first:</h5> <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Point</span> </span>&#123;</span><br><span class="line">	<span class="keyword">double</span> x;</span><br><span class="line">	<span class="keyword">double</span> y;</span><br><span class="line">	<span class="keyword">double</span> z;</span><br><span class="line">    </span><br><span class="line">	Point(<span class="keyword">double</span> _x, <span class="keyword">double</span> _y, <span class="keyword">double</span> _z)&#123;</span><br><span class="line">		x = _x;</span><br><span class="line">		y = _y;</span><br><span class="line">		z = _z;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setX</span><span class="params">(<span class="keyword">double</span> _x)</span></span>&#123;</span><br><span class="line">		x = _x;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setY</span><span class="params">(<span class="keyword">double</span> _y)</span></span>&#123;</span><br><span class="line">		y = _y;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setZ</span><span class="params">(<span class="keyword">double</span> _z)</span></span>&#123;</span><br><span class="line">		z = _z;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">getDistance</span><span class="params">(Point p)</span></span>&#123;</span><br><span class="line">		<span class="keyword">return</span> Math.pow(x-p.x,<span class="number">2</span>) + Math.pow(y-p.y,<span class="number">2</span>) + Math.pow(y-p.y,<span class="number">2</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TestPoint</span></span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">     	<span class="keyword">double</span> a = <span class="number">1.0</span>, b = <span class="number">2.0</span>, c = <span class="number">3.0</span>;</span><br><span class="line">		Point p1 = <span class="keyword">new</span> Point(a, b, c);</span><br><span class="line">		p1.setX(<span class="number">4</span>);</span><br><span class="line">		System.out.println(p1.getDistance(<span class="keyword">new</span> Point(<span class="number">3</span>,<span class="number">2</span>,<span class="number">1</span>)));</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h5 id="Step-by-step-ram-analysis"><a href="#Step-by-step-ram-analysis" class="headerlink" title="Step by step ram analysis"></a>Step by step ram analysis</h5><p><a data-flickr-embed="true" href="https://www.flickr.com/photos/95862377@N08/albums/72157691499163892" title="blog ram analysis" target="_blank" rel="noopener"><img src="https://farm1.staticflickr.com/814/25977647857_50267023c5.jpg" width="500" height="375" alt="blog ram analysis"></a><script async src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script></p>
+<a id="more"></a>
+<h5 id="Corresponding-Code"><a href="#Corresponding-Code" class="headerlink" title="Corresponding Code:"></a>Corresponding Code:</h5> <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Point</span> </span>&#123;</span><br><span class="line">	<span class="keyword">double</span> x;</span><br><span class="line">	<span class="keyword">double</span> y;</span><br><span class="line">	<span class="keyword">double</span> z;</span><br><span class="line">    </span><br><span class="line">	Point(<span class="keyword">double</span> _x, <span class="keyword">double</span> _y, <span class="keyword">double</span> _z)&#123;</span><br><span class="line">		x = _x;</span><br><span class="line">		y = _y;</span><br><span class="line">		z = _z;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setX</span><span class="params">(<span class="keyword">double</span> _x)</span></span>&#123;</span><br><span class="line">		x = _x;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setY</span><span class="params">(<span class="keyword">double</span> _y)</span></span>&#123;</span><br><span class="line">		y = _y;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setZ</span><span class="params">(<span class="keyword">double</span> _z)</span></span>&#123;</span><br><span class="line">		z = _z;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">getDistance</span><span class="params">(Point p)</span></span>&#123;</span><br><span class="line">		<span class="keyword">return</span> Math.pow(x-p.x,<span class="number">2</span>) + Math.pow(y-p.y,<span class="number">2</span>) + Math.pow(y-p.y,<span class="number">2</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TestPoint</span></span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">     	<span class="keyword">double</span> a = <span class="number">1.0</span>, b = <span class="number">2.0</span>, c = <span class="number">3.0</span>;</span><br><span class="line">		Point p1 = <span class="keyword">new</span> Point(a, b, c);</span><br><span class="line">		p1.setX(<span class="number">4</span>);</span><br><span class="line">		System.out.println(p1.getDistance(<span class="keyword">new</span> Point(<span class="number">3</span>,<span class="number">2</span>,<span class="number">1</span>)));</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -471,6 +471,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/03/16/Java-Review-5/" rel="prev" title="[Java Review] 5: this and static">
+                [Java Review] 5: this and static <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -548,7 +552,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">11</span>
+                    <span class="site-state-item-count">14</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -579,7 +583,11 @@
                     
                       
                     
-                    <span class="site-state-item-count">8</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">10</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
@@ -629,7 +637,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#Code-first"><span class="nav-text">Code first:</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Step-by-step-ram-analysis"><span class="nav-text">Step by step ram analysis</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#Step-by-step-ram-analysis"><span class="nav-text">Step by step ram analysis</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Corresponding-Code"><span class="nav-text">Corresponding Code:</span></a></li></ol></div>
             
 
           </div>

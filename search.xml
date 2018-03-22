@@ -1,9 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[[Java Review] 6: Package & import]]></title>
+    <url>%2F2018%2F03%2F22%2FJava-Review-6%2F</url>
+    <content type="text"><![CDATA[The following notes are based on video series: 手把手教你用Java基础教程 - 北京尚学堂 - 马士兵 package &amp; import are used to resolve repeated class names. package Declare what package the class(es) belongs to. Declared at 1st line in java: 1package pk1.pk2.pk3; If none package line —&gt; nameless package . Java manages packages by directory. For instance, the above .java will located at ./pk1/pk2/pk3. import12345678//specific classimport pk1.pk2.pk3.classname;// all classes of a packageimport pk1.pk2.pk3.*; //without importpk1.pk2.pk3.classname abc = new pk1.pk2.pk3.classname() JDK main packages java.lang: String, Math, Integer, System, Thread (default import) java.awt: abstract window toolkits java.applet java.net jave.io java.util 1jar -cvf xx.jar *.*]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[[Gundam] MG ZZ (processing)]]></title>
+    <url>%2F2018%2F03%2F21%2FGundam-MG-ZZ-processing%2F</url>
+    <content type="text"><![CDATA[]]></content>
+      <tags>
+        <tag>Gundam</tag>
+        <tag>MG</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[[Java Review] 5: this and static]]></title>
+    <url>%2F2018%2F03%2F16%2FJava-Review-5%2F</url>
+    <content type="text"><![CDATA[The following notes are based on video series: 手把手教你用Java基础教程 - 北京尚学堂 - 马士兵 Keyword this In a method of a class , this refers to the object that uses the method. Sometime it can be used to deal with the case that member varibales and method parameters have same names. (ref. uses the closest def.) this can be view as a variable, whose value is the reference of the current object. Keyword static In a class, a static member variable is defined to be a shared variable for the class. When the class is first used, thestatic variable is initialized. For all the instance of the class, there is only one copy of this varible. When a method is defined as static, this method, as it is called, will not parsed the ref. of the instance to the method, and hence will not able to use non-static variables. We can use either instance ref. or class name (without a instance) to access static members. 12345678910111213141516171819202122// ex: use static var as counterpublic class Cat&#123; private static int sid = 0; private String name; int id; Cat(String name)&#123; this.name = name; id = sid++; &#125; public void info()&#123; System.out.println ("My name is" + name + "No." + id); &#125; public static void main(String arg[])&#123; Cat.sid = 100; Cat mimi = new Cat("mimi"); Cat pipi = new Cat("pipi"); mimi.info(); pipi.info(); &#125;&#125;]]></content>
+      <tags>
+        <tag>java</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[[Java Review] 4: Ram analysis]]></title>
     <url>%2F2018%2F03%2F16%2FJava-Review-4%2F</url>
-    <content type="text"><![CDATA[The following notes are based on video series: 手把手教你用Java基础教程 - 北京尚学堂 - 马士兵 Code first: 1234567891011121314151617181920212223242526272829303132333435363738public class Point &#123; double x; double y; double z; Point(double _x, double _y, double _z)&#123; x = _x; y = _y; z = _z; &#125; public void setX(double _x)&#123; x = _x; &#125; public void setY(double _y)&#123; y = _y; &#125; public void setZ(double _z)&#123; z = _z; &#125; public double getDistance(Point p)&#123; return Math.pow(x-p.x,2) + Math.pow(y-p.y,2) + Math.pow(y-p.y,2); &#125;&#125;class TestPoint&#123; public static void main(String[] args) &#123; double a = 1.0, b = 2.0, c = 3.0; Point p1 = new Point(a, b, c); p1.setX(4); System.out.println(p1.getDistance(new Point(3,2,1))); &#125;&#125; Step by step ram analysis]]></content>
+    <content type="text"><![CDATA[The following notes are based on video series: 手把手教你用Java基础教程 - 北京尚学堂 - 马士兵 Step by step ram analysis Corresponding Code: 1234567891011121314151617181920212223242526272829303132333435363738public class Point &#123; double x; double y; double z; Point(double _x, double _y, double _z)&#123; x = _x; y = _y; z = _z; &#125; public void setX(double _x)&#123; x = _x; &#125; public void setY(double _y)&#123; y = _y; &#125; public void setZ(double _z)&#123; z = _z; &#125; public double getDistance(Point p)&#123; return Math.pow(x-p.x,2) + Math.pow(y-p.y,2) + Math.pow(y-p.y,2); &#125;&#125;class TestPoint&#123; public static void main(String[] args) &#123; double a = 1.0, b = 2.0, c = 3.0; Point p1 = new Point(a, b, c); p1.setX(4); System.out.println(p1.getDistance(new Point(3,2,1))); &#125;&#125;]]></content>
       <tags>
         <tag>java</tag>
       </tags>
