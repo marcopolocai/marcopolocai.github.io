@@ -142,23 +142,28 @@
 
 
   
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="java," />
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="Marco Cai&#39;s Tech Base">
-<meta property="og:url" content="https://marcopolocai.github.io/tags/mongodb/index.html">
+<meta name="description" content="The  following notes are based on video series: 手把手教你用Java基础教程 - 北京尚学堂 - 马士兵  Java API specfication:   http://www.oracle.com/technetwork/java/api-141528.html">
+<meta name="keywords" content="java">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[Java Review] 8: Object class">
+<meta property="og:url" content="https://marcopolocai.github.io/2018/03/28/Java-Review-8/index.html">
 <meta property="og:site_name" content="Marco Cai&#39;s Tech Base">
+<meta property="og:description" content="The  following notes are based on video series: 手把手教你用Java基础教程 - 北京尚学堂 - 马士兵  Java API specfication:   http://www.oracle.com/technetwork/java/api-141528.html">
 <meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2018-03-29T02:01:59.698Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Marco Cai&#39;s Tech Base">
+<meta name="twitter:title" content="[Java Review] 8: Object class">
+<meta name="twitter:description" content="The  following notes are based on video series: 手把手教你用Java基础教程 - 北京尚学堂 - 马士兵  Java API specfication:   http://www.oracle.com/technetwork/java/api-141528.html">
 
 
 
 
 
 
-  <link rel="canonical" href="https://marcopolocai.github.io/tags/mongodb/"/>
+  <link rel="canonical" href="https://marcopolocai.github.io/2018/03/28/Java-Review-8/"/>
 
 
 
@@ -167,7 +172,7 @@
     sidebar: "",
   };
 </script>
-  <title>Tag: mongodb | Marco Cai's Tech Base</title>
+  <title>[Java Review] 8: Object class | Marco Cai's Tech Base</title>
   
 
 
@@ -214,7 +219,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -322,58 +327,213 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block tag">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>mongodb<small>Tag</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
+
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://marcopolocai.github.io/2018/03/28/Java-Review-8/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mingxiang Cai">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://farm5.staticflickr.com/4799/40693242182_6e176c7e8c_o.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Marco Cai's Tech Base">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2018/03/09/mogodb-note/" itemprop="url">
-              
-                <span itemprop="name">[Notes] Mongodb</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">[Java Review] 8: Object class</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-03-09T14:04:39-08:00"
-              content="2018-03-09" >
-          03-09
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-28T17:02:25-07:00">2018-03-28</time>
+            
 
-    </header>
-  </article>
+            
+            
 
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <div class="note default"><p>The  following notes are based on video series: <a href="https://www.youtube.com/playlist?list=PL3rfV4zNE8CDOkk6xcm1AGDbxwnnVDBfs" target="_blank" rel="noopener">手把手教你用Java基础教程 - 北京尚学堂 - 马士兵</a></p></div>
+
+<div class="note primary"><p><strong>Java API specfication:</strong>   <a href="http://www.oracle.com/technetwork/java/api-141528.html" target="_blank" rel="noopener">http://www.oracle.com/technetwork/java/api-141528.html</a></p></div>
+<a id="more"></a>
+<h5 id="I-Object"><a href="#I-Object" class="headerlink" title="I. Object"></a>I. Object</h5><ul>
+<li><p>Object is the root class of all classes. ex.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> &lt;<span class="title">classnanme</span>&gt;</span>&#123;&#125;</span><br></pre></td></tr></table></figure>
+<p>is equal to </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> &lt;<span class="title">classnanme</span>&gt; <span class="keyword">extends</span> <span class="title">Object</span></span>&#123;&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>toString()</code>:</p>
+<ul>
+<li>when connector is used, this super method is auto-executed. </li>
+<li>return “\&lt;classname>@\&lt;hashcode>“.</li>
+<li>usually overriden.</li>
+</ul>
+</li>
+<li><p><code>equals()</code>:</p>
+<ul>
+<li><p>if using <code>==</code>, it is actually comparing ref. address.</p>
+</li>
+<li><p>default is same as <code>==</code></p>
+</li>
+<li><p>should be overriden, ex:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object obj)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (obj == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    <span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (obj <span class="keyword">instanceof</span> Cat)&#123;</span><br><span class="line">            Cat c = (Cat) obj;</span><br><span class="line">            <span class="keyword">if</span> (c.color ==<span class="keyword">this</span> color &amp;&amp; c.height == <span class="keyword">this</span>.height)&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<h5 id="II-Casting"><a href="#II-Casting" class="headerlink" title="II. Casting"></a>II. Casting</h5><ul>
+<li><p>A superclass ref. can point to its subclass instance. </p>
+</li>
+<li><p>For above, it can not access new member variables in its subclass.</p>
+</li>
+<li><p><code>instanceof</code>  can be used to check if an instance belongs to a class or superclass.</p>
+</li>
+<li><p>upcasting: treat subclass as superclass;</p>
+<p>downcasting: treat superclass as subclass;</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//sample application </span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span></span>&#123;</span><br><span class="line">        Test test = <span class="keyword">new</span> Test();</span><br><span class="line">        Animal a = <span class="keyword">new</span> Animal(<span class="string">"name"</span>);</span><br><span class="line">        Cat c = <span class="keyword">new</span> Cat(<span class="string">"catname"</span>, <span class="string">"blue"</span>);</span><br><span class="line">        Dog d = <span class="keyword">new</span> Dog(<span class="string">"dogname"</span>, <span class="string">"black"</span>);</span><br><span class="line">        test.f(a);</span><br><span class="line">        test.f(c);</span><br><span class="line">        test.f(d);</span><br><span class="line">	&#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">f</span><span class="params">(Animal a)</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"name: "</span> + a.name);</span><br><span class="line">        <span class="keyword">if</span> (a <span class="keyword">instanceof</span> Cat)&#123;</span><br><span class="line">            Cat cat = (Cat)a;</span><br><span class="line">            System.out.println(<span class="string">"eyecolor: "</span> + cat.eyecolor);</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (a <span class="keyword">instanceof</span> Dog) &#123;</span><br><span class="line">            Dog dog = (Dog)a;</span><br><span class="line">            System.out.println(<span class="string">"furcolor: "</span> + dog.furcolor);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
 
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author: </strong>Mingxiang Cai</li>
+  <li class="post-copyright-link">
+    <strong>Post link:</strong>
+    <a href="https://marcopolocai.github.io/2018/03/28/Java-Review-8/" title="[Java Review] 8: Object class">https://marcopolocai.github.io/2018/03/28/Java-Review-8/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice: </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> unless stating additionally.</li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/java/" rel="tag"># java</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/03/28/LeetCode-Challenge-log-1/" rel="next" title="[LeetCode] Challenge log 1">
+                <i class="fa fa-chevron-left"></i> [LeetCode] Challenge log 1
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
           
+
+  
+
+
 
         </div>
         
@@ -394,8 +554,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -495,6 +664,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#I-Object"><span class="nav-text">I. Object</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#II-Casting"><span class="nav-text">II. Casting</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -625,6 +810,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.0.5"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.0.5"></script>
+
+
 
   
 

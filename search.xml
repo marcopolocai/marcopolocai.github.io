@@ -1,6 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[[Java Review] 8: Object class]]></title>
+    <url>%2F2018%2F03%2F28%2FJava-Review-8%2F</url>
+    <content type="text"><![CDATA[The following notes are based on video series: 手把手教你用Java基础教程 - 北京尚学堂 - 马士兵 Java API specfication: http://www.oracle.com/technetwork/java/api-141528.html I. Object Object is the root class of all classes. ex. 1public class &lt;classnanme&gt;&#123;&#125; is equal to 1public class &lt;classnanme&gt; extends Object&#123;&#125; toString(): when connector is used, this super method is auto-executed. return “\&lt;classname>@\&lt;hashcode>“. usually overriden. equals(): if using ==, it is actually comparing ref. address. default is same as == should be overriden, ex: 123456789101112public boolean equals(Object obj)&#123; if (obj == null) return false; else&#123; if (obj instanceof Cat)&#123; Cat c = (Cat) obj; if (c.color ==this color &amp;&amp; c.height == this.height)&#123; return true; &#125; &#125; &#125; return false;&#125; II. Casting A superclass ref. can point to its subclass instance. For above, it can not access new member variables in its subclass. instanceof can be used to check if an instance belongs to a class or superclass. upcasting: treat subclass as superclass; downcasting: treat superclass as subclass; 1234567891011121314151617181920212223//sample application public class Test&#123; public static void main(String args[])&#123; Test test = new Test(); Animal a = new Animal("name"); Cat c = new Cat("catname", "blue"); Dog d = new Dog("dogname", "black"); test.f(a); test.f(c); test.f(d); &#125; public void f(Animal a)&#123; System.out.println("name: " + a.name); if (a instanceof Cat)&#123; Cat cat = (Cat)a; System.out.println("eyecolor: " + cat.eyecolor); &#125; else if (a instanceof Dog) &#123; Dog dog = (Dog)a; System.out.println("furcolor: " + dog.furcolor); &#125; &#125;&#125;]]></content>
+      <tags>
+        <tag>java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[[LeetCode] Challenge log 1]]></title>
+    <url>%2F2018%2F03%2F28%2FLeetCode-Challenge-log-1%2F</url>
+    <content type="text"><![CDATA[1. Two SumGiven an array of integers, return indices of the two numbers such that they add up to a specific target. You may assume that each input would have exactly one solution, and you may not use the same element twice. 12345678910111213141516# Keywords: hash table, dictionaryclass Solution: def twoSum(self, nums, target): """ :type nums: List[int] :type target: int :rtype: List[int] """ n = len(nums) ht = &#123;&#125; for i in range(n): temp = target - nums[i] if ht.__contains__(temp) and ht[temp] != i: return [ht[temp], i] ht[nums[i]] = i return None]]></content>
+      <tags>
+        <tag>code challenge</tag>
+        <tag>algorithm</tag>
+        <tag>leetcode</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[[Java Review] 7: Access control]]></title>
+    <url>%2F2018%2F03%2F27%2FJava-Review-7%2F</url>
+    <content type="text"><![CDATA[The following notes are based on video series: 手把手教你用Java基础教程 - 北京尚学堂 - 马士兵 I. Access control keywords keyword within class within package son class anywhere private ✅ default ✅ ✅ protected ✅ ✅ ✅ public ✅ ✅ ✅ ✅ For class, only public and default are used. default members can be accessed by a class that belongs to the same package. II. Use extends to inherit A son class inherits all members of its superclass (varibales and methods). Java only allows single inheritage. A son can have only one father(superclass). 1&lt;modifier&gt; class &lt;name&gt; [extends &lt;superclass&gt;]&#123;...&#125; III. Overwite (override) A method of a son class can override the original method in its superclass. To realize, the followings needs to be satisfied: same name. same return type. same parameters list. can not use stricter access control. ​ IV. Super In a son class, use super.&lt;name&gt; to refer superclass members. V. Constructive method in inheritage Son constructive method must first use superclass constructive method. If no super used, the son’s constructive method first executes the superclass’s non-parametrized constructive method, namely super(); If there exists no super(), compile error. The alternate is to use super(p1,p2) in the first line to call specific superclass’s constructive method.]]></content>
+      <tags>
+        <tag>java</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[[Java Review] 6: Package & import]]></title>
     <url>%2F2018%2F03%2F22%2FJava-Review-6%2F</url>
     <content type="text"><![CDATA[The following notes are based on video series: 手把手教你用Java基础教程 - 北京尚学堂 - 马士兵 package &amp; import are used to resolve repeated class names. package Declare what package the class(es) belongs to. Declared at 1st line in java: 1package pk1.pk2.pk3; If none package line —&gt; nameless package . Java manages packages by directory. For instance, the above .java will located at ./pk1/pk2/pk3. import12345678//specific classimport pk1.pk2.pk3.classname;// all classes of a packageimport pk1.pk2.pk3.*; //without importpk1.pk2.pk3.classname abc = new pk1.pk2.pk3.classname() JDK main packages java.lang: String, Math, Integer, System, Thread (default import) java.awt: abstract window toolkits java.applet java.net jave.io java.util 1jar -cvf xx.jar *.*]]></content>
