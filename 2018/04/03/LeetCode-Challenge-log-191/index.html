@@ -142,27 +142,28 @@
 
 
   
-  <meta name="keywords" content="Gundam,MG," />
+  <meta name="keywords" content="code challenge,algorithm,leetcode," />
 
 
-<meta name="keywords" content="Gundam,MG">
+<meta name="description" content="191. Number of 1 Bitshttps://leetcode.com/problems/number-of-1-bits/description/">
+<meta name="keywords" content="code challenge,algorithm,leetcode">
 <meta property="og:type" content="article">
-<meta property="og:title" content="[Gundam] MG ZZ (processing)">
-<meta property="og:url" content="https://marcopolocai.github.io/2018/03/21/Gundam-MG-ZZ-processing/index.html">
+<meta property="og:title" content="[LeetCode] Challenge log 191">
+<meta property="og:url" content="https://marcopolocai.github.io/2018/04/03/LeetCode-Challenge-log-191/index.html">
 <meta property="og:site_name" content="Marco Cai&#39;s Tech Base">
+<meta property="og:description" content="191. Number of 1 Bitshttps://leetcode.com/problems/number-of-1-bits/description/">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="https://farm1.staticflickr.com/807/39135447700_347aabb7e2_z.jpg">
-<meta property="og:updated_time" content="2018-03-22T06:59:33.514Z">
+<meta property="og:updated_time" content="2018-04-03T19:25:33.914Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="[Gundam] MG ZZ (processing)">
-<meta name="twitter:image" content="https://farm1.staticflickr.com/807/39135447700_347aabb7e2_z.jpg">
+<meta name="twitter:title" content="[LeetCode] Challenge log 191">
+<meta name="twitter:description" content="191. Number of 1 Bitshttps://leetcode.com/problems/number-of-1-bits/description/">
 
 
 
 
 
 
-  <link rel="canonical" href="https://marcopolocai.github.io/2018/03/21/Gundam-MG-ZZ-processing/"/>
+  <link rel="canonical" href="https://marcopolocai.github.io/2018/04/03/LeetCode-Challenge-log-191/"/>
 
 
 
@@ -171,7 +172,7 @@
     sidebar: "",
   };
 </script>
-  <title>[Gundam] MG ZZ (processing) | Marco Cai's Tech Base</title>
+  <title>[LeetCode] Challenge log 191 | Marco Cai's Tech Base</title>
   
 
 
@@ -342,7 +343,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://marcopolocai.github.io/2018/03/21/Gundam-MG-ZZ-processing/">
+    <link itemprop="mainEntityOfPage" href="https://marcopolocai.github.io/2018/04/03/LeetCode-Challenge-log-191/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Mingxiang Cai">
@@ -359,7 +360,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">[Gundam] MG ZZ (processing)</h1>
+          <h1 class="post-title" itemprop="name headline">[LeetCode] Challenge log 191</h1>
         
 
         <div class="post-meta">
@@ -371,7 +372,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-21T13:53:27-07:00">2018-03-21</time>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-03T12:04:44-07:00">2018-04-03</time>
             
 
             
@@ -408,9 +409,14 @@
       
 
       
-        <p><a data-flickr-embed="true" href="https://www.flickr.com/photos/95862377@N08/albums/72157693995481194" title="[gundam] mg ZZ Process" target="_blank" rel="noopener"></a></p>
-<p><a data-flickr-embed="true" href="https://www.flickr.com/photos/95862377@N08/albums/72157693995481194" title="[gundam] mg ZZ Process" target="_blank" rel="noopener"><img src="https://farm1.staticflickr.com/807/39135447700_347aabb7e2_z.jpg" width="640" height="362" alt="[gundam] mg ZZ Process"></a><script async src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script></p>
+        <h5 id="191-Number-of-1-Bits"><a href="#191-Number-of-1-Bits" class="headerlink" title="191. Number of 1 Bits"></a>191. Number of 1 Bits</h5><p><a href="https://leetcode.com/problems/number-of-1-bits/description/" target="_blank" rel="noopener">https://leetcode.com/problems/number-of-1-bits/description/</a></p>
 <a id="more"></a>
+<p>Write a function that takes an unsigned integer and returns the number of ’1’ bits it has (also known as the <a href="http://en.wikipedia.org/wiki/Hamming_weight" target="_blank" rel="noopener">Hamming weight</a>).</p>
+<p>For example, the 32-bit integer ’11’ has binary representation <code>00000000000000000000000000001011</code>, so the function should return 3.</p>
+<h5 id="Solution"><a href="#Solution" class="headerlink" title="Solution:"></a>Solution:</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># normal solution O(log n) = O(32) = O(1), since n = 32 bits</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">hammingWeight</span><span class="params">(self, n)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type n: int</span></span><br><span class="line"><span class="string">        :rtype: int</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        <span class="keyword">if</span> n == <span class="number">0</span>: <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">        count = <span class="number">1</span></span><br><span class="line">        <span class="keyword">while</span> (n&gt;<span class="number">1</span>):</span><br><span class="line">            <span class="keyword">if</span> n % <span class="number">2</span> == <span class="number">1</span>: count += <span class="number">1</span></span><br><span class="line">            n = n // <span class="number">2</span></span><br><span class="line">        <span class="keyword">return</span> count</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># bit operation trick O(1)</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">hammingWeight</span><span class="params">(self, n)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type n: int</span></span><br><span class="line"><span class="string">        :rtype: int</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        count = <span class="number">0</span></span><br><span class="line">        <span class="keyword">while</span> n != <span class="number">0</span>:</span><br><span class="line">            n = n &amp; n<span class="number">-1</span></span><br><span class="line">            count += <span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> count</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># built-in function (cheating)</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">hammingWeight</span><span class="params">(self, n)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type n: int</span></span><br><span class="line"><span class="string">        :rtype: int</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        <span class="keyword">return</span> bin(n).count(<span class="string">'1'</span>)</span><br></pre></td></tr></table></figure>
+<h5 id="Python-bit-operation"><a href="#Python-bit-operation" class="headerlink" title="Python bit operation:"></a>Python bit operation:</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="number">60</span>            <span class="comment"># 60 = 0011 1100 </span></span><br><span class="line">b = <span class="number">13</span>            <span class="comment"># 13 = 0000 1101 </span></span><br><span class="line">c = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">c = a &amp; b;        <span class="comment"># 12 = 0000 1100</span></span><br><span class="line"><span class="keyword">print</span> <span class="string">"Line 1 - Value of c is "</span>, c</span><br><span class="line"></span><br><span class="line">c = a | b;        <span class="comment"># 61 = 0011 1101 </span></span><br><span class="line"><span class="keyword">print</span> <span class="string">"Line 2 - Value of c is "</span>, c</span><br><span class="line"></span><br><span class="line">c = a ^ b;        <span class="comment"># 49 = 0011 0001</span></span><br><span class="line"><span class="keyword">print</span> <span class="string">"Line 3 - Value of c is "</span>, c</span><br><span class="line"></span><br><span class="line">c = ~a;           <span class="comment"># -61 = 1100 0011</span></span><br><span class="line"><span class="keyword">print</span> <span class="string">"Line 4 - Value of c is "</span>, c</span><br><span class="line"></span><br><span class="line">c = a &lt;&lt; <span class="number">2</span>;       <span class="comment"># 240 = 1111 0000</span></span><br><span class="line"><span class="keyword">print</span> <span class="string">"Line 5 - Value of c is "</span>, c</span><br><span class="line"></span><br><span class="line">c = a &gt;&gt; <span class="number">2</span>;       <span class="comment"># 15 = 0000 1111</span></span><br><span class="line"><span class="keyword">print</span> <span class="string">"Line 6 - Value of c is "</span>, c</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -432,7 +438,7 @@
     <strong>Post author: </strong>Mingxiang Cai</li>
   <li class="post-copyright-link">
     <strong>Post link:</strong>
-    <a href="https://marcopolocai.github.io/2018/03/21/Gundam-MG-ZZ-processing/" title="[Gundam] MG ZZ (processing)">https://marcopolocai.github.io/2018/03/21/Gundam-MG-ZZ-processing/</a>
+    <a href="https://marcopolocai.github.io/2018/04/03/LeetCode-Challenge-log-191/" title="[LeetCode] Challenge log 191">https://marcopolocai.github.io/2018/04/03/LeetCode-Challenge-log-191/</a>
   </li>
   <li class="post-copyright-license">
     <strong>Copyright Notice: </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> unless stating additionally.</li>
@@ -445,9 +451,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Gundam/" rel="tag"># Gundam</a>
+            <a href="/tags/code-challenge/" rel="tag"># code challenge</a>
           
-            <a href="/tags/MG/" rel="tag"># MG</a>
+            <a href="/tags/algorithm/" rel="tag"># algorithm</a>
+          
+            <a href="/tags/leetcode/" rel="tag"># leetcode</a>
           
         </div>
       
@@ -460,8 +468,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/03/16/Java-Review-5/" rel="next" title="[Java Review] 5: this and static">
-                <i class="fa fa-chevron-left"></i> [Java Review] 5: this and static
+              <a href="/2018/03/29/Java-Review-9/" rel="next" title="[Java Review] 9: Polymophism">
+                <i class="fa fa-chevron-left"></i> [Java Review] 9: Polymophism
               </a>
             
           </div>
@@ -469,10 +477,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/03/22/Java-Review-6/" rel="prev" title="[Java Review] 6: Package & import">
-                [Java Review] 6: Package & import <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -521,8 +525,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -624,6 +637,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#191-Number-of-1-Bits"><span class="nav-text">191. Number of 1 Bits</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Solution"><span class="nav-text">Solution:</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Python-bit-operation"><span class="nav-text">Python bit operation:</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

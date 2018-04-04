@@ -142,27 +142,28 @@
 
 
   
-  <meta name="keywords" content="Gundam,MG," />
+  <meta name="keywords" content="code challenge,algorithm,leetcode," />
 
 
-<meta name="keywords" content="Gundam,MG">
+<meta name="description" content="807. Max Increase to Keep City Skylinehttps://leetcode.com/problems/max-increase-to-keep-city-skyline/description/">
+<meta name="keywords" content="code challenge,algorithm,leetcode">
 <meta property="og:type" content="article">
-<meta property="og:title" content="[Gundam] MG ZZ (processing)">
-<meta property="og:url" content="https://marcopolocai.github.io/2018/03/21/Gundam-MG-ZZ-processing/index.html">
+<meta property="og:title" content="[LeetCode] Challenge log 807">
+<meta property="og:url" content="https://marcopolocai.github.io/2018/03/29/LeetCode-Challenge-log-807/index.html">
 <meta property="og:site_name" content="Marco Cai&#39;s Tech Base">
+<meta property="og:description" content="807. Max Increase to Keep City Skylinehttps://leetcode.com/problems/max-increase-to-keep-city-skyline/description/">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="https://farm1.staticflickr.com/807/39135447700_347aabb7e2_z.jpg">
-<meta property="og:updated_time" content="2018-03-22T06:59:33.514Z">
+<meta property="og:updated_time" content="2018-03-29T22:08:45.280Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="[Gundam] MG ZZ (processing)">
-<meta name="twitter:image" content="https://farm1.staticflickr.com/807/39135447700_347aabb7e2_z.jpg">
+<meta name="twitter:title" content="[LeetCode] Challenge log 807">
+<meta name="twitter:description" content="807. Max Increase to Keep City Skylinehttps://leetcode.com/problems/max-increase-to-keep-city-skyline/description/">
 
 
 
 
 
 
-  <link rel="canonical" href="https://marcopolocai.github.io/2018/03/21/Gundam-MG-ZZ-processing/"/>
+  <link rel="canonical" href="https://marcopolocai.github.io/2018/03/29/LeetCode-Challenge-log-807/"/>
 
 
 
@@ -171,7 +172,7 @@
     sidebar: "",
   };
 </script>
-  <title>[Gundam] MG ZZ (processing) | Marco Cai's Tech Base</title>
+  <title>[LeetCode] Challenge log 807 | Marco Cai's Tech Base</title>
   
 
 
@@ -342,7 +343,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://marcopolocai.github.io/2018/03/21/Gundam-MG-ZZ-processing/">
+    <link itemprop="mainEntityOfPage" href="https://marcopolocai.github.io/2018/03/29/LeetCode-Challenge-log-807/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Mingxiang Cai">
@@ -359,7 +360,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">[Gundam] MG ZZ (processing)</h1>
+          <h1 class="post-title" itemprop="name headline">[LeetCode] Challenge log 807</h1>
         
 
         <div class="post-meta">
@@ -371,7 +372,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-21T13:53:27-07:00">2018-03-21</time>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-29T15:04:44-07:00">2018-03-29</time>
             
 
             
@@ -408,9 +409,19 @@
       
 
       
-        <p><a data-flickr-embed="true" href="https://www.flickr.com/photos/95862377@N08/albums/72157693995481194" title="[gundam] mg ZZ Process" target="_blank" rel="noopener"></a></p>
-<p><a data-flickr-embed="true" href="https://www.flickr.com/photos/95862377@N08/albums/72157693995481194" title="[gundam] mg ZZ Process" target="_blank" rel="noopener"><img src="https://farm1.staticflickr.com/807/39135447700_347aabb7e2_z.jpg" width="640" height="362" alt="[gundam] mg ZZ Process"></a><script async src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script></p>
+        <h5 id="807-Max-Increase-to-Keep-City-Skyline"><a href="#807-Max-Increase-to-Keep-City-Skyline" class="headerlink" title="807. Max Increase to Keep City Skyline"></a>807. Max Increase to Keep City Skyline</h5><p><a href="https://leetcode.com/problems/max-increase-to-keep-city-skyline/description/" target="_blank" rel="noopener">https://leetcode.com/problems/max-increase-to-keep-city-skyline/description/</a></p>
 <a id="more"></a>
+<p>In a 2 dimensional array <code>grid</code>, each value <code>grid[i][j]</code> represents the height of a building located there. We are allowed to increase the height of any number of buildings, by any amount (the amounts can be different for different buildings). Height 0 is considered to be a building as well. </p>
+<p>At the end, the “skyline” when viewed from all four directions of the grid, i.e. top, bottom, left, and right, must be the same as the skyline of the original grid. A city’s skyline is the outer contour of the rectangles formed by all the buildings when viewed from a distance. See the following example.</p>
+<p>What is the maximum total sum that the height of the buildings can be increased?</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">Example:</span><br><span class="line">Input: grid = [[3,0,8,4],[2,4,5,7],[9,2,6,3],[0,3,1,0]]</span><br><span class="line">Output: 35</span><br><span class="line">Explanation: </span><br><span class="line">The grid is:</span><br><span class="line">[ [3, 0, 8, 4], </span><br><span class="line">  [2, 4, 5, 7],</span><br><span class="line">  [9, 2, 6, 3],</span><br><span class="line">  [0, 3, 1, 0] ]</span><br><span class="line"></span><br><span class="line">The skyline viewed from top or bottom is: [9, 4, 8, 7]</span><br><span class="line">The skyline viewed from left or right is: [8, 7, 9, 3]</span><br><span class="line"></span><br><span class="line">The grid after increasing the height of buildings without affecting skylines is:</span><br><span class="line"></span><br><span class="line">gridNew = [ [8, 4, 8, 7],</span><br><span class="line">            [7, 4, 7, 7],</span><br><span class="line">            [9, 4, 8, 7],</span><br><span class="line">            [3, 3, 3, 3] ]</span><br></pre></td></tr></table></figure>
+<p><strong>Notes:</strong></p>
+<ul>
+<li><code>1 &lt; grid.length = grid[0].length &lt;= 50</code>.</li>
+<li>All heights <code>grid[i][j]</code> are in the range <code>[0, 100]</code>.</li>
+<li>All buildings in <code>grid[i][j]</code> occupy the entire grid cell: that is, they are a <code>1 x 1 x grid[i][j]</code> rectangular prism.</li>
+</ul>
+<h5 id="Solution"><a href="#Solution" class="headerlink" title="Solution:"></a>Solution:</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">maxIncreaseKeepingSkyline</span><span class="params">(self, grid)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type grid: List[List[int]]</span></span><br><span class="line"><span class="string">        :rtype: int</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        n = len(grid)</span><br><span class="line">        mrow = [<span class="number">0</span>]*n</span><br><span class="line">        mcol = [<span class="number">0</span>]*n</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(n):</span><br><span class="line">            <span class="keyword">for</span> j <span class="keyword">in</span> range(n):</span><br><span class="line">                mrow[i] = max(mrow[i], grid[i][j])</span><br><span class="line">                mcol[j] = max(mcol[j], grid[i][j])</span><br><span class="line">        </span><br><span class="line">        maxHeight = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(n):</span><br><span class="line">            <span class="keyword">for</span> j <span class="keyword">in</span> range(n):</span><br><span class="line">                tmp = min(mrow[i], mcol[j])-grid[i][j]</span><br><span class="line">                maxHeight += tmp</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> maxHeight</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -432,7 +443,7 @@
     <strong>Post author: </strong>Mingxiang Cai</li>
   <li class="post-copyright-link">
     <strong>Post link:</strong>
-    <a href="https://marcopolocai.github.io/2018/03/21/Gundam-MG-ZZ-processing/" title="[Gundam] MG ZZ (processing)">https://marcopolocai.github.io/2018/03/21/Gundam-MG-ZZ-processing/</a>
+    <a href="https://marcopolocai.github.io/2018/03/29/LeetCode-Challenge-log-807/" title="[LeetCode] Challenge log 807">https://marcopolocai.github.io/2018/03/29/LeetCode-Challenge-log-807/</a>
   </li>
   <li class="post-copyright-license">
     <strong>Copyright Notice: </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> unless stating additionally.</li>
@@ -445,9 +456,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Gundam/" rel="tag"># Gundam</a>
+            <a href="/tags/code-challenge/" rel="tag"># code challenge</a>
           
-            <a href="/tags/MG/" rel="tag"># MG</a>
+            <a href="/tags/algorithm/" rel="tag"># algorithm</a>
+          
+            <a href="/tags/leetcode/" rel="tag"># leetcode</a>
           
         </div>
       
@@ -460,8 +473,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/03/16/Java-Review-5/" rel="next" title="[Java Review] 5: this and static">
-                <i class="fa fa-chevron-left"></i> [Java Review] 5: this and static
+              <a href="/2018/03/29/LeetCode-Challenge-log-398/" rel="next" title="[LeetCode] Challenge log 398">
+                <i class="fa fa-chevron-left"></i> [LeetCode] Challenge log 398
               </a>
             
           </div>
@@ -470,8 +483,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/03/22/Java-Review-6/" rel="prev" title="[Java Review] 6: Package & import">
-                [Java Review] 6: Package & import <i class="fa fa-chevron-right"></i>
+              <a href="/2018/03/29/LeetCode-Challenge-log-101/" rel="prev" title="[LeetCode] Challenge log 101">
+                [LeetCode] Challenge log 101 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -521,8 +534,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -624,6 +646,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#807-Max-Increase-to-Keep-City-Skyline"><span class="nav-text">807. Max Increase to Keep City Skyline</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Solution"><span class="nav-text">Solution:</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
