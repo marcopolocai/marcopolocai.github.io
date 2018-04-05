@@ -142,28 +142,28 @@
 
 
   
-  <meta name="keywords" content="code challenge,algorithm,leetcode," />
+  <meta name="keywords" content="python,format," />
 
 
-<meta name="description" content="1. Two Sumhttps://leetcode.com/problems/two-sum/description/">
-<meta name="keywords" content="code challenge,algorithm,leetcode">
+<meta name="description" content="Number FormattingThe following table shows various ways to format numbers using python’s  str.format(), includes examples for both float formatting and integer formatting. To run examples use print(&amp;q">
+<meta name="keywords" content="python,format">
 <meta property="og:type" content="article">
-<meta property="og:title" content="[LeetCode] Challenge log 1">
-<meta property="og:url" content="https://marcopolocai.github.io/2018/03/28/LeetCode-Challenge-log-1/index.html">
+<meta property="og:title" content="Python String Format">
+<meta property="og:url" content="https://marcopolocai.github.io/2018/04/05/Python-String-Format/index.html">
 <meta property="og:site_name" content="Marco Cai&#39;s Tech Base">
-<meta property="og:description" content="1. Two Sumhttps://leetcode.com/problems/two-sum/description/">
+<meta property="og:description" content="Number FormattingThe following table shows various ways to format numbers using python’s  str.format(), includes examples for both float formatting and integer formatting. To run examples use print(&amp;q">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-03-29T22:09:54.459Z">
+<meta property="og:updated_time" content="2018-04-05T22:26:27.499Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="[LeetCode] Challenge log 1">
-<meta name="twitter:description" content="1. Two Sumhttps://leetcode.com/problems/two-sum/description/">
+<meta name="twitter:title" content="Python String Format">
+<meta name="twitter:description" content="Number FormattingThe following table shows various ways to format numbers using python’s  str.format(), includes examples for both float formatting and integer formatting. To run examples use print(&amp;q">
 
 
 
 
 
 
-  <link rel="canonical" href="https://marcopolocai.github.io/2018/03/28/LeetCode-Challenge-log-1/"/>
+  <link rel="canonical" href="https://marcopolocai.github.io/2018/04/05/Python-String-Format/"/>
 
 
 
@@ -172,7 +172,7 @@
     sidebar: "",
   };
 </script>
-  <title>[LeetCode] Challenge log 1 | Marco Cai's Tech Base</title>
+  <title>Python String Format | Marco Cai's Tech Base</title>
   
 
 
@@ -343,7 +343,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://marcopolocai.github.io/2018/03/28/LeetCode-Challenge-log-1/">
+    <link itemprop="mainEntityOfPage" href="https://marcopolocai.github.io/2018/04/05/Python-String-Format/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Mingxiang Cai">
@@ -360,7 +360,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">[LeetCode] Challenge log 1</h1>
+          <h1 class="post-title" itemprop="name headline">Python String Format</h1>
         
 
         <div class="post-meta">
@@ -372,7 +372,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-28T11:32:19-07:00">2018-03-28</time>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-05T15:24:42-07:00">2018-04-05</time>
             
 
             
@@ -409,11 +409,99 @@
       
 
       
-        <h5 id="1-Two-Sum"><a href="#1-Two-Sum" class="headerlink" title="1. Two Sum"></a>1. Two Sum</h5><p><a href="https://leetcode.com/problems/two-sum/description/" target="_blank" rel="noopener">https://leetcode.com/problems/two-sum/description/</a></p>
-<a id="more"></a>
-<p>Given an array of integers, return <strong>indices</strong> of the two numbers such that they add up to a specific target. </p>
-<p>You may assume that each input would have <strong>exactly</strong> one solution, and you may not use the <em>same</em> element twice.</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Keywords: hash table, dictionary</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">twoSum</span><span class="params">(self, nums, target)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type nums: List[int]</span></span><br><span class="line"><span class="string">        :type target: int</span></span><br><span class="line"><span class="string">        :rtype: List[int]</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        n = len(nums)</span><br><span class="line">        ht = &#123;&#125;</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(n):</span><br><span class="line">            temp = target - nums[i]</span><br><span class="line">            <span class="keyword">if</span> ht.__contains__(temp) <span class="keyword">and</span> ht[temp] != i:</span><br><span class="line">                <span class="keyword">return</span> [ht[temp], i]</span><br><span class="line">            ht[nums[i]] = i</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">None</span></span><br></pre></td></tr></table></figure>
+        <h3 id="Number-Formatting"><a href="#Number-Formatting" class="headerlink" title="Number Formatting"></a>Number Formatting</h3><p>The following table shows various ways to format numbers using python’s  str.format(), includes examples for both float formatting and integer formatting.</p>
+<p>To run examples use <code>print(&quot;FORMAT&quot;.format(NUMBER));</code><br>So to get the output of the first example, you would run: <code>print(&quot;{:.2f}&quot;.format(3.1415926));</code></p>
+<table>
+<thead>
+<tr>
+<th>Number</th>
+<th>Format</th>
+<th>Output</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3.1415926</td>
+<td>{:.2f}</td>
+<td>3.14</td>
+<td>2 decimal places</td>
+</tr>
+<tr>
+<td>3.1415926</td>
+<td>{:+.2f}</td>
+<td>+3.14</td>
+<td>2 decimal places with sign</td>
+</tr>
+<tr>
+<td>-1</td>
+<td>{:+.2f}</td>
+<td>-1.00</td>
+<td>2 decimal places with sign</td>
+</tr>
+<tr>
+<td>2.71828</td>
+<td>{:.0f}</td>
+<td>3</td>
+<td>No decimal places</td>
+</tr>
+<tr>
+<td>5</td>
+<td>{:0&gt;2d}</td>
+<td>05</td>
+<td>Pad number with zeros (left padding, width 2)</td>
+</tr>
+<tr>
+<td>5</td>
+<td>{:x&lt;4d}</td>
+<td>5xxx</td>
+<td>Pad number with x’s (right padding, width 4)</td>
+</tr>
+<tr>
+<td>10</td>
+<td>{:x&lt;4d}</td>
+<td>10xx</td>
+<td>Pad number with x’s (right padding, width 4)</td>
+</tr>
+<tr>
+<td>1000000</td>
+<td>{:,}</td>
+<td>1,000,000</td>
+<td>Number format with comma separator</td>
+</tr>
+<tr>
+<td>0.25</td>
+<td>{:.2%}</td>
+<td>25.00%</td>
+<td>Format percentage</td>
+</tr>
+<tr>
+<td>1000000000</td>
+<td>{:.2e}</td>
+<td>1.00e+09</td>
+<td>Exponent notation</td>
+</tr>
+<tr>
+<td>13</td>
+<td>{:10d}</td>
+<td>13</td>
+<td>Right aligned (default, width 10)</td>
+</tr>
+<tr>
+<td>13</td>
+<td>{:&lt;10d}</td>
+<td>13</td>
+<td>Left aligned (width 10)</td>
+</tr>
+<tr>
+<td>13</td>
+<td>{:^10d}</td>
+<td>13</td>
+<td>Center aligned (width 10)</td>
+</tr>
+</tbody>
+</table>
+
       
     </div>
 
@@ -434,7 +522,7 @@
     <strong>Post author: </strong>Mingxiang Cai</li>
   <li class="post-copyright-link">
     <strong>Post link:</strong>
-    <a href="https://marcopolocai.github.io/2018/03/28/LeetCode-Challenge-log-1/" title="[LeetCode] Challenge log 1">https://marcopolocai.github.io/2018/03/28/LeetCode-Challenge-log-1/</a>
+    <a href="https://marcopolocai.github.io/2018/04/05/Python-String-Format/" title="Python String Format">https://marcopolocai.github.io/2018/04/05/Python-String-Format/</a>
   </li>
   <li class="post-copyright-license">
     <strong>Copyright Notice: </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> unless stating additionally.</li>
@@ -447,11 +535,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/code-challenge/" rel="tag"># code challenge</a>
+            <a href="/tags/python/" rel="tag"># python</a>
           
-            <a href="/tags/algorithm/" rel="tag"># algorithm</a>
-          
-            <a href="/tags/leetcode/" rel="tag"># leetcode</a>
+            <a href="/tags/format/" rel="tag"># format</a>
           
         </div>
       
@@ -464,8 +550,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/03/27/Java-Review-7/" rel="next" title="[Java Review] 7: Access control">
-                <i class="fa fa-chevron-left"></i> [Java Review] 7: Access control
+              <a href="/2018/04/04/LeetCode-Challenge-log-182/" rel="next" title="[LeetCode] Challenge log 182">
+                <i class="fa fa-chevron-left"></i> [LeetCode] Challenge log 182
               </a>
             
           </div>
@@ -474,8 +560,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/03/28/Java-Review-8/" rel="prev" title="[Java Review] 8: Object class">
-                [Java Review] 8: Object class <i class="fa fa-chevron-right"></i>
+              <a href="/2018/04/05/LeetCode-Challenge-log-401/" rel="prev" title="[LeetCode] Challenge log 401">
+                [LeetCode] Challenge log 401 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -653,7 +739,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-Two-Sum"><span class="nav-text">1. Two Sum</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Number-Formatting"><span class="nav-text">Number Formatting</span></a></li></ol></div>
             
 
           </div>
