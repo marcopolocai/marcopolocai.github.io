@@ -1,6 +1,195 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[[SQL] [LeetCode] Challenge log 177]]></title>
+    <url>%2F2018%2F04%2F13%2FLeetCode-Challenge-log-177%2F</url>
+    <content type="text"><![CDATA[177. Nth Highest SalaryUse limit, offset, order by together Write a SQL query to get the nth highest salary from the Employee table. 1234567+----+--------+| Id | Salary |+----+--------+| 1 | 100 || 2 | 200 || 3 | 300 |+----+--------+ For example, given the above Employee table, the nth highest salary where n = 2 is 200. If there is no nth highest salary, then the query should return null. 12345+------------------------+| getNthHighestSalary(2) |+------------------------+| 200 |+------------------------+ Soulution:1234567891011121314CREATE FUNCTION getNthHighestSalary(N INT) RETURNS INTBEGIN set N = N-1; RETURN ( # Write your MySQL query statement below. select distinct salary from Employee order by salary desc limit 1 offset N );END 123456789101112131415161718192021-- alterCREATE FUNCTION getNthHighestSalary(N INT) RETURNS INTBEGIN set N=N-1; RETURN ( # Write your MySQL query statement below. select max(E.salary) from Employee E where E.salary not in ( select t.salary from ( select distinct A.salary from Employee A order by A.salary desc limit N ) as t ) );END]]></content>
+      <tags>
+        <tag>code challenge</tag>
+        <tag>algorithm</tag>
+        <tag>leetcode</tag>
+        <tag>need reviewed</tag>
+        <tag>sql</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[[SQL] [LeetCode] Challenge log 176]]></title>
+    <url>%2F2018%2F04%2F13%2FLeetCode-Challenge-log-176%2F</url>
+    <content type="text"><![CDATA[176. Second Highest SalaryUse limit, offset, order by together Write a SQL query to get the second highest salary from the Employee table. 1234567+----+--------+| Id | Salary |+----+--------+| 1 | 100 || 2 | 200 || 3 | 300 |+----+--------+ For example, given the above Employee table, the query should return 200 as the second highest salary. If there is no second highest salary, then the query should return null. 12345+---------------------+| SecondHighestSalary |+---------------------+| 200 |+---------------------+ Soulution:12345select ifnull((select distinct salary from Employeeorder by salary desclimit 1 offset 1), null) as SecondHighestSalary 12345678-- alterselect max(E.salary) as SecondHighestSalaryfrom Employee Ewhere E.salary !=( select max(salary) as max from Employee)]]></content>
+      <tags>
+        <tag>code challenge</tag>
+        <tag>algorithm</tag>
+        <tag>leetcode</tag>
+        <tag>need reviewed</tag>
+        <tag>sql</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[[SQL] [LeetCode] Challenge log 185]]></title>
+    <url>%2F2018%2F04%2F13%2FLeetCode-Challenge-log-185%2F</url>
+    <content type="text"><![CDATA[185. Department Top Three SalariesUse limit, offset, order by together The Employee table holds all employees. Every employee has an Id, and there is also a column for the department Id. 12345678910+----+-------+--------+--------------+| Id | Name | Salary | DepartmentId |+----+-------+--------+--------------+| 1 | Joe | 70000 | 1 || 2 | Henry | 80000 | 2 || 3 | Sam | 60000 | 2 || 4 | Max | 90000 | 1 || 5 | Janet | 69000 | 1 || 6 | Randy | 85000 | 1 |+----+-------+--------+--------------+ The Department table holds all departments of the company. 123456+----+----------+| Id | Name |+----+----------+| 1 | IT || 2 | Sales |+----+----------+ Write a SQL query to find employees who earn the top three salaries in each of the department. For the above tables, your SQL query should return the following rows. 123456789+------------+----------+--------+| Department | Employee | Salary |+------------+----------+--------+| IT | Max | 90000 || IT | Randy | 85000 || IT | Joe | 70000 || Sales | Henry | 80000 || Sales | Sam | 60000 |+------------+----------+--------+ Soulution:12 12]]></content>
+      <tags>
+        <tag>code challenge</tag>
+        <tag>algorithm</tag>
+        <tag>leetcode</tag>
+        <tag>need reviewed</tag>
+        <tag>sql</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[[SQL] [LeetCode] Challenge log 595]]></title>
+    <url>%2F2018%2F04%2F12%2FLeetCode-Challenge-log-595%2F</url>
+    <content type="text"><![CDATA[595. Big CountriesUnion is Faster then OR! There is a table World 123456789+-----------------+------------+------------+--------------+---------------+| name | continent | area | population | gdp |+-----------------+------------+------------+--------------+---------------+| Afghanistan | Asia | 652230 | 25500100 | 20343000 || Albania | Europe | 28748 | 2831741 | 12960000 || Algeria | Africa | 2381741 | 37100000 | 188681000 || Andorra | Europe | 468 | 78115 | 3712000 || Angola | Africa | 1246700 | 20609294 | 100990000 |+-----------------+------------+------------+--------------+---------------+ A country is big if it has an area of bigger than 3 million square km or a population of more than 25 million. Write a SQL solution to output big countries’ name, population and area. For example, according to the above table, we should output: 123456+--------------+-------------+--------------+| name | population | area |+--------------+-------------+--------------+| Afghanistan | 25500100 | 652230 || Algeria | 37100000 | 2381741 |+--------------+-------------+--------------+ Soulution:1234-- OR solutionselect name, population, area from Worldwhere area &gt; 3000000 or population &gt; 25000000 123456789101112-- Union solution( select name, population, area from World where area &gt; 3000000 )Union( select name, population, area from World where population &gt; 25000000)]]></content>
+      <tags>
+        <tag>code challenge</tag>
+        <tag>algorithm</tag>
+        <tag>leetcode</tag>
+        <tag>sql</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[[LeetCode] Challenge log 728]]></title>
+    <url>%2F2018%2F04%2F10%2FLeetCode-Challenge-log-728%2F</url>
+    <content type="text"><![CDATA[728. Self Dividing Numbershttps://leetcode.com/problems/self-dividing-numbers/description/ Nothing worth mentioned. A self-dividing number is a number that is divisible by every digit it contains. For example, 128 is a self-dividing number because 128 % 1 == 0, 128 % 2 == 0, and 128 % 8 == 0. Also, a self-dividing number is not allowed to contain the digit zero. Given a lower and upper number bound, output a list of every possible self dividing number, including the bounds if possible. Example 1: 123Input: left = 1, right = 22Output: [1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 12, 15, 22] Note: The boundaries of each input argument are 1 &lt;= left &lt;= right &lt;= 10000. Soulution:123456789101112131415161718192021class Solution: def selfDividingNumbers(self, left, right): """ :type left: int :type right: int :rtype: List[int] """ if left &gt; right: return None res = [] for num in range(left, right + 1): flag = False can = num while num &gt; 0: r = num % 10 if r == 0 or can % r != 0: flag = True break num = num // 10 if not flag: res.append(can) return res]]></content>
+      <tags>
+        <tag>code challenge</tag>
+        <tag>algorithm</tag>
+        <tag>leetcode</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[[LeetCode] Challenge log 814]]></title>
+    <url>%2F2018%2F04%2F10%2FLeetCode-Challenge-log-814%2F</url>
+    <content type="text"><![CDATA[814. Binary Tree Pruninghttps://leetcode.com/problems/binary-tree-pruning/description/ Another DFS problem. We are given the head node root of a binary tree, where additionally every node’s value is either a 0 or a 1. Return the same tree where every subtree (of the given tree) not containing a 1 has been removed. (Recall that the subtree of a node X is X, plus every node that is a descendant of X.) 1234567Example 1:Input: [1,null,0,0,1]Output: [1,null,0,null,1] Explanation: Only the red nodes satisfy the property &quot;every subtree not containing a 1&quot;.The diagram on the right represents the answer. 123Example 2:Input: [1,0,1,0,0,0,1]Output: [1,null,1,null,1] 123Example 3:Input: [1,1,0,1,1,0,1,0]Output: [1,1,0,1,1,null,1] Note: The binary tree will have at most 100 nodes. The value of each node will only be 0 or 1. Soulution:1234567891011121314151617181920212223# Definition for a binary tree node.# class TreeNode:# def __init__(self, x):# self.val = x# self.left = None# self.right = Noneclass Solution: def pruneTree(self, root): """ :type root: TreeNode :rtype: TreeNode """ if root is None: return None l = self.pruneTree(root.left) r = self.pruneTree(root.right) if root.val == 0 and l is None and r is None: return None else: root.left = l root.right = r return root]]></content>
+      <tags>
+        <tag>code challenge</tag>
+        <tag>algorithm</tag>
+        <tag>leetcode</tag>
+        <tag>dfs</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[[SQL] [LeetCode] Challenge log 184]]></title>
+    <url>%2F2018%2F04%2F09%2FLeetCode-Challenge-log-184%2F</url>
+    <content type="text"><![CDATA[184. Department Highest SalaryReview usage of in, exists The Employee table holds all employees. Every employee has an Id, a salary, and there is also a column for the department Id. 12345678+----+-------+--------+--------------+| Id | Name | Salary | DepartmentId |+----+-------+--------+--------------+| 1 | Joe | 70000 | 1 || 2 | Henry | 80000 | 2 || 3 | Sam | 60000 | 2 || 4 | Max | 90000 | 1 |+----+-------+--------+--------------+ The Department table holds all departments of the company. 123456+----+----------+| Id | Name |+----+----------+| 1 | IT || 2 | Sales |+----+----------+ Write a SQL query to find employees who have the highest salary in each of the departments. For the above tables, Max has the highest salary in the IT department and Henry has the highest salary in the Sales department. 123456+------------+----------+--------+| Department | Employee | Salary |+------------+----------+--------+| IT | Max | 90000 || Sales | Henry | 80000 |+------------+----------+--------+ Soulution:123456789-- existsselect D.name as Department, E.name as Employee, E.salary as Salaryfrom Employee E join Department D on E.DepartmentId = D.idwhere not exists( select * from Employee B where B.salary &gt; E.salary and B.DepartmentId = E.DepartmentId) 123456789-- inselect D.name as Department, E.name as Employee, E.salary as Salaryfrom Employee E join Department D on E.DepartmentId = D.idwhere (E.DepartmentId, E.salary) in( select E.DepartmentId, max(salary) from Employee E group by E.DepartmentId)]]></content>
+      <tags>
+        <tag>code challenge</tag>
+        <tag>algorithm</tag>
+        <tag>leetcode</tag>
+        <tag>sql</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[[LeetCode] Challenge log 617]]></title>
+    <url>%2F2018%2F04%2F09%2FLeetCode-Challenge-log-617%2F</url>
+    <content type="text"><![CDATA[617. Merge Two BInary Treeshttps://leetcode.com/problems/merge-two-binary-trees/description/ DFS Problem. Recursive Solution. Given two binary trees and imagine that when you put one of them to cover the other, some nodes of the two trees are overlapped while the others are not. You need to merge them into a new binary tree. The merge rule is that if two nodes overlap, then sum node values up as the new value of the merged node. Otherwise, the NOT null node will be used as the node of new tree. Example 1: 1234567891011121314Input: Tree 1 Tree 2 1 2 / \ / \ 3 2 1 3 / \ \ 5 4 7 Output: Merged tree: 3 / \ 4 5 / \ \ 5 4 7 Note: The merging process must start from the root nodes of both trees. Soulution:123456789101112131415161718class Solution: def mergeTrees(self, t1, t2): """ :type t1: TreeNode :type t2: TreeNode :rtype: TreeNode """ if t1 is None and t2 is None: return None elif t1 is None: return t2 elif t2 is None: return t1 else: t1.val += t2.val t1.left = self.mergeTrees(t1.left, t2.left) t1.right = self.mergeTrees(t1.right, t2.right) return t1]]></content>
+      <tags>
+        <tag>code challenge</tag>
+        <tag>algorithm</tag>
+        <tag>leetcode</tag>
+        <tag>dfs</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[[LeetCode] Challenge log 657]]></title>
+    <url>%2F2018%2F04%2F09%2FLeetCode-Challenge-log-657%2F</url>
+    <content type="text"><![CDATA[657. Judge Route CircleSimple, no need to comment Initially, there is a Robot at position (0, 0). Given a sequence of its moves, judge if this robot makes a circle, which means it moves back to the original place. The move sequence is represented by a string. And each move is represent by a character. The valid robot moves are R (Right), L(Left), U (Up) and D (down). The output should be true or false representing whether the robot makes a circle. Example 1: 12Input: &quot;UD&quot;Output: true Example 2: 12Input: &quot;LL&quot;Output: false Soulution:123456789101112131415161718class Solution: def judgeCircle(self, moves): """ :type moves: str :rtype: bool """ U = 0 R = 0 for i in moves: if i == 'U': U += 1 elif i == 'D': U -= 1 elif i == 'R': R += 1 else: R -= 1 return (U == 0 and R == 0)]]></content>
+      <tags>
+        <tag>code challenge</tag>
+        <tag>algorithm</tag>
+        <tag>leetcode</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[[LeetCode] Challenge log 797]]></title>
+    <url>%2F2018%2F04%2F09%2FLeetCode-Challenge-log-797%2F</url>
+    <content type="text"><![CDATA[797. All Paths From Source to Target Basic DFS problem. Caching may accerlerate the time, but I did not try~ Given a directed, acyclic graph of N nodes. Find all possible paths from node 0 to node N-1, and return them in any order. The graph is given as follows: the nodes are 0, 1, …, graph.length - 1. graph[i] is a list of all nodes j for which the edge (i, j) exists. 123456789Example:Input: [[1,2], [3], [3], []] Output: [[0,1,3],[0,2,3]] Explanation: The graph looks like this:0---&gt;1| |v v2---&gt;3There are two paths: 0 -&gt; 1 -&gt; 3 and 0 -&gt; 2 -&gt; 3. Note: The number of nodes in the graph will be in the range [2, 15]. You can print different paths in any order, but you should keep the order of nodes inside one path. Soulution:1234567891011121314151617class Solution: def allPathsSourceTarget(self, graph): """ :type graph: List[List[int]] :rtype: List[List[int]] """ allPaths = [] self.printPaths([0], graph, allPaths) return allPaths def printPaths(self, path, graph, allPaths): if len(graph[path[-1]]) != 0: for i in graph[path[-1]]: if i == len(graph) - 1: allPaths.append(path[:] + [i]) else: self.printPaths(path[:] + [i], graph, allPaths)]]></content>
+      <tags>
+        <tag>code challenge</tag>
+        <tag>algorithm</tag>
+        <tag>leetcode</tag>
+        <tag>dfs</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[[LeetCode] Challenge log 461]]></title>
+    <url>%2F2018%2F04%2F09%2FLeetCode-Challenge-log-461%2F</url>
+    <content type="text"><![CDATA[461. Hamming Distancehttps://leetcode.com/problems/hamming-distance/description/ Use bitwise operation XOR (1 if the bit is different). Count the number of 1 bits ( exactly as NO.191). The Hamming distance between two integers is the number of positions at which the corresponding bits are different. Given two integers x and y, calculate the Hamming distance. Note:0 ≤ x, y &lt; 231. Example: 12345678910Input: x = 1, y = 4Output: 2Explanation:1 (0 0 0 1)4 (0 1 0 0) ↑ ↑The above arrows point to positions where the corresponding bits are different. Soulution:12345678910111213class Solution(object): def hammingDistance(self, x, y): """ :type x: int :type y: int :rtype: int """ temp = x ^ y count = 0 while temp &gt; 0: temp = temp &amp; (temp-1) count += 1 return count or even shorter: 12345678class Solution(object): def hammingDistance(self, x, y): """ :type x: int :type y: int :rtype: int """ return bin(x ^ y).count('1')]]></content>
+      <tags>
+        <tag>code challenge</tag>
+        <tag>algorithm</tag>
+        <tag>leetcode</tag>
+        <tag>bit operation</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[[LeetCode] Challenge log 535]]></title>
+    <url>%2F2018%2F04%2F07%2FLeetCode-Challenge-log-535%2F</url>
+    <content type="text"><![CDATA[535. Encode and Decode TinyURLhttps://leetcode.com/problems/encode-and-decode-tinyurl/description/ Solution1: Use increasing numbers to mark tiny urls; actual urls are saved in a indexed list. (If want letters, can transfer the number into 62-based) Alternative: Genrate random 6-places string as tiny url. Two dictionaries to allow mapping in two ways and no duplicate. TinyURL is a URL shortening service where you enter a URL such as https://leetcode.com/problems/design-tinyurl and it returns a short URL such as http://tinyurl.com/4e9iAk. Design the encode and decode methods for the TinyURL service. There is no restriction on how your encode/decode algorithm should work. You just need to ensure that a URL can be encoded to a tiny URL and the tiny URL can be decoded to the original URL. Soulution:123456789101112131415161718192021222324252627### s1 ###class Codec: def __init__(self): self.urls = [] def encode(self, longUrl): """Encodes a URL to a shortened URL. :type longUrl: str :rtype: str """ self.urls.append(longUrl) return 'http://tinyurl.com/' + '&#123;:0&gt;6d&#125;'.format(len(self.urls)-1) def decode(self, shortUrl): """Decodes a shortened URL to its original URL. :type shortUrl: str :rtype: str """ index = int(shortUrl[-6:]) return self.urls[index]# Your Codec object will be instantiated and called as such:# codec = Codec()# codec.decode(codec.encode(url)) 123456789101112131415161718192021222324252627282930313233343536### s2 ###import randomclass Codec: alphabet = string.ascii_letters + '0123456789' def __init__(self): self.long = dict() self.tiny = dict() def encode(self, longUrl): """Encodes a URL to a shortened URL. :type longUrl: str :rtype: str """ if longUrl in self.long: return self.long[longUrl] while True: tiny = ''.join([random.choice(Codec.alphabet) for i in range(6)]) if tiny not in self.tiny: break self.long[longUrl] = tiny self.tiny[tiny] = longUrl return 'http://tinyurl.com/' + tiny def decode(self, shortUrl): """Decodes a shortened URL to its original URL. :type shortUrl: str :rtype: str """ tiny = shortUrl[-6:] return self.tiny[tiny]# Your Codec object will be instantiated and called as such:# codec = Codec()# codec.decode(codec.encode(url))]]></content>
+      <tags>
+        <tag>code challenge</tag>
+        <tag>algorithm</tag>
+        <tag>leetcode</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[[LeetCode] Challenge log 804]]></title>
+    <url>%2F2018%2F04%2F07%2FLeetCode-Challenge-log-804%2F</url>
+    <content type="text"><![CDATA[804. Unique Morse Code Wordshttps://leetcode.com/problems/unique-morse-code-words/description/ Use set to maintain unique words. String is hashable. International Morse Code defines a standard encoding where each letter is mapped to a series of dots and dashes, as follows: &quot;a&quot;maps to &quot;.-&quot;, &quot;b&quot; maps to &quot;-...&quot;, &quot;c&quot; maps to &quot;-.-.&quot;, and so on. For convenience, the full table for the 26 letters of the English alphabet is given below: 1[&quot;.-&quot;,&quot;-...&quot;,&quot;-.-.&quot;,&quot;-..&quot;,&quot;.&quot;,&quot;..-.&quot;,&quot;--.&quot;,&quot;....&quot;,&quot;..&quot;,&quot;.---&quot;,&quot;-.-&quot;,&quot;.-..&quot;,&quot;--&quot;,&quot;-.&quot;,&quot;---&quot;,&quot;.--.&quot;,&quot;--.-&quot;,&quot;.-.&quot;,&quot;...&quot;,&quot;-&quot;,&quot;..-&quot;,&quot;...-&quot;,&quot;.--&quot;,&quot;-..-&quot;,&quot;-.--&quot;,&quot;--..&quot;] Now, given a list of words, each word can be written as a concatenation of the Morse code of each letter. For example, “cab” can be written as “-.-.-….-“, (which is the concatenation “-.-.” + “-…” + “.-“). We’ll call such a concatenation, the transformation of a word. Return the number of different transformations among all words we have. 1234567891011Example:Input: words = [&quot;gin&quot;, &quot;zen&quot;, &quot;gig&quot;, &quot;msg&quot;]Output: 2Explanation: The transformation of each word is:&quot;gin&quot; -&gt; &quot;--...-.&quot;&quot;zen&quot; -&gt; &quot;--...-.&quot;&quot;gig&quot; -&gt; &quot;--...--.&quot;&quot;msg&quot; -&gt; &quot;--...--.&quot;There are 2 different transformations, &quot;--...-.&quot; and &quot;--...--.&quot;. Note: The length of words will be at most 100. Each words[i] will have length in range [1, 12]. words[i] will only consist of lowercase letters. Soulution:123456789101112class Solution: def uniqueMorseRepresentations(self, words): """ :type words: List[str] :rtype: int """ trans = [".-","-...","-.-.","-..",".","..-.","--.","....","..",".---","-.-",".-..",\ "--","-.","---",".--.","--.-",".-.","...","-","..-","...-",".--","-..-","-.--","--.."] s = set() for word in words: s.add(''.join([trans[ord(letter) - ord('a')] for letter in word])) return len(s)]]></content>
+      <tags>
+        <tag>code challenge</tag>
+        <tag>algorithm</tag>
+        <tag>leetcode</tag>
+        <tag>hash</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[[LeetCode] Challenge log 215]]></title>
+    <url>%2F2018%2F04%2F06%2FLeetCode-Challenge-log-215%2F</url>
+    <content type="text"><![CDATA[215. Kth Largest Element in an Arrayhttps://leetcode.com/problems/kth-largest-element-in-an-array/description/ Use len(k)-array to save the largest k elements Through binary search insertion to keep the array sorted. Find the kth largest element in an unsorted array. Note that it is the kth largest element in the sorted order, not the kth distinct element. For example,Given [3,2,1,5,6,4] and k = 2, return 5. Note: You may assume k is always valid, 1 ≤ k ≤ array’s length. Credits:Special thanks to @mithmatt for adding this problem and creating all test cases. Soulution:123456789101112131415161718192021222324252627282930313233# binary search insertionclass Solution: def findKthLargest(self, nums, k): """ :type nums: List[int] :type k: int :rtype: int """ if len(nums) == 1: return nums[0] arr = [] for ele in nums: if len(arr) == k: if ele &lt; arr[k-1]: continue elif ele &gt;= arr[0]: arr = [ele] + arr[:-1] continue arr = self.insert(arr, ele) if len(arr) &gt; k: arr = arr[:k] return arr[k-1] def insert(self, arr, ele): if arr == []: return [ele] p1 = 0 p2 = len(arr)-1 while p2 &gt;= p1: temp = (p1 + p2) // 2 if ele &gt;= arr[temp]: p2 = temp - 1 else: p1 = temp + 1 # print(p1,p2,ele) return arr[:p1] + [ele] + arr[p1:] 1# use set]]></content>
+      <tags>
+        <tag>code challenge</tag>
+        <tag>algorithm</tag>
+        <tag>leetcode</tag>
+        <tag>need reviewed</tag>
+        <tag>binary search</tag>
+        <tag>sort</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[[LeetCode] Challenge log 771]]></title>
+    <url>%2F2018%2F04%2F06%2FLeetCode-Challenge-log-771%2F</url>
+    <content type="text"><![CDATA[771. Jewels and Stoneshttps://leetcode.com/problems/jewels-and-stones/description/ Use hashing to achieve O(n+m). Use set as a dict without value to save space You’re given strings J representing the types of stones that are jewels, and S representing the stones you have. Each character in Sis a type of stone you have. You want to know how many of the stones you have are also jewels. The letters in J are guaranteed distinct, and all characters in J and S are letters. Letters are case sensitive, so &quot;a&quot; is considered a different type of stone from &quot;A&quot;. Example 1: 12Input: J = &quot;aA&quot;, S = &quot;aAAbbbb&quot;Output: 3 Example 2: 12Input: J = &quot;z&quot;, S = &quot;ZZ&quot;Output: 0 Note: S and J will consist of letters and have length at most 50. The characters in J are distinct. Soulution:Both O(1) 12345678910111213141516# use dictclass Solution: def numJewelsInStones(self, J, S): """ :type J: str :type S: str :rtype: int """ isJew = &#123;&#125; result = 0 for i in J: isJew[i] = 1 for i in S: if i in isJew: result += 1 return result 123456789# use setclass Solution: def numJewelsInStones(self, J, S): """ :type J: str :type S: str :rtype: int """ return sum([1 for s in S if s in set(J)])]]></content>
+      <tags>
+        <tag>code challenge</tag>
+        <tag>algorithm</tag>
+        <tag>leetcode</tag>
+        <tag>hash</tag>
+        <tag>set</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[[Gundam] Metal Build F91]]></title>
+    <url>%2F2018%2F04%2F06%2FGundam-Metal-Build-F91%2F</url>
+    <content type="text"><![CDATA[A birthday gift from my important one. Gundam Formular 91 combines with the latest metal build techniques, filled with a sense of high bio tech.]]></content>
+      <tags>
+        <tag>gundam</tag>
+        <tag>mb</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[[LeetCode] Challenge log 152]]></title>
+    <url>%2F2018%2F04%2F05%2FLeetCode-Challenge-log-152%2F</url>
+    <content type="text"><![CDATA[152. Maximum Product Subarrayhttps://leetcode.com/problems/maximum-product-subarray/description/ It is a DP problem. Similar to 53. Find the contiguous subarray within an array (containing at least one number) which has the largest sum. For example, given the array [-2,1,-3,4,-1,2,1,-5,4],the contiguous subarray [4,-1,2,1] has the largest sum = 6. Solution:DP thought: use two slot to cache the max and the min products of the subarray that ends with current pointer. at each position, each time there are three possible numbers to choose from: current number current number X max product of last position current number X min product of last position so take the min and max of the three options to be current minP and maxP of current postion 12345678910111213141516171819class Solution: def maxProduct(self, nums): """ :type nums: List[int] :rtype: int """ maxP = nums[0] minP = nums[0] p = 1 result = nums[0] while p &lt; len(nums): tmp1 = max(nums[p], nums[p] * maxP, nums[p] * minP) tmp2 = min(nums[p], nums[p] * maxP, nums[p] * minP) maxP = tmp1 minP = tmp2 print(nums[p], maxP, minP) result = max(result, maxP) p += 1 return result]]></content>
+      <tags>
+        <tag>code challenge</tag>
+        <tag>algorithm</tag>
+        <tag>leetcode</tag>
+        <tag>DP</tag>
+        <tag>subarray</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[[LeetCode] Challenge log 53]]></title>
     <url>%2F2018%2F04%2F05%2FLeetCode-Challenge-log-53%2F</url>
     <content type="text"><![CDATA[53. Maximium Subarrayhttps://leetcode.com/problems/maximum-subarray/description/ It is mainly a DP problem. Find the contiguous subarray within an array (containing at least one number) which has the largest sum. For example, given the array [-2,1,-3,4,-1,2,1,-5,4],the contiguous subarray [4,-1,2,1] has the largest sum = 6. Solution:DP thought: last represents the largest sum in the subarray that ends with current pointer. The key is last[p] = max(last[p-1], 0) + nums[p], meaning we only include last[p-1] if it is positive 12345678910111213class Solution: def maxSubArray(self, nums): """ :type nums: List[int] :rtype: int """ result = last = nums[0] p = 1 while p&lt;len(nums): last = nums[p] + max(last, 0) result = max(result, last) p += 1 return result]]></content>
@@ -9,6 +198,7 @@
         <tag>algorithm</tag>
         <tag>leetcode</tag>
         <tag>DP</tag>
+        <tag>subarray</tag>
       </tags>
   </entry>
   <entry>
@@ -31,13 +221,14 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[[LeetCode] Challenge log 182]]></title>
+    <title><![CDATA[[SQL] [LeetCode] Challenge log 182]]></title>
     <url>%2F2018%2F04%2F04%2FLeetCode-Challenge-log-182%2F</url>
     <content type="text"><![CDATA[182. Duplicate Emailshttps://leetcode.com/problems/duplicate-emails/description/ Write a SQL query to find all duplicate emails in a table named Person. 1234567+----+---------+| Id | Email |+----+---------+| 1 | a@b.com || 2 | c@d.com || 3 | a@b.com |+----+---------+ For example, your query should return the following for the above table: 12345+---------+| Email |+---------+| a@b.com |+---------+ Note: All emails are in lowercase. Solution:1234Select EmailFrom Person Group by EmailHaving Count(*) &gt; 1]]></content>
       <tags>
         <tag>code challenge</tag>
         <tag>algorithm</tag>
         <tag>leetcode</tag>
+        <tag>sql</tag>
       </tags>
   </entry>
   <entry>
@@ -48,7 +239,8 @@
         <tag>code challenge</tag>
         <tag>algorithm</tag>
         <tag>leetcode</tag>
-        <tag>need reviewed</tag>
+        <tag>yeild</tag>
+        <tag>recursive</tag>
       </tags>
   </entry>
   <entry>
@@ -235,6 +427,28 @@
     <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
       <tags>
         <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[[LeetCode] Challenge log 561]]></title>
+    <url>%2F2008%2F04%2F12%2FLeetCode-Challenge-log-561%2F</url>
+    <content type="text"><![CDATA[561. Array Partition I quick sort O(2nlog2n) &lt;= O(20000* (log2+ 100)) ordered array trick O(n + max - min) = O(2n + 20000) &lt;= 40000 Given an array of 2n integers, your task is to group these integers into n pairs of integer, say (a1, b1), (a2, b2), …, (an, bn) which makes sum of min(ai, bi) for all i from 1 to n as large as possible. Example 1: 1234Input: [1,4,3,2]Output: 4Explanation: n is 2, and the maximum sum of pairs is 4 = min(1, 2) + min(3, 4). Note: n is a positive integer, which is in the range of [1, 10000]. All the integers in the array will be in the range of [-10000, 10000]. Soulution:123456789101112131415161718192021# s1class Solution: def arrayPairSum(self, nums): """ :type nums: List[int] :rtype: int """ self.partition(nums, 0, len(nums)-1) return sum([nums[i] for i in range(0, len(nums), 2)]) def partition(self, nums, l, r): if l &gt;= r: return pivot = nums[r] low = l for i in range(l,r): if nums[i] &lt; pivot: nums[i], nums[low] = nums[low], nums[i] low += 1 nums[r], nums[low] = nums[low], nums[r] self.partition(nums, l, low-1) self.partition(nums, low + 1, r) 12345678# one liner s1class Solution: def arrayPairSum(self, nums): """ :type nums: List[int] :rtype: int """ return sum(sorted(nums)[::2]) 123456789101112131415161718#s2class Solution: def arrayPairSum(self, nums): """ :type nums: List[int] :rtype: int """ arr = [0] * 20001 res = 0 odd = True for num in nums: arr[num + 10000] += 1 for i in range(len(arr)): while arr[i] &gt; 0: if odd: res += i - 10000 odd = not odd arr[i] -= 1 return res]]></content>
+      <tags>
+        <tag>code challenge</tag>
+        <tag>algorithm</tag>
+        <tag>leetcode</tag>
+        <tag>sorting</tag>
+        <tag>quick sort</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[[LeetCode] Challenge log]]></title>
+    <url>%2F2008%2F04%2F09%2FLeetCode-Challenge-log-template%2F</url>
+    <content type="text"><![CDATA[. Soulution:12]]></content>
+      <tags>
+        <tag>code challenge</tag>
+        <tag>algorithm</tag>
+        <tag>leetcode</tag>
       </tags>
   </entry>
 </search>
