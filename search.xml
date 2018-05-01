@@ -1,6 +1,190 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[[LeetCode] Challenge log 693]]></title>
+    <url>%2F2018%2F04%2F29%2FLeetCode-Challenge-log-693%2F</url>
+    <content type="text"><![CDATA[693. Binary Number with Alterntive Bitss1. n&lt;&lt;1 + n should be all 1s. s2. similar to s1 but more pythonic s3. check by bit Given a positive integer, check whether it has alternating bits: namely, if two adjacent bits will always have different values. Example 1: 1234Input: 5Output: TrueExplanation:The binary representation of 5 is: 101 Example 2: 1234Input: 7Output: FalseExplanation:The binary representation of 7 is: 111. Example 3: 1234Input: 11Output: FalseExplanation:The binary representation of 11 is: 1011. Example 4: 1234Input: 10Output: TrueExplanation:The binary representation of 10 is: 1010. Soulution:1234567891011class Solution: def hasAlternatingBits(self, n): """ :type n: int :rtype: bool """ res = True mask = 0 while mask &lt; n: mask = (mask &lt;&lt; 1) + 1 return (n &gt;&gt; 1) + n == mask 1234567class Solution: def hasAlternatingBits(self, n): """ :type n: int :rtype: bool """ return bin((n &gt;&gt; 1) + n).count('0') == 1 123456789101112131415class Solution: def hasAlternatingBits(self, n): """ :type n: int :rtype: bool """ res = [] while n &gt; 0: res.append(n % 2) n = n // 2 if len(res) &lt;= 1: return True for i in range(1, len(res)): if res[i] == res[i-1]: return False return True]]></content>
+      <tags>
+        <tag>code challenge</tag>
+        <tag>algorithm</tag>
+        <tag>leetcode</tag>
+        <tag>bit operation</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[[LeetCode] Challenge log 521]]></title>
+    <url>%2F2018%2F04%2F29%2FLeetCode-Challenge-log-521%2F</url>
+    <content type="text"><![CDATA[521. Longest Ucommon Subsequence IIf they are not equal, the answer will be the longer string; otherwise, answer is not-existed(-1). Given a group of two strings, you need to find the longest uncommon subsequence of this group of two strings. The longest uncommon subsequence is defined as the longest subsequence of one of these strings and this subsequence should not be anysubsequence of the other strings. A subsequence is a sequence that can be derived from one sequence by deleting some characters without changing the order of the remaining elements. Trivially, any string is a subsequence of itself and an empty string is a subsequence of any string. The input will be two strings, and the output needs to be the length of the longest uncommon subsequence. If the longest uncommon subsequence doesn’t exist, return -1. Example 1: 12345Input: &quot;aba&quot;, &quot;cdc&quot;Output: 3Explanation: The longest uncommon subsequence is &quot;aba&quot; (or &quot;cdc&quot;), because &quot;aba&quot; is a subsequence of &quot;aba&quot;, but not a subsequence of any other strings in the group of two strings. Note: Both strings’ lengths will not exceed 100. Only letters from a ~ z will appear in input strings. Soulution:1234567891011class Solution: def findLUSlength(self, a, b): """ :type a: str :type b: str :rtype: int """ if a == b: return -1 else: return max(len(a), len(b))]]></content>
+      <tags>
+        <tag>code challenge</tag>
+        <tag>algorithm</tag>
+        <tag>leetcode</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[[LeetCode] Challenge log 637]]></title>
+    <url>%2F2018%2F04%2F28%2FLeetCode-Challenge-log-637%2F</url>
+    <content type="text"><![CDATA[637. Average of Levels in Binary Trees1. Depth first traverse, record every node’s (value, level) s2. Width first traverse, keep two queues as parent level and kid level. Given a non-empty binary tree, return the average value of the nodes on each level in the form of an array. Example 1: 123456789Input: 3 / \ 9 20 / \ 15 7Output: [3, 14.5, 11]Explanation:The average value of nodes on level 0 is 3, on level 1 is 14.5, and on level 2 is 11. Hence return [3, 14.5, 11]. Note: The range of node’s value is in the range of 32-bit signed integer. Soulution: DFS 123456789101112131415161718192021class Solution: def averageOfLevels(self, root): """ :type root: TreeNode :rtype: List[float] """ if root is None: return [] res = &#123;&#125; self.dst(root, 0, res) return [res[i][0]/res[i][1] for i in range(len(res))] def dst(self, root, level, res): if root.left is not None: self.dst(root.left, level + 1, res) if root.right is not None: self.dst(root.right, level + 1, res) if level not in res: res[level] = [root.val, 1] else: res[level][0] += root.val res[level][1] += 1 WFS 123456789101112131415161718192021222324class Solution: def averageOfLevels(self, root): """ :type root: TreeNode :rtype: List[float] """ if root is None: return [] parents = [root] kids = [] tmp = 0 count = 0 res = [] while len(parents) != 0 or len(kids) != 0: parent = parents.pop(0) tmp += parent.val count += 1 if parent.left is not None: kids.append(parent.left) if parent.right is not None: kids.append(parent.right) if len(parents) == 0 : res.append(tmp/count) tmp = count = 0 parents = kids kids = [] return res]]></content>
+      <tags>
+        <tag>code challenge</tag>
+        <tag>algorithm</tag>
+        <tag>leetcode</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[[LeetCode] Challenge log 566]]></title>
+    <url>%2F2018%2F04%2F28%2FLeetCode-Challenge-log-566%2F</url>
+    <content type="text"><![CDATA[566. Reshape the MatrixUse python list slice and mod. In MATLAB, there is a very useful function called ‘reshape’, which can reshape a matrix into a new one with different size but keep its original data. You’re given a matrix represented by a two-dimensional array, and two positive integers r and c representing the row number and column number of the wanted reshaped matrix, respectively. The reshaped matrix need to be filled with all the elements of the original matrix in the same row-traversing order as they were. If the ‘reshape’ operation with given parameters is possible and legal, output the new reshaped matrix; Otherwise, output the original matrix. Example 1: 123456789Input: nums = [[1,2], [3,4]]r = 1, c = 4Output: [[1,2,3,4]]Explanation:The row-traversing of nums is [1,2,3,4]. The new reshaped matrix is a 1 * 4 matrix, fill it row by row by using the previous list. Example 2: 12345678910Input: nums = [[1,2], [3,4]]r = 2, c = 4Output: [[1,2], [3,4]]Explanation:There is no way to reshape a 2 * 2 matrix to a 2 * 4 matrix. So output the original matrix. Note: The height and width of the given matrix is in range [1, 100]. The given r and c are all positive. Soulution:1234567891011class Solution: def matrixReshape(self, nums, r, c): """ :type nums: List[List[int]] :type r: int :type c: int :rtype: List[List[int]] """ if len(nums)*len(nums[0]) &lt; r*c: return nums nums = [num for row in nums for num in row] return [nums[i*c:i*c + c] for i in range(r)]]]></content>
+      <tags>
+        <tag>code challenge</tag>
+        <tag>algorithm</tag>
+        <tag>leetcode</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[[LeetCode] Challenge log 766]]></title>
+    <url>%2F2018%2F04%2F27%2FLeetCode-Challenge-log-766%2F</url>
+    <content type="text"><![CDATA[766. Toeplitz MatrixSkip the first row and first column and traverse the matrix, check if m[i][j] = m[i-1][j-1]. A matrix is Toeplitz if every diagonal from top-left to bottom-right has the same element. Now given an M x N matrix, return True if and only if the matrix is Toeplitz. Example 1: 12345678Input: matrix = [[1,2,3,4],[5,1,2,3],[9,5,1,2]]Output: TrueExplanation:123451239512In the above grid, the diagonals are &quot;[9]&quot;, &quot;[5, 5]&quot;, &quot;[1, 1, 1]&quot;, &quot;[2, 2, 2]&quot;, &quot;[3, 3]&quot;, &quot;[4]&quot;, and in each diagonal all elements are the same, so the answer is True. Example 2: 1234Input: matrix = [[1,2],[2,2]]Output: FalseExplanation:The diagonal &quot;[1, 2]&quot; has different elements. Note: matrix will be a 2D array of integers. matrix will have a number of rows and columns in range [1, 20]. matrix[i][j] will be integers in range [0, 99]. Soulution:1234567891011121314class Solution: def isToeplitzMatrix(self, matrix): """ :type matrix: List[List[int]] :rtype: bool """ nrow = len(matrix) ncol = len(matrix[0]) for i in range(1, nrow): for j in range(1, ncol): if matrix[i-1][j-1] != matrix[i][j]: return False return True]]></content>
+      <tags>
+        <tag>code challenge</tag>
+        <tag>algorithm</tag>
+        <tag>leetcode</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[[LeetCode] Challenge log 463]]></title>
+    <url>%2F2018%2F04%2F27%2FLeetCode-Challenge-log-463%2F</url>
+    <content type="text"><![CDATA[463. Island Perimeters1: traverse all “1”, add the number of adjacent “0”s to the output. O(n) time. s2: check every adjacent pairs horizontally and vertically, add 1 to the ouput if the pair is (“0”, “1”). In other words, we are checking every edge to check if it is a border. O(n) time but neater. useful skill: map(list, zip(*grid)) = transpose(grid). You are given a map in form of a two-dimensional integer grid where 1 represents land and 0 represents water. Grid cells are connected horizontally/vertically (not diagonally). The grid is completely surrounded by water, and there is exactly one island (i.e., one or more connected land cells). The island doesn’t have “lakes” (water inside that isn’t connected to the water around the island). One cell is a square with side length 1. The grid is rectangular, width and height don’t exceed 100. Determine the perimeter of the island. Example: 123456[[0,1,0,0], [1,1,1,0], [0,1,0,0], [1,1,0,0]]Answer: 16 Soulution:12345678910111213141516171819class Solution: def islandPerimeter(self, grid): """ :type grid: List[List[int]] :rtype: int """ res = 0 nrow = len(grid) ncol = len(grid[0]) loc = [(0, 1), (0, -1), (1, 0), (-1, 0)] for i in range(nrow): for j in range(ncol): if grid[i][j] == 1: for a, b in loc: if i + a &gt;= nrow or i + a &lt; 0 or j + b &gt;= ncol or j + b &lt; 0: res += 1 elif grid[i + a][j + b] == 0: res += 1 return res 1234567891011class Solution: def islandPerimeter(self, grid): """ :type grid: List[List[int]] :rtype: int """ res = 0 res += sum([sum([a != b for a, b in zip(row + [0], [0] + row)]) for row in grid]) grid = map(list, zip(*grid)) res += sum([sum([a != b for a, b in zip(row + [0], [0] + row)]) for row in grid]) return res]]></content>
+      <tags>
+        <tag>code challenge</tag>
+        <tag>algorithm</tag>
+        <tag>leetcode</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[[LeetCode] Challenge log 669]]></title>
+    <url>%2F2018%2F04%2F26%2FLeetCode-Challenge-log-669%2F</url>
+    <content type="text"><![CDATA[669. Trim a Binary Search TreeRecursive solution: Use the special property of binary search tree: left sons are smaller while right sons are greater. Given a binary search tree and the lowest and highest boundaries as L and R, trim the tree so that all its elements lies in [L, R] (R &gt;= L). You might need to change the root of the tree, so the result should return the new root of the trimmed binary search tree. Example 1: 123456789101112Input: 1 / \ 0 2 L = 1 R = 2Output: 1 \ 2 Example 2: 123456789101112131415161718Input: 3 / \ 0 4 \ 2 / 1 L = 1 R = 3Output: 3 / 2 / 1 Soulution:12345678910111213141516class Solution: def trimBST(self, root, L, R): """ :type root: TreeNode :type L: int :type R: int :rtype: TreeNode """ if root is None: return None if root.val &lt; L: return self.trimBST(root.right, L, R) if root.val &gt; R: return self.trimBST(root.left, L, R) root.left = self.trimBST(root.left, L, R) root.right = self.trimBST(root.right, L, R) return root]]></content>
+      <tags>
+        <tag>code challenge</tag>
+        <tag>algorithm</tag>
+        <tag>leetcode</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[[LeetCode] Challenge log 575]]></title>
+    <url>%2F2018%2F04%2F26%2FLeetCode-Challenge-log-575%2F</url>
+    <content type="text"><![CDATA[575. Distribute CandiesSuper Straightforward. if candies kinds &gt; half of total, output the latter; otherwise the former. Given an integer array with even length, where different numbers in this array represent different kinds of candies. Each number means one candy of the corresponding kind. You need to distribute these candies equally in number to brother and sister. Return the maximum number of kinds of candies the sister could gain. Example 1: 123456Input: candies = [1,1,2,2,3,3]Output: 3Explanation:There are three different kinds of candies (1, 2 and 3), and two candies for each kind.Optimal distribution: The sister has candies [1,2,3] and the brother has candies [1,2,3], too. The sister has three different kinds of candies. Example 2: 1234Input: candies = [1,1,2,3]Output: 2Explanation: For example, the sister has candies [2,3] and the brother has candies [1,1]. The sister has two different kinds of candies, the brother has only one kind of candies. Note: The length of the given array is in range [2, 10,000], and will be even. The number in given array is in range [-100,000, 100,000]. Soulution:1234567class Solution: def distributeCandies(self, candies): """ :type candies: List[int] :rtype: int """ return min(len(set(candies)), len(candies)//2)]]></content>
+      <tags>
+        <tag>code challenge</tag>
+        <tag>algorithm</tag>
+        <tag>leetcode</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[[LeetCode] Challenge log 682]]></title>
+    <url>%2F2018%2F04%2F26%2FLeetCode-Challenge-log-682%2F</url>
+    <content type="text"><![CDATA[682. Baseball GameStraightforward O(n). Use two run and O(1) space. Can use a stack to reduce to one run — O(n) space. You’re now a baseball game point recorder. Given a list of strings, each string can be one of the 4 following types: Integer (one round’s score): Directly represents the number of points you get in this round. &quot;+&quot; (one round’s score): Represents that the points you get in this round are the sum of the last two valid round’s points. &quot;D&quot; (one round’s score): Represents that the points you get in this round are the doubled data of the last valid round’s points. &quot;C&quot; (an operation, which isn’t a round’s score): Represents the last valid round’s points you get were invalid and should be removed. Each round’s operation is permanent and could have an impact on the round before and the round after. You need to return the sum of the points you could get in all the rounds. Example 1: 12345678Input: [&quot;5&quot;,&quot;2&quot;,&quot;C&quot;,&quot;D&quot;,&quot;+&quot;]Output: 30Explanation: Round 1: You could get 5 points. The sum is: 5.Round 2: You could get 2 points. The sum is: 7.Operation 1: The round 2&apos;s data was invalid. The sum is: 5. Round 3: You could get 10 points (the round 2&apos;s data has been removed). The sum is: 15.Round 4: You could get 5 + 10 = 15 points. The sum is: 30. Example 2: 1234567891011Input: [&quot;5&quot;,&quot;-2&quot;,&quot;4&quot;,&quot;C&quot;,&quot;D&quot;,&quot;9&quot;,&quot;+&quot;,&quot;+&quot;]Output: 27Explanation: Round 1: You could get 5 points. The sum is: 5.Round 2: You could get -2 points. The sum is: 3.Round 3: You could get 4 points. The sum is: 7.Operation 1: The round 3&apos;s data is invalid. The sum is: 3. Round 4: You could get -4 points (the round 3&apos;s data has been removed). The sum is: -1.Round 5: You could get 9 points. The sum is: 8.Round 6: You could get -4 + 9 = 5 points. The sum is 13.Round 7: You could get 9 + 5 = 14 points. The sum is 27. Note: The size of the input list will be between 1 and 1000. Every integer represented in the list will be between -30000 and 30000. Soulution:1234567891011121314151617181920212223242526272829303132class Solution: def calPoints(self, ops): """ :type ops: List[str] :rtype: int """ i = 0 while i &lt; len(ops): op = ops[i] if op == "C": del ops[i] del ops[i-1] i -= 2 i += 1 res = 0 last = 0 secondlast = 0 for op in ops: if op == "D": secondlast = last last = last * 2 res += last elif op == "+": temp = last + secondlast secondlast = last last = temp res += last else: secondlast = last last = int(op) res += last return res]]></content>
+      <tags>
+        <tag>code challenge</tag>
+        <tag>algorithm</tag>
+        <tag>leetcode</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[[LeetCode] Challenge log 412]]></title>
+    <url>%2F2018%2F04%2F26%2FLeetCode-Challenge-log-412%2F</url>
+    <content type="text"><![CDATA[412. Fizz BuzzIt isn’t really interesting. Write a program that outputs the string representation of numbers from 1 to n. But for multiples of three it should output “Fizz” instead of the number and for the multiples of five output “Buzz”. For numbers which are multiples of both three and five output “FizzBuzz”. Example: 1234567891011121314151617181920n = 15,Return:[ &quot;1&quot;, &quot;2&quot;, &quot;Fizz&quot;, &quot;4&quot;, &quot;Buzz&quot;, &quot;Fizz&quot;, &quot;7&quot;, &quot;8&quot;, &quot;Fizz&quot;, &quot;Buzz&quot;, &quot;11&quot;, &quot;Fizz&quot;, &quot;13&quot;, &quot;14&quot;, &quot;FizzBuzz&quot;] Soulution:123456789101112131415161718192021222324252627class Solution: def fizzBuzz(self, n): """ :type n: int :rtype: List[str] """ if n == 0: return None res = [] three = 0 five = 0 for i in range(1, n+1): three += 1 five += 1 if three == 3 and five == 5: three = 0 five = 0 res.append('FizzBuzz') elif three == 3: three = 0 res.append('Fizz') elif five == 5: five = 0 res.append('Buzz') else: res.append(str(i)) return res]]></content>
+      <tags>
+        <tag>code challenge</tag>
+        <tag>algorithm</tag>
+        <tag>leetcode</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[[SQL] [LeetCode] Challenge log 620]]></title>
+    <url>%2F2018%2F04%2F25%2FLeetCode-Challenge-log-620%2F</url>
+    <content type="text"><![CDATA[620. Department Top Three SalariesUse SQL wildcard with like . % is any length. _ is one character. Please write a SQL query to output movies with an odd numbered ID and a description that is not ‘boring’. Order the result by rating. For example, table cinema: 12345678910111213141516+---------+-----------+--------------+-----------+| id | movie | description | rating |+---------+-----------+--------------+-----------+| 1 | War | great 3D | 8.9 || 2 | Science | fiction | 8.5 || 3 | irish | boring | 6.2 || 4 | Ice song | Fantacy | 8.6 || 5 | House card| Interesting| 9.1 |+---------+-----------+--------------+-----------++---------+-----------+--------------+-----------+| id | movie | description | rating |+---------+-----------+--------------+-----------+| 5 | House card| Interesting| 9.1 || 1 | War | great 3D | 8.9 |+---------+-----------+--------------+-----------+ Soulution:12345# Write your MySQL query statement belowselect *from cinemawhere id mod 2 = 1 and description not like &apos;%boring%&apos;order by rating desc]]></content>
+      <tags>
+        <tag>code challenge</tag>
+        <tag>algorithm</tag>
+        <tag>leetcode</tag>
+        <tag>sql</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[[LeetCode] Challenge log 500]]></title>
+    <url>%2F2018%2F04%2F25%2FLeetCode-Challenge-log-500%2F</url>
+    <content type="text"><![CDATA[500. Keyboard RowUse dict to map charaters to row numbers. Given a List of words, return the words that can be typed using letters of alphabet on only one row’s of American keyboard like the image below. Example 1: 12Input: [&quot;Hello&quot;, &quot;Alaska&quot;, &quot;Dad&quot;, &quot;Peace&quot;]Output: [&quot;Alaska&quot;, &quot;Dad&quot;] Note: You may use one character in the keyboard more than once. You may assume the input string will only contain letters of alphabet. Soulution:12345678910111213141516171819202122232425class Solution: def findWords(self, words): """ :type words: List[str] :rtype: List[str] """ whichRow = &#123;&#125; res = [] rows = ['qwertyuiop', 'asdfghjkl', 'zxcvbnm'] for i, row in enumerate(rows): for char in row: whichRow[char] = i for word in words: if word == "": res.append(word) continue wordLow = word.lower() flag = True row = whichRow[wordLow[0]] for char in wordLow: if whichRow[char] != row: flag = False break if flag: res.append(word) return res]]></content>
+      <tags>
+        <tag>code challenge</tag>
+        <tag>algorithm</tag>
+        <tag>leetcode</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[[LeetCode] Challenge log 557]]></title>
+    <url>%2F2018%2F04%2F25%2FLeetCode-Challenge-log-557%2F</url>
+    <content type="text"><![CDATA[557. Reverse Words in a String IIISelf explained. Given a string, you need to reverse the order of characters in each word within a sentence while still preserving whitespace and initial word order. Example 1: 12Input: &quot;Let&apos;s take LeetCode contest&quot;Output: &quot;s&apos;teL ekat edoCteeL tsetnoc&quot; Note: In the string, each word is separated by single space and there will not be any extra space in the string. Soulution:1234567class Solution: def reverseWords(self, s): """ :type s: str :rtype: str """ return ' '.join([x[::-1] for x in s.split(' ')])]]></content>
+      <tags>
+        <tag>code challenge</tag>
+        <tag>algorithm</tag>
+        <tag>leetcode</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[[LeetCode] Challenge log 476]]></title>
+    <url>%2F2018%2F04%2F20%2FLeetCode-Challenge-log-476%2F</url>
+    <content type="text"><![CDATA[476. Number Complement Use XOR 11111… to flip bit. Use Mask to decide which bits are 1s. Given a positive integer, output its complement number. The complement strategy is to flip the bits of its binary representation. Note: The given integer is guaranteed to fit within the range of a 32-bit signed integer. You could assume no leading zero bit in the integer’s binary representation. Example 1: 123Input: 5Output: 2Explanation: The binary representation of 5 is 101 (no leading zero bits), and its complement is 010. So you need to output 2. Example 2: 123Input: 1Output: 0Explanation: The binary representation of 1 is 1 (no leading zero bits), and its complement is 0. So you need to output 0. Soulution:1234567891011class Solution: def findComplement(self, num): """ :type num: int :rtype: int """ mask = 1 while mask &lt;= num: mask = mask &lt;&lt; 1 mask -= 1 return num ^ mask 12345678910111213class Solution: def findComplement(self, num): """ :type num: int :rtype: int """ mask = 1 res = 0 for i in range(32): if 2**i &gt; num: break if mask &amp; num == 0: res += 2**i mask = mask &lt;&lt; 1 return res]]></content>
+      <tags>
+        <tag>code challenge</tag>
+        <tag>algorithm</tag>
+        <tag>leetcode</tag>
+        <tag>bit operation</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[[LeetCode] Challenge log 806]]></title>
+    <url>%2F2018%2F04%2F19%2FLeetCode-Challenge-log-806%2F</url>
+    <content type="text"><![CDATA[806. Number of Lines To Write StringStraightforward. Python string ascii: ord() chr() We are to write the letters of a given string S, from left to right into lines. Each line has maximum width 100 units, and if writing a letter would cause the width of the line to exceed 100 units, it is written on the next line. We are given an array widths, an array where widths[0] is the width of ‘a’, widths[1] is the width of ‘b’, …, and widths[25] is the width of ‘z’. Now answer two questions: how many lines have at least one character from S, and what is the width used by the last such line? Return your answer as an integer list of length 2. 12345678Example :Input: widths = [10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10]S = &quot;abcdefghijklmnopqrstuvwxyz&quot;Output: [3, 60]Explanation: All letters have the same length of 10. To write all 26 letters,we need two full lines and one line with 60 units. 1234567891011Example :Input: widths = [4,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10]S = &quot;bbbcccdddaaa&quot;Output: [2, 4]Explanation: All letters except &apos;a&apos; have the same length of 10, and &quot;bbbcccdddaa&quot; will cover 9 * 10 + 2 * 4 = 98 units.For the last &apos;a&apos;, it is written on the second line becausethere is only 2 units left in the first line.So the answer is 2 lines, plus 4 units in the second line. Note: The length of S will be in the range [1, 1000]. S will only contain lowercase letters. widths is an array of length 26. widths[i] will be in the range of [2, 10]. Soulution:12345678910111213141516class Solution: def numberOfLines(self, widths, S): """ :type widths: List[int] :type S: str :rtype: List[int] """ cur = 0 res = 1 for s in S: charWidth = widths[ord(s)-ord('a')] cur += charWidth if cur &gt; 100: res += 1 cur = charWidth return [res, cur]]]></content>
+      <tags>
+        <tag>code challenge</tag>
+        <tag>algorithm</tag>
+        <tag>leetcode</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[[SQL] [LeetCode] Challenge log 627]]></title>
+    <url>%2F2018%2F04%2F19%2FLeetCode-Challenge-log-627%2F</url>
+    <content type="text"><![CDATA[627. Swap SalarySql if and case statement: update [table] set [column] = if ([condition], [v1], [v2] ) (see case example at the end) Given a table 1salary , such as the one below, that has m=male and f=female values. Swap all f and m values (i.e., change all f values to m and vice versa) with a single update query and no intermediate temp table. For example: 123456| id | name | sex | salary ||----|------|-----|--------|| 1 | A | m | 2500 || 2 | B | f | 1500 || 3 | C | m | 5500 || 4 | D | f | 500 | After running your query, the above salary table should have the following rows: 123456| id | name | sex | salary ||----|------|-----|--------|| 1 | A | f | 2500 || 2 | B | m | 1500 || 3 | C | f | 5500 || 4 | D | m | 500 | Soulution:1UPDATE salary SET sex = IF(sex = &apos;m&apos;, &apos;f&apos;, &apos;m&apos;) 1234567-- alterUPDATE salarySET sex = CASE sex WHEN &apos;m&apos; THEN &apos;f&apos; ELSE &apos;m&apos; END; SQL case when1234567SELECT player_name, weight, CASE WHEN weight &gt; 250 THEN &apos;over 250&apos; WHEN weight &gt; 200 THEN &apos;201-250&apos; WHEN weight &gt; 175 THEN &apos;176-200&apos; ELSE &apos;175 or under&apos; END AS weight_group FROM benn.college_football_players]]></content>
+      <tags>
+        <tag>code challenge</tag>
+        <tag>algorithm</tag>
+        <tag>leetcode</tag>
+        <tag>sql</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[[LeetCode] Challenge log 811]]></title>
+    <url>%2F2018%2F04%2F18%2FLeetCode-Challenge-log-811%2F</url>
+    <content type="text"><![CDATA[811. Subdomain Visit CountStraight forward. Use String.split() and collections.Counter()to prettify code. A website domain like “discuss.leetcode.com” consists of various subdomains. At the top level, we have “com”, at the next level, we have “leetcode.com”, and at the lowest level, “discuss.leetcode.com”. When we visit a domain like “discuss.leetcode.com”, we will also visit the parent domains “leetcode.com” and “com” implicitly. Now, call a “count-paired domain” to be a count (representing the number of visits this domain received), followed by a space, followed by the address. An example of a count-paired domain might be “9001 discuss.leetcode.com”. We are given a list cpdomains of count-paired domains. We would like a list of count-paired domains, (in the same format as the input, and in any order), that explicitly counts the number of visits to each subdomain. 1234567Example 1:Input: [&quot;9001 discuss.leetcode.com&quot;]Output: [&quot;9001 discuss.leetcode.com&quot;, &quot;9001 leetcode.com&quot;, &quot;9001 com&quot;]Explanation: We only have one website domain: &quot;discuss.leetcode.com&quot;. As discussed above, the subdomain &quot;leetcode.com&quot; and &quot;com&quot; will also be visited. So they will all be visited 9001 times. 1234567Example 2:Input: [&quot;900 google.mail.com&quot;, &quot;50 yahoo.com&quot;, &quot;1 intel.mail.com&quot;, &quot;5 wiki.org&quot;]Output: [&quot;901 mail.com&quot;,&quot;50 yahoo.com&quot;,&quot;900 google.mail.com&quot;,&quot;5 wiki.org&quot;,&quot;5 org&quot;,&quot;1 intel.mail.com&quot;,&quot;951 com&quot;]Explanation: We will visit &quot;google.mail.com&quot; 900 times, &quot;yahoo.com&quot; 50 times, &quot;intel.mail.com&quot; once and &quot;wiki.org&quot; 5 times. For the subdomains, we will visit &quot;mail.com&quot; 900 + 1 = 901 times, &quot;com&quot; 900 + 50 + 1 = 951 times, and &quot;org&quot; 5 times. Notes: The length of cpdomains will not exceed 100. The length of each domain name will not exceed 100. Each address will have either 1 or 2 “.” characters. The input count in any count-paired domain will not exceed 10000. The answer output can be returned in any order. Soulution:1234567891011121314class Solution: def subdomainVisits(self, cpdomains): """ :type cpdomains: List[str] :rtype: List[str] """ ans = collections.Counter() for cpd in cpdomains: count, domains = cpd.split() domains = domains.split('.') for i in range(len(domains)): cur = '.'.join(domains[i:]) ans[cur] += int(count) return [' '.join([str(value),key]) for key, value in ans.items()]]]></content>
+      <tags>
+        <tag>code challenge</tag>
+        <tag>algorithm</tag>
+        <tag>leetcode</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[[LeetCode] Challenge log 344]]></title>
+    <url>%2F2018%2F04%2F15%2FLeetCode-Challenge-log-344%2F</url>
+    <content type="text"><![CDATA[. pythonic s[::-1] recursive (memory limit exceed) swithch fisrt and last Write a function that takes a string as input and returns the string reversed. Example:Given s = “hello”, return “olleh”. Soulution:12345678910111213class Solution: def reverseString(self, s): """ :type s: str :rtype: str """ l = len(s) if l == 0: return "" elif l == 1: return s else: return s[-1] + self.reverseString(s[:-1]) 1234567891011121314class Solution: def reverseString(self, s): """ :type s: str :rtype: str """ s = list(s) i = 0 j = len(s) - 1 while i &lt; j: s[i], s[j] = s[j], s[i] i += 1 j -= 1 return ''.join(s)]]></content>
+      <tags>
+        <tag>code challenge</tag>
+        <tag>algorithm</tag>
+        <tag>leetcode</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[[SQL] [LeetCode] Challenge log 177]]></title>
     <url>%2F2018%2F04%2F13%2FLeetCode-Challenge-log-177%2F</url>
     <content type="text"><![CDATA[177. Nth Highest SalaryUse limit, offset, order by together Write a SQL query to get the nth highest salary from the Employee table. 1234567+----+--------+| Id | Salary |+----+--------+| 1 | 100 || 2 | 200 || 3 | 300 |+----+--------+ For example, given the above Employee table, the nth highest salary where n = 2 is 200. If there is no nth highest salary, then the query should return null. 12345+------------------------+| getNthHighestSalary(2) |+------------------------+| 200 |+------------------------+ Soulution:1234567891011121314CREATE FUNCTION getNthHighestSalary(N INT) RETURNS INTBEGIN set N = N-1; RETURN ( # Write your MySQL query statement below. select distinct salary from Employee order by salary desc limit 1 offset N );END 123456789101112131415161718192021-- alterCREATE FUNCTION getNthHighestSalary(N INT) RETURNS INTBEGIN set N=N-1; RETURN ( # Write your MySQL query statement below. select max(E.salary) from Employee E where E.salary not in ( select t.salary from ( select distinct A.salary from Employee A order by A.salary desc limit N ) as t ) );END]]></content>
@@ -144,6 +328,18 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[[LeetCode] Challenge log 771]]></title>
+    <url>%2F2018%2F04%2F06%2FLeetCode-Challenge-log-771%2F</url>
+    <content type="text"><![CDATA[771. Jewels and Stoneshttps://leetcode.com/problems/jewels-and-stones/description/ Use hashing to achieve O(n+m). Use set as a dict without value to save space You’re given strings J representing the types of stones that are jewels, and S representing the stones you have. Each character in Sis a type of stone you have. You want to know how many of the stones you have are also jewels. The letters in J are guaranteed distinct, and all characters in J and S are letters. Letters are case sensitive, so &quot;a&quot; is considered a different type of stone from &quot;A&quot;. Example 1: 12Input: J = &quot;aA&quot;, S = &quot;aAAbbbb&quot;Output: 3 Example 2: 12Input: J = &quot;z&quot;, S = &quot;ZZ&quot;Output: 0 Note: S and J will consist of letters and have length at most 50. The characters in J are distinct. Soulution:Both O(1) 12345678910111213141516# use dictclass Solution: def numJewelsInStones(self, J, S): """ :type J: str :type S: str :rtype: int """ isJew = &#123;&#125; result = 0 for i in J: isJew[i] = 1 for i in S: if i in isJew: result += 1 return result 123456789# use setclass Solution: def numJewelsInStones(self, J, S): """ :type J: str :type S: str :rtype: int """ return sum([1 for s in S if s in set(J)])]]></content>
+      <tags>
+        <tag>code challenge</tag>
+        <tag>algorithm</tag>
+        <tag>leetcode</tag>
+        <tag>hash</tag>
+        <tag>set</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[[LeetCode] Challenge log 215]]></title>
     <url>%2F2018%2F04%2F06%2FLeetCode-Challenge-log-215%2F</url>
     <content type="text"><![CDATA[215. Kth Largest Element in an Arrayhttps://leetcode.com/problems/kth-largest-element-in-an-array/description/ Use len(k)-array to save the largest k elements Through binary search insertion to keep the array sorted. Find the kth largest element in an unsorted array. Note that it is the kth largest element in the sorted order, not the kth distinct element. For example,Given [3,2,1,5,6,4] and k = 2, return 5. Note: You may assume k is always valid, 1 ≤ k ≤ array’s length. Credits:Special thanks to @mithmatt for adding this problem and creating all test cases. Soulution:123456789101112131415161718192021222324252627282930313233# binary search insertionclass Solution: def findKthLargest(self, nums, k): """ :type nums: List[int] :type k: int :rtype: int """ if len(nums) == 1: return nums[0] arr = [] for ele in nums: if len(arr) == k: if ele &lt; arr[k-1]: continue elif ele &gt;= arr[0]: arr = [ele] + arr[:-1] continue arr = self.insert(arr, ele) if len(arr) &gt; k: arr = arr[:k] return arr[k-1] def insert(self, arr, ele): if arr == []: return [ele] p1 = 0 p2 = len(arr)-1 while p2 &gt;= p1: temp = (p1 + p2) // 2 if ele &gt;= arr[temp]: p2 = temp - 1 else: p1 = temp + 1 # print(p1,p2,ele) return arr[:p1] + [ele] + arr[p1:] 1# use set]]></content>
@@ -154,18 +350,6 @@
         <tag>need reviewed</tag>
         <tag>binary search</tag>
         <tag>sort</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[[LeetCode] Challenge log 771]]></title>
-    <url>%2F2018%2F04%2F06%2FLeetCode-Challenge-log-771%2F</url>
-    <content type="text"><![CDATA[771. Jewels and Stoneshttps://leetcode.com/problems/jewels-and-stones/description/ Use hashing to achieve O(n+m). Use set as a dict without value to save space You’re given strings J representing the types of stones that are jewels, and S representing the stones you have. Each character in Sis a type of stone you have. You want to know how many of the stones you have are also jewels. The letters in J are guaranteed distinct, and all characters in J and S are letters. Letters are case sensitive, so &quot;a&quot; is considered a different type of stone from &quot;A&quot;. Example 1: 12Input: J = &quot;aA&quot;, S = &quot;aAAbbbb&quot;Output: 3 Example 2: 12Input: J = &quot;z&quot;, S = &quot;ZZ&quot;Output: 0 Note: S and J will consist of letters and have length at most 50. The characters in J are distinct. Soulution:Both O(1) 12345678910111213141516# use dictclass Solution: def numJewelsInStones(self, J, S): """ :type J: str :type S: str :rtype: int """ isJew = &#123;&#125; result = 0 for i in J: isJew[i] = 1 for i in S: if i in isJew: result += 1 return result 123456789# use setclass Solution: def numJewelsInStones(self, J, S): """ :type J: str :type S: str :rtype: int """ return sum([1 for s in S if s in set(J)])]]></content>
-      <tags>
-        <tag>code challenge</tag>
-        <tag>algorithm</tag>
-        <tag>leetcode</tag>
-        <tag>hash</tag>
-        <tag>set</tag>
       </tags>
   </entry>
   <entry>
