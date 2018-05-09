@@ -1,6 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[[LeetCode] Challenge log 784]]></title>
+    <url>%2F2018%2F05%2F08%2FLeetCode-Challenge-log-784%2F</url>
+    <content type="text"><![CDATA[784. Letter Case PermutationRecursive solution. Given a string S, we can transform every letter individually to be lowercase or uppercase to create another string. Return a list of all possible strings we could create. 123456789Examples:Input: S = &quot;a1b2&quot;Output: [&quot;a1b2&quot;, &quot;a1B2&quot;, &quot;A1b2&quot;, &quot;A1B2&quot;]Input: S = &quot;3z4&quot;Output: [&quot;3z4&quot;, &quot;3Z4&quot;]Input: S = &quot;12345&quot;Output: [&quot;12345&quot;] Note: S will be a string with length at most 12. S will consist only of letters or digits. Soulution:123456789101112class Solution: def letterCasePermutation(self, S): """ :type S: str :rtype: List[str] """ if S == '': return [''] rest = self.letterCasePermutation(S[1:]) if 65 &lt;= ord(S[0]) &lt;= 122: return [S[0].lower() + x for x in rest] + [S[0].upper() + x for x in rest] else: return [S[0] + x for x in rest]]]></content>
+      <tags>
+        <tag>code challenge</tag>
+        <tag>algorithm</tag>
+        <tag>leetcode</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[[LeetCode] Challenge log 762]]></title>
+    <url>%2F2018%2F04%2F30%2FLeetCode-Challenge-log-762%2F</url>
+    <content type="text"><![CDATA[762. Prime Number of Set Bits in Binary Representation Use info to calculate the poosible prime numbers . Traverse the list and see if the numbers have the desired number of ome bits. Given two integers L and R, find the count of numbers in the range [L, R] (inclusive) having a prime number of set bits in their binary representation. (Recall that the number of set bits an integer has is the number of 1s present when written in binary. For example, 21 written in binary is 10101 which has 3 set bits. Also, 1 is not a prime.) Example 1: 1234567Input: L = 6, R = 10Output: 4Explanation:6 -&gt; 110 (2 set bits, 2 is prime)7 -&gt; 111 (3 set bits, 3 is prime)9 -&gt; 1001 (2 set bits , 2 is prime)10-&gt;1010 (2 set bits , 2 is prime) Example 2: 123456789Input: L = 10, R = 15Output: 5Explanation:10 -&gt; 1010 (2 set bits, 2 is prime)11 -&gt; 1011 (3 set bits, 3 is prime)12 -&gt; 1100 (2 set bits, 2 is prime)13 -&gt; 1101 (3 set bits, 3 is prime)14 -&gt; 1110 (3 set bits, 3 is prime)15 -&gt; 1111 (4 set bits, 4 is not prime) Note: L, R will be integers L &lt;= R in the range [1, 10^6]. R - L will be at most 10000. Soulution:12345678910111213141516class Solution: def countPrimeSetBits(self, L, R): """ :type L: int :type R: int :rtype: int """ res = 0 prime = &#123;2, 3, 5, 7, 11, 13, 17, 19, 23&#125; for i in range(L, R + 1): if self.countOneBits(i) in prime: res +=1 return res def countOneBits(self, n): return bin(n).count('1')]]></content>
+      <tags>
+        <tag>code challenge</tag>
+        <tag>algorithm</tag>
+        <tag>leetcode</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[[LeetCode] Challenge log 485]]></title>
+    <url>%2F2018%2F04%2F29%2FLeetCode-Challenge-log-485%2F</url>
+    <content type="text"><![CDATA[485. Max Consecutive OnesSelf explained. Given a binary array, find the maximum number of consecutive 1s in this array. Example 1: 1234Input: [1,1,0,1,1,1]Output: 3Explanation: The first two digits or the last three digits are consecutive 1s. The maximum number of consecutive 1s is 3. Note: The input array will only contain 0 and 1. The length of input array is a positive integer and will not exceed 10,000 Soulution:1234567class Solution: def findMaxConsecutiveOnes(self, nums): """ :type nums: List[int] :rtype: int """ return max([len(x) for x in ''.join([str(y) for y in nums]).split('0')]) or more pythonic: 1234567class Solution: def findMaxConsecutiveOnes(self, nums): """ :type nums: List[int] :rtype: int """ return max([len(x) for x in ''.join([str(y) for y in nums]).split('0')])]]></content>
+      <tags>
+        <tag>code challenge</tag>
+        <tag>algorithm</tag>
+        <tag>leetcode</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[[LeetCode] Challenge log 292]]></title>
+    <url>%2F2018%2F04%2F29%2FLeetCode-Challenge-log-292%2F</url>
+    <content type="text"><![CDATA[292. Nim GameIf n % 4 == 0, no matter how you act, your rival can make sure the next time you choose you still have n % 4 == 0. You are playing the following Nim Game with your friend: There is a heap of stones on the table, each time one of you take turns to remove 1 to 3 stones. The one who removes the last stone will be the winner. You will take the first turn to remove the stones. Both of you are very clever and have optimal strategies for the game. Write a function to determine whether you can win the game given the number of stones in the heap. For example, if there are 4 stones in the heap, then you will never win the game: no matter 1, 2, or 3 stones you remove, the last stone will always be removed by your friend. Credits:Special thanks to @jianchao.li.fighter for adding this problem and creating all test cases. Soulution:12345678class Solution: def canWinNim(self, n): """ :type n: int :rtype: bool """ if n == 0: return None return n % 4 != 0]]></content>
+      <tags>
+        <tag>code challenge</tag>
+        <tag>algorithm</tag>
+        <tag>leetcode</tag>
+        <tag>IQ</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[[LeetCode] Challenge log 136]]></title>
+    <url>%2F2018%2F04%2F29%2FLeetCode-Challenge-log-136%2F</url>
+    <content type="text"><![CDATA[136. Single Number Use hash table to mark element that shows before. Use math, 2 * sum of all unique number - sum of all. Use a XOR 0 = a, a XOR a =0. Given a non-empty array of integers, every element appears twice except for one. Find that single one. Note: Your algorithm should have a linear runtime complexity. Could you implement it without using extra memory? Example 1: 12Input: [2,2,1]Output: 1 Example 2: 12Input: [4,1,2,1,2]Output: 4 Soulution:123456789101112131415# s1class Solution: def singleNumber(self, nums): """ :type nums: List[int] :rtype: int """ uni = set() while len(nums) &gt; 0: num = nums.pop() if num in uni: uni.remove(num) else: uni.add(num) return uni.pop() 12345678# s2class Solution: def singleNumber(self, nums): """ :type nums: List[int] :rtype: int """ return 2 * sum(set(nums)) - sum(nums) 12345678910# s3class Solution: def singleNumber(self, nums): """ :type nums: List[int] :rtype: int """ for i in range(1, len(nums)): nums[0] = nums[0] ^ nums[i] return nums[0]]]></content>
+      <tags>
+        <tag>code challenge</tag>
+        <tag>algorithm</tag>
+        <tag>leetcode</tag>
+        <tag>bit operation</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[[LeetCode] Challenge log 693]]></title>
     <url>%2F2018%2F04%2F29%2FLeetCode-Challenge-log-693%2F</url>
     <content type="text"><![CDATA[693. Binary Number with Alterntive Bitss1. n&lt;&lt;1 + n should be all 1s. s2. similar to s1 but more pythonic s3. check by bit Given a positive integer, check whether it has alternating bits: namely, if two adjacent bits will always have different values. Example 1: 1234Input: 5Output: TrueExplanation:The binary representation of 5 is: 101 Example 2: 1234Input: 7Output: FalseExplanation:The binary representation of 7 is: 111. Example 3: 1234Input: 11Output: FalseExplanation:The binary representation of 11 is: 1011. Example 4: 1234Input: 10Output: TrueExplanation:The binary representation of 10 is: 1010. Soulution:1234567891011class Solution: def hasAlternatingBits(self, n): """ :type n: int :rtype: bool """ res = True mask = 0 while mask &lt; n: mask = (mask &lt;&lt; 1) + 1 return (n &gt;&gt; 1) + n == mask 1234567class Solution: def hasAlternatingBits(self, n): """ :type n: int :rtype: bool """ return bin((n &gt;&gt; 1) + n).count('0') == 1 123456789101112131415class Solution: def hasAlternatingBits(self, n): """ :type n: int :rtype: bool """ res = [] while n &gt; 0: res.append(n % 2) n = n // 2 if len(res) &lt;= 1: return True for i in range(1, len(res)): if res[i] == res[i-1]: return False return True]]></content>
@@ -9,6 +61,29 @@
         <tag>algorithm</tag>
         <tag>leetcode</tag>
         <tag>bit operation</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[[LeetCode] Challenge log 104]]></title>
+    <url>%2F2018%2F04%2F29%2FLeetCode-Challenge-log-104%2F</url>
+    <content type="text"><![CDATA[104. Maximum Depth of Binary TreeRoot height = max(left height, right height) +1 Given a binary tree, find its maximum depth. The maximum depth is the number of nodes along the longest path from the root node down to the farthest leaf node. Note: A leaf is a node with no children. Example: Given binary tree [3,9,20,null,null,15,7], 12345 3 / \9 20 / \ 15 7 return its depth = 3. Soulution:12345678class Solution: def maxDepth(self, root): """ :type root: TreeNode :rtype: int """ if root is None: return 0 return 1 + max(self.maxDepth(root.left), self.maxDepth(root.right))]]></content>
+      <tags>
+        <tag>code challenge</tag>
+        <tag>algorithm</tag>
+        <tag>leetcode</tag>
+        <tag>binary tree</tag>
+        <tag>dfs</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[[LeetCode] Challenge log 226]]></title>
+    <url>%2F2018%2F04%2F29%2FLeetCode-Challenge-log-226%2F</url>
+    <content type="text"><![CDATA[226. Invert Binary TreeDFS will do. Invert a binary tree. 12345 4 / \ 2 7 / \ / \1 3 6 9 to 12345 4 / \ 7 2 / \ / \9 6 3 1 Trivia:This problem was inspired by this original tweet by Max Howell: Google: 90% of our engineers use the software you wrote (Homebrew), but you can’t invert a binary tree on a whiteboard so f*** off. Soulution:123456789101112class Solution: def invertTree(self, root): """ :type root: TreeNode :rtype: TreeNode """ if root is None: return None tmp1 = self.invertTree(root.left) tmp2 = self.invertTree(root.right) root.left = tmp2 root.right = tmp1 return root]]></content>
+      <tags>
+        <tag>code challenge</tag>
+        <tag>algorithm</tag>
+        <tag>leetcode</tag>
+        <tag>dfs</tag>
       </tags>
   </entry>
   <entry>
@@ -192,8 +267,8 @@
         <tag>code challenge</tag>
         <tag>algorithm</tag>
         <tag>leetcode</tag>
-        <tag>need reviewed</tag>
         <tag>sql</tag>
+        <tag>need reviewed</tag>
       </tags>
   </entry>
   <entry>
@@ -204,8 +279,8 @@
         <tag>code challenge</tag>
         <tag>algorithm</tag>
         <tag>leetcode</tag>
-        <tag>need reviewed</tag>
         <tag>sql</tag>
+        <tag>need reviewed</tag>
       </tags>
   </entry>
   <entry>
@@ -216,8 +291,8 @@
         <tag>code challenge</tag>
         <tag>algorithm</tag>
         <tag>leetcode</tag>
-        <tag>need reviewed</tag>
         <tag>sql</tag>
+        <tag>need reviewed</tag>
       </tags>
   </entry>
   <entry>
@@ -452,7 +527,7 @@
     <url>%2F2018%2F03%2F29%2FJava-Review-9%2F</url>
     <content type="text"></content>
       <tags>
-        <tag>-java</tag>
+        <tag>java</tag>
       </tags>
   </entry>
   <entry>
