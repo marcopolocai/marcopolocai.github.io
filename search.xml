@@ -1,6 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[[Gundam] MG ZZ (finished) 2]]></title>
+    <url>%2F2018%2F05%2F09%2FGundam-MG-ZZ-finished-2%2F</url>
+    <content type="text"><![CDATA[Total 2 months of assembling, painting, shooting and post-producing. Enjoy!]]></content>
+      <tags>
+        <tag>gundam</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[[Gundam] MG ZZ (finished)]]></title>
+    <url>%2F2018%2F05%2F09%2FGundam-MG-ZZ-finished%2F</url>
+    <content type="text"><![CDATA[]]></content>
+      <tags>
+        <tag>gundam</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[[LeetCode] Challenge log 784]]></title>
     <url>%2F2018%2F05%2F08%2FLeetCode-Challenge-log-784%2F</url>
     <content type="text"><![CDATA[784. Letter Case PermutationRecursive solution. Given a string S, we can transform every letter individually to be lowercase or uppercase to create another string. Return a list of all possible strings we could create. 123456789Examples:Input: S = &quot;a1b2&quot;Output: [&quot;a1b2&quot;, &quot;a1B2&quot;, &quot;A1b2&quot;, &quot;A1B2&quot;]Input: S = &quot;3z4&quot;Output: [&quot;3z4&quot;, &quot;3Z4&quot;]Input: S = &quot;12345&quot;Output: [&quot;12345&quot;] Note: S will be a string with length at most 12. S will consist only of letters or digits. Soulution:123456789101112class Solution: def letterCasePermutation(self, S): """ :type S: str :rtype: List[str] """ if S == '': return [''] rest = self.letterCasePermutation(S[1:]) if 65 &lt;= ord(S[0]) &lt;= 122: return [S[0].lower() + x for x in rest] + [S[0].upper() + x for x in rest] else: return [S[0] + x for x in rest]]]></content>
