@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[[Gundam] MG ZZ (finished) 2]]></title>
     <url>%2F2018%2F05%2F09%2FGundam-MG-ZZ-finished-2%2F</url>
-    <content type="text"><![CDATA[Total 2 months of assembling, painting, shooting and post-producing. Enjoy!]]></content>
+    <content type="text"><![CDATA[Total 2 months of assembling, painting, shooting and post-producing. Enjoy! I. MS mode II. MA mode]]></content>
       <tags>
         <tag>gundam</tag>
       </tags>
@@ -453,9 +453,9 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[[LeetCode] Challenge log 152]]></title>
-    <url>%2F2018%2F04%2F05%2FLeetCode-Challenge-log-152%2F</url>
-    <content type="text"><![CDATA[152. Maximum Product Subarrayhttps://leetcode.com/problems/maximum-product-subarray/description/ It is a DP problem. Similar to 53. Find the contiguous subarray within an array (containing at least one number) which has the largest sum. For example, given the array [-2,1,-3,4,-1,2,1,-5,4],the contiguous subarray [4,-1,2,1] has the largest sum = 6. Solution:DP thought: use two slot to cache the max and the min products of the subarray that ends with current pointer. at each position, each time there are three possible numbers to choose from: current number current number X max product of last position current number X min product of last position so take the min and max of the three options to be current minP and maxP of current postion 12345678910111213141516171819class Solution: def maxProduct(self, nums): """ :type nums: List[int] :rtype: int """ maxP = nums[0] minP = nums[0] p = 1 result = nums[0] while p &lt; len(nums): tmp1 = max(nums[p], nums[p] * maxP, nums[p] * minP) tmp2 = min(nums[p], nums[p] * maxP, nums[p] * minP) maxP = tmp1 minP = tmp2 print(nums[p], maxP, minP) result = max(result, maxP) p += 1 return result]]></content>
+    <title><![CDATA[[LeetCode] Challenge log 53]]></title>
+    <url>%2F2018%2F04%2F05%2FLeetCode-Challenge-log-53%2F</url>
+    <content type="text"><![CDATA[53. Maximium Subarrayhttps://leetcode.com/problems/maximum-subarray/description/ It is mainly a DP problem. Find the contiguous subarray within an array (containing at least one number) which has the largest sum. For example, given the array [-2,1,-3,4,-1,2,1,-5,4],the contiguous subarray [4,-1,2,1] has the largest sum = 6. Solution:DP thought: last represents the largest sum in the subarray that ends with current pointer. The key is last[p] = max(last[p-1], 0) + nums[p], meaning we only include last[p-1] if it is positive 12345678910111213class Solution: def maxSubArray(self, nums): """ :type nums: List[int] :rtype: int """ result = last = nums[0] p = 1 while p&lt;len(nums): last = nums[p] + max(last, 0) result = max(result, last) p += 1 return result]]></content>
       <tags>
         <tag>code challenge</tag>
         <tag>algorithm</tag>
@@ -465,9 +465,9 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[[LeetCode] Challenge log 53]]></title>
-    <url>%2F2018%2F04%2F05%2FLeetCode-Challenge-log-53%2F</url>
-    <content type="text"><![CDATA[53. Maximium Subarrayhttps://leetcode.com/problems/maximum-subarray/description/ It is mainly a DP problem. Find the contiguous subarray within an array (containing at least one number) which has the largest sum. For example, given the array [-2,1,-3,4,-1,2,1,-5,4],the contiguous subarray [4,-1,2,1] has the largest sum = 6. Solution:DP thought: last represents the largest sum in the subarray that ends with current pointer. The key is last[p] = max(last[p-1], 0) + nums[p], meaning we only include last[p-1] if it is positive 12345678910111213class Solution: def maxSubArray(self, nums): """ :type nums: List[int] :rtype: int """ result = last = nums[0] p = 1 while p&lt;len(nums): last = nums[p] + max(last, 0) result = max(result, last) p += 1 return result]]></content>
+    <title><![CDATA[[LeetCode] Challenge log 152]]></title>
+    <url>%2F2018%2F04%2F05%2FLeetCode-Challenge-log-152%2F</url>
+    <content type="text"><![CDATA[152. Maximum Product Subarrayhttps://leetcode.com/problems/maximum-product-subarray/description/ It is a DP problem. Similar to 53. Find the contiguous subarray within an array (containing at least one number) which has the largest sum. For example, given the array [-2,1,-3,4,-1,2,1,-5,4],the contiguous subarray [4,-1,2,1] has the largest sum = 6. Solution:DP thought: use two slot to cache the max and the min products of the subarray that ends with current pointer. at each position, each time there are three possible numbers to choose from: current number current number X max product of last position current number X min product of last position so take the min and max of the three options to be current minP and maxP of current postion 12345678910111213141516171819class Solution: def maxProduct(self, nums): """ :type nums: List[int] :rtype: int """ maxP = nums[0] minP = nums[0] p = 1 result = nums[0] while p &lt; len(nums): tmp1 = max(nums[p], nums[p] * maxP, nums[p] * minP) tmp2 = min(nums[p], nums[p] * maxP, nums[p] * minP) maxP = tmp1 minP = tmp2 print(nums[p], maxP, minP) result = max(result, maxP) p += 1 return result]]></content>
       <tags>
         <tag>code challenge</tag>
         <tag>algorithm</tag>
