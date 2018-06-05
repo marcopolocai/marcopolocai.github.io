@@ -1,6 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[[Gundam] Metal Build F91 MSV]]></title>
+    <url>%2F2018%2F06%2F05%2FGundam-Metal-Build-F91%20MSV%2F</url>
+    <content type="text"><![CDATA[]]></content>
+      <tags>
+        <tag>gundam</tag>
+        <tag>mb</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[[LeetCode] Challenge log 796]]></title>
+    <url>%2F2018%2F05%2F19%2FLeetCode-Challenge-log-796%2F</url>
+    <content type="text"><![CDATA[797. Rotate StringUse hash function to compare if B is a “rotate string” of A We are given two strings, A and B. A shift on A consists of taking string A and moving the leftmost character to the rightmost position. For example, if A = &#39;abcde&#39;, then it will be &#39;bcdea&#39; after one shift on A. Return True if and only if A can become B after some number of shifts on A. 1234567Example 1:Input: A = &apos;abcde&apos;, B = &apos;cdeab&apos;Output: trueExample 2:Input: A = &apos;abcde&apos;, B = &apos;abced&apos;Output: false Note: A and B will have length at most 100. Soulution:123456789101112131415161718class Solution: def rotateString(self, A, B): """ :type A: str :type B: str :rtype: bool """ if A == '' and B == '': return True A2 = A + A n = len(A) shift = set() for i in range(n): shift.add(A2[i:i + n]) if B in shift: return True else: shift.remove(A2[i:i + n]) return False]]></content>
+      <tags>
+        <tag>code challenge</tag>
+        <tag>algorithm</tag>
+        <tag>leetcode</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[[LeetCode] Challenge log 812]]></title>
+    <url>%2F2018%2F05%2F15%2FLeetCode-Challenge-log-812%2F</url>
+    <content type="text"><![CDATA[812. Largest Triangle AreaViolent full traverse solution. You have a list of points in the plane. Return the area of the largest triangle that can be formed by any 3 of the points. 12345Example:Input: points = [[0,0],[0,1],[1,0],[0,2],[2,0]]Output: 2Explanation: The five points are show in the figure below. The red triangle is the largest. Notes: 3 &lt;= points.length &lt;= 50. No points will be duplicated. -50 &lt;= points[i][j] &lt;= 50. Answers within 10^-6 of the true value will be accepted as correct. Soulution:123456789101112131415161718class Solution: def largestTriangleArea(self, points): """ :type points: List[List[int]] :rtype: float """ res = 0 n = len(points) def area(p, q, r): return .5 * abs(p[0]*q[1]+q[0]*r[1]+r[0]*p[1] -p[1]*q[0]-q[1]*r[0]-r[1]*p[0]) for i in range(n): for j in range(i+1, n): for k in range(j+1 , n): res = max(res, area(points[i], points[j], points[k])) return res]]></content>
+      <tags>
+        <tag>code challenge</tag>
+        <tag>algorithm</tag>
+        <tag>leetcode</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[[Gundam] MG ZZ (finished) 2]]></title>
     <url>%2F2018%2F05%2F09%2FGundam-MG-ZZ-finished-2%2F</url>
     <content type="text"><![CDATA[Total 2 months of assembling, painting, shooting and post-producing. Enjoy! I. MS mode II. MA mode]]></content>
@@ -419,6 +448,18 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[[LeetCode] Challenge log 771]]></title>
+    <url>%2F2018%2F04%2F06%2FLeetCode-Challenge-log-771%2F</url>
+    <content type="text"><![CDATA[771. Jewels and Stoneshttps://leetcode.com/problems/jewels-and-stones/description/ Use hashing to achieve O(n+m). Use set as a dict without value to save space You’re given strings J representing the types of stones that are jewels, and S representing the stones you have. Each character in Sis a type of stone you have. You want to know how many of the stones you have are also jewels. The letters in J are guaranteed distinct, and all characters in J and S are letters. Letters are case sensitive, so &quot;a&quot; is considered a different type of stone from &quot;A&quot;. Example 1: 12Input: J = &quot;aA&quot;, S = &quot;aAAbbbb&quot;Output: 3 Example 2: 12Input: J = &quot;z&quot;, S = &quot;ZZ&quot;Output: 0 Note: S and J will consist of letters and have length at most 50. The characters in J are distinct. Soulution:Both O(1) 12345678910111213141516# use dictclass Solution: def numJewelsInStones(self, J, S): """ :type J: str :type S: str :rtype: int """ isJew = &#123;&#125; result = 0 for i in J: isJew[i] = 1 for i in S: if i in isJew: result += 1 return result 123456789# use setclass Solution: def numJewelsInStones(self, J, S): """ :type J: str :type S: str :rtype: int """ return sum([1 for s in S if s in set(J)])]]></content>
+      <tags>
+        <tag>code challenge</tag>
+        <tag>algorithm</tag>
+        <tag>leetcode</tag>
+        <tag>hash</tag>
+        <tag>set</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[[LeetCode] Challenge log 215]]></title>
     <url>%2F2018%2F04%2F06%2FLeetCode-Challenge-log-215%2F</url>
     <content type="text"><![CDATA[215. Kth Largest Element in an Arrayhttps://leetcode.com/problems/kth-largest-element-in-an-array/description/ Use len(k)-array to save the largest k elements Through binary search insertion to keep the array sorted. Find the kth largest element in an unsorted array. Note that it is the kth largest element in the sorted order, not the kth distinct element. For example,Given [3,2,1,5,6,4] and k = 2, return 5. Note: You may assume k is always valid, 1 ≤ k ≤ array’s length. Credits:Special thanks to @mithmatt for adding this problem and creating all test cases. Soulution:123456789101112131415161718192021222324252627282930313233# binary search insertionclass Solution: def findKthLargest(self, nums, k): """ :type nums: List[int] :type k: int :rtype: int """ if len(nums) == 1: return nums[0] arr = [] for ele in nums: if len(arr) == k: if ele &lt; arr[k-1]: continue elif ele &gt;= arr[0]: arr = [ele] + arr[:-1] continue arr = self.insert(arr, ele) if len(arr) &gt; k: arr = arr[:k] return arr[k-1] def insert(self, arr, ele): if arr == []: return [ele] p1 = 0 p2 = len(arr)-1 while p2 &gt;= p1: temp = (p1 + p2) // 2 if ele &gt;= arr[temp]: p2 = temp - 1 else: p1 = temp + 1 # print(p1,p2,ele) return arr[:p1] + [ele] + arr[p1:] 1# use set]]></content>
@@ -429,18 +470,6 @@
         <tag>need reviewed</tag>
         <tag>binary search</tag>
         <tag>sort</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[[LeetCode] Challenge log 771]]></title>
-    <url>%2F2018%2F04%2F06%2FLeetCode-Challenge-log-771%2F</url>
-    <content type="text"><![CDATA[771. Jewels and Stoneshttps://leetcode.com/problems/jewels-and-stones/description/ Use hashing to achieve O(n+m). Use set as a dict without value to save space You’re given strings J representing the types of stones that are jewels, and S representing the stones you have. Each character in Sis a type of stone you have. You want to know how many of the stones you have are also jewels. The letters in J are guaranteed distinct, and all characters in J and S are letters. Letters are case sensitive, so &quot;a&quot; is considered a different type of stone from &quot;A&quot;. Example 1: 12Input: J = &quot;aA&quot;, S = &quot;aAAbbbb&quot;Output: 3 Example 2: 12Input: J = &quot;z&quot;, S = &quot;ZZ&quot;Output: 0 Note: S and J will consist of letters and have length at most 50. The characters in J are distinct. Soulution:Both O(1) 12345678910111213141516# use dictclass Solution: def numJewelsInStones(self, J, S): """ :type J: str :type S: str :rtype: int """ isJew = &#123;&#125; result = 0 for i in J: isJew[i] = 1 for i in S: if i in isJew: result += 1 return result 123456789# use setclass Solution: def numJewelsInStones(self, J, S): """ :type J: str :type S: str :rtype: int """ return sum([1 for s in S if s in set(J)])]]></content>
-      <tags>
-        <tag>code challenge</tag>
-        <tag>algorithm</tag>
-        <tag>leetcode</tag>
-        <tag>hash</tag>
-        <tag>set</tag>
       </tags>
   </entry>
   <entry>
