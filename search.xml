@@ -10,6 +10,27 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[[LeetCode] Challenge log 258]]></title>
+    <url>%2F2018%2F05%2F29%2FLeetCode-Challenge-log-258%2F</url>
+    <content type="text"><![CDATA[258. Add DigitsO(1) soulution: 12345 % 9 = (1+2+3+4+5) % 9. Based on a*10^k % 9 = a % 9. Given a non-negative integer num, repeatedly add all its digits until the result has only one digit. Example: 1234Input: 38Output: 2 Explanation: The process is like: 3 + 8 = 11, 1 + 1 = 2. Since 2 has only one digit, return it. Follow up:Could you do it without any loop/recursion in O(1) runtime? Soulution:123456789class Solution: def addDigits(self, num): """ :type num: int :rtype: int """ if num == 0: return 0 elif num % 9 == 0: return 9 else: return num % 9]]></content>
+      <tags>
+        <tag>code challenge</tag>
+        <tag>algorithm</tag>
+        <tag>leetcode</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[[LeetCode] Challenge log 695]]></title>
+    <url>%2F2018%2F05%2F21%2FLeetCode-Challenge-log-695%2F</url>
+    <content type="text"><![CDATA[695. Max Area of IslandRecursive solution. Remember to check the seen slot. Given a non-empty 2D array grid of 0’s and 1’s, an island is a group of 1‘s (representing land) connected 4-directionally (horizontal or vertical.) You may assume all four edges of the grid are surrounded by water. Find the maximum area of an island in the given 2D array. (If there is no island, the maximum area is 0.) Example 1: 12345678[[0,0,1,0,0,0,0,1,0,0,0,0,0], [0,0,0,0,0,0,0,1,1,1,0,0,0], [0,1,1,0,1,0,0,0,0,0,0,0,0], [0,1,0,0,1,1,0,0,1,0,1,0,0], [0,1,0,0,1,1,0,0,1,1,1,0,0], [0,0,0,0,0,0,0,0,0,0,1,0,0], [0,0,0,0,0,0,0,1,1,1,0,0,0], [0,0,0,0,0,0,0,1,1,0,0,0,0]] Given the above grid, return 16 Note the answer is not 11, because the island must be connected 4-directionally. Example 2: 1[[0,0,0,0,0,0,0,0]] Given the above grid, return 10 Note: The length of each dimension in the given grid does not exceed 50. Soulution:123456789101112131415161718192021222324252627class Solution: def maxAreaOfIsland(self, grid): """ :type grid: List[List[int]] :rtype: int """ nrow = len(grid) ncol = len(grid[0]) def countArea(x, y): grid[x][y] = 0 cur = 1 if x + 1 &lt; nrow and grid[x + 1][y] == 1: cur += countArea(x + 1, y) if x - 1 &gt;= 0 and grid[x - 1][y] == 1: cur += countArea(x - 1, y) if y + 1 &lt; ncol and grid[x][y + 1] == 1: cur += countArea(x, y + 1) if y - 1 &gt;= 0 and grid[x][y - 1] == 1: cur += countArea(x, y - 1) return cur res = 0 for i in range(nrow): for j in range(ncol): if grid[i][j] == 1: res = max(res, countArea(i,j)) return res]]></content>
+      <tags>
+        <tag>code challenge</tag>
+        <tag>algorithm</tag>
+        <tag>leetcode</tag>
+        <tag>dis</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[[LeetCode] Challenge log 796]]></title>
     <url>%2F2018%2F05%2F19%2FLeetCode-Challenge-log-796%2F</url>
     <content type="text"><![CDATA[797. Rotate StringUse hash function to compare if B is a “rotate string” of A We are given two strings, A and B. A shift on A consists of taking string A and moving the leftmost character to the rightmost position. For example, if A = &#39;abcde&#39;, then it will be &#39;bcdea&#39; after one shift on A. Return True if and only if A can become B after some number of shifts on A. 1234567Example 1:Input: A = &apos;abcde&apos;, B = &apos;cdeab&apos;Output: trueExample 2:Input: A = &apos;abcde&apos;, B = &apos;abced&apos;Output: false Note: A and B will have length at most 100. Soulution:123456789101112131415161718class Solution: def rotateString(self, A, B): """ :type A: str :type B: str :rtype: bool """ if A == '' and B == '': return True A2 = A + A n = len(A) shift = set() for i in range(n): shift.add(A2[i:i + n]) if B in shift: return True else: shift.remove(A2[i:i + n]) return False]]></content>
