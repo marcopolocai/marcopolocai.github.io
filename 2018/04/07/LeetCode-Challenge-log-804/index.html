@@ -20,9 +20,6 @@
 
 
 
-
-
-
 <meta http-equiv="Cache-Control" content="no-transform" />
 <meta http-equiv="Cache-Control" content="no-siteapp" />
 
@@ -109,40 +106,15 @@
 
 
 
-
-
-
-
-<script type="text/javascript" id="hexo.configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Gemini',
-    version: '6.0.5',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
-    fancybox: true,
-    fastclick: false,
-    lazyload: false,
-    tabs: true,
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    algolia: {
-      applicationID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    }
-  };
-</script>
-
-
-  
-
-
-
-
-  
   <meta name="keywords" content="code challenge,algorithm,leetcode,hash," />
+
+
+
+
+
+
+
+
 
 
 <meta name="description" content="804. Unique Morse Code Wordshttps://leetcode.com/problems/unique-morse-code-words/description/  Use set to maintain unique words. String is hashable.">
@@ -160,6 +132,29 @@
 
 
 
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.0.5',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: 'undefined',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
 
 
 
@@ -167,11 +162,8 @@
 
 
 
-<script type="text/javascript" id="page.configurations">
-  CONFIG.page = {
-    sidebar: "",
-  };
-</script>
+
+
   <title>[LeetCode] Challenge log 804 | The Travels of Marco Cai</title>
   
 
@@ -181,34 +173,6 @@
 
 
 
-
-
-  <noscript>
-  <style type="text/css">
-    .use-motion .motion-element,
-    .use-motion .brand,
-    .use-motion .menu-item,
-    .sidebar-inner,
-    .use-motion .post-block,
-    .use-motion .pagination,
-    .use-motion .comments,
-    .use-motion .post-header,
-    .use-motion .post-body,
-    .use-motion .collection-title { opacity: initial; }
-
-    .use-motion .logo,
-    .use-motion .site-title,
-    .use-motion .site-subtitle {
-      opacity: initial;
-      top: initial;
-    }
-
-    .use-motion {
-      .logo-line-before i { left: initial; }
-      .logo-line-after i { right: initial; }
-    }
-  </style>
-</noscript>
 
 </head>
 
@@ -223,7 +187,7 @@
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"> <div class="site-brand-wrapper">
+      <div class="header-inner"><div class="site-brand-wrapper">
   <div class="site-meta ">
     
 
@@ -257,19 +221,25 @@
         
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
-            Home</a>
+            
+            Home
+          </a>
         </li>
       
         
         <li class="menu-item menu-item-about">
           <a href="/about/" rel="section">
-            About</a>
+            
+            About
+          </a>
         </li>
       
         
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
-            Archives</a>
+            
+            Archives
+          </a>
         </li>
       
 
@@ -278,7 +248,9 @@
           
             <a href="javascript:;" class="popup-trigger">
           
-            Search</a>
+            
+            Search
+          </a>
         </li>
       
     </ul>
@@ -311,15 +283,9 @@
 </nav>
 
 
-  
-
-
 
  </div>
     </header>
-
-    
-
 
     <main id="main" class="main">
       <div class="main-inner">
@@ -334,8 +300,6 @@
 
   
   
-  
-
   
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
@@ -372,10 +336,11 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-07T11:37:02-07:00">2018-04-07</time>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-07T11:37:02-07:00">
+                2018-04-07
+              </time>
             
 
-            
             
 
             
@@ -431,9 +396,6 @@
 
       
     </div>
-
-    
-
     
     
     
@@ -446,13 +408,17 @@
       <div>
         <ul class="post-copyright">
   <li class="post-copyright-author">
-    <strong>Post author: </strong>Mingxiang Cai</li>
+    <strong>Post author:</strong>
+    Mingxiang Cai
+  </li>
   <li class="post-copyright-link">
     <strong>Post link:</strong>
     <a href="https://marcopolocai.github.io/2018/04/07/LeetCode-Challenge-log-804/" title="[LeetCode] Challenge log 804">https://marcopolocai.github.io/2018/04/07/LeetCode-Challenge-log-804/</a>
   </li>
   <li class="post-copyright-license">
-    <strong>Copyright Notice: </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> unless stating additionally.</li>
+    <strong>Copyright Notice: </strong>
+    All articles in this blog are licensed under <a href="" rel="external nofollow" target="_blank"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a></a> unless stating additionally.
+  </li>
 </ul>
 
       </div>
@@ -481,8 +447,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/04/06/LeetCode-Challenge-log-215/" rel="next" title="[LeetCode] Challenge log 215">
-                <i class="fa fa-chevron-left"></i> [LeetCode] Challenge log 215
+              <a href="/2018/04/06/LeetCode-Challenge-log-771/" rel="next" title="[LeetCode] Challenge log 771">
+                <i class="fa fa-chevron-left"></i> [LeetCode] Challenge log 771
               </a>
             
           </div>
@@ -517,6 +483,9 @@
 
 
           </div>
+          
+
+
           
 
   
@@ -564,127 +533,63 @@
               <p class="site-description motion-element" itemprop="description">A learner, a hobbyist.</p>
           </div>
 
-          
-            <nav class="site-state motion-element">
-              
-                <div class="site-state-item site-state-posts">
-                
-                  <a href="/archives/">
-                
-                    <span class="site-state-item-count">78</span>
-                    <span class="site-state-item-name">posts</span>
-                  </a>
-                </div>
-              
+          <nav class="site-state motion-element">
 
+            
+              <div class="site-state-item site-state-posts">
               
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">78</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
 
+            
+
+            
               
-                
-                
-                <div class="site-state-item site-state-tags">
-                  <a href="/tags/index.html">
-                    
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">33</span>
-                    <span class="site-state-item-name">tags</span>
-                  </a>
-                </div>
               
-            </nav>
-          
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">33</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
 
           
 
           
             <div class="links-of-author motion-element">
-              
-                <span class="links-of-author-item">
-                  <a href="https://github.com/marcopolocai" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i></a>
-                  
-                </span>
-              
-                <span class="links-of-author-item">
-                  <a href="mailto:mcai@eng.ucsd.edu" target="_blank" title="E-Mail"><i class="fa fa-fw fa-envelope"></i></a>
-                  
-                </span>
-              
-                <span class="links-of-author-item">
-                  <a href="https://www.linkedin.com/in/mingxiang-cai-a74434151/" target="_blank" title="LinkedIn"><i class="fa fa-fw fa-linkedin"></i></a>
-                  
-                </span>
-              
-                <span class="links-of-author-item">
-                  <a href="https://www.instagram.com/marco_cai/" target="_blank" title="Instagram"><i class="fa fa-fw fa-instagram"></i></a>
-                  
-                </span>
-              
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/marcopolocai" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i></a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:mcai@eng.ucsd.edu" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i></a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.linkedin.com/in/mingxiang-cai-a74434151/" target="_blank" title="LinkedIn">
+                      
+                        <i class="fa fa-fw fa-linkedin"></i></a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.instagram.com/marco_cai/" target="_blank" title="Instagram">
+                      
+                        <i class="fa fa-fw fa-instagram"></i></a>
+                  </span>
+                
             </div>
           
 
@@ -694,9 +599,6 @@
           
           
 
-          
-            
-          
           
 
         </div>
@@ -739,8 +641,6 @@
   <span class="author" itemprop="copyrightHolder">Mingxiang Cai</span>
 
   
-
-  
 </div>
 
 
@@ -751,10 +651,7 @@
 
 
 
-
-
         
-
 
 
 
@@ -795,13 +692,7 @@
 
 
 
-
-
-
   
-
-
-
 
 
 
@@ -817,6 +708,16 @@
   
   
     <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
   
 
   
@@ -870,6 +771,10 @@
   
 
 
+  
+
+
+
 
 	
 
@@ -884,6 +789,8 @@
 
 
   
+
+
 
 
 
@@ -945,8 +852,6 @@
         .css('overflow', 'hidden');
       $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
 
-      
-
       $.ajax({
         url: path,
         dataType: isXml ? "xml" : "json",
@@ -980,7 +885,6 @@
                 var title = data.title.trim();
                 var titleInLowerCase = title.toLowerCase();
                 var content = data.content.trim().replace(/<[^>]+>/g,"");
-                
                 var contentInLowerCase = content.toLowerCase();
                 var articleUrl = decodeURIComponent(data.url);
                 var indexOfTitle = [];
@@ -1227,10 +1131,6 @@
   
 
   
-
-  
-  
-
   
 
   
