@@ -50,6 +50,48 @@
 
 
 
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Roboto Condensed:300,300italic,400,400italic,700,700italic|Roboto:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
 
 
 
@@ -61,16 +103,16 @@
 <link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css" />
 
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico?v=6.3.0">
 
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.3.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=6.3.0">
 
 
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.3.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=6.3.0">
 
 
-  <link rel="mask-icon" href="/images/logo.svg?v=6.3.0" color="#222">
+  <link rel="mask-icon" href="/images/favicon.ico?v=6.3.0" color="#222">
 
 
 
@@ -86,8 +128,8 @@
     root: '/',
     scheme: 'Gemini',
     version: '6.3.0',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
-    fancybox: false,
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
     fastclick: false,
     lazyload: false,
     tabs: true,
@@ -227,6 +269,22 @@
         
         
           
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />About</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />Tags</a>
+  </li>
+        
+        
+        
+          
           <li class="menu-item menu-item-archives">
     <a href="/archives/" rel="section">
       <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives</a>
@@ -234,11 +292,42 @@
 
       
       
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />Search</a>
+        </li>
+      
     </ul>
   
 
   
 
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="Searching..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
   
 </nav>
 
@@ -285,7 +374,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Mingxiang Cai">
       <meta itemprop="description" content="A learner, a hobbyist.">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="https://farm2.staticflickr.com/1731/40843005530_cbe70fa0da.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -352,6 +441,18 @@
 
           
             
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/03/28/LeetCode-Challenge-log-1/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/03/28/LeetCode-Challenge-log-1/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -380,7 +481,7 @@
           <h5 id="1-Two-Sum"><a href="#1-Two-Sum" class="headerlink" title="1. Two Sum"></a>1. Two Sum</h5><p><a href="https://leetcode.com/problems/two-sum/description/" target="_blank" rel="noopener">https://leetcode.com/problems/two-sum/description/</a></p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/03/28/LeetCode-Challenge-log-1/#more" rel="contents">
+            <a class="btn" href="/2018/03/28/LeetCode-Challenge-log-1/" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -441,7 +542,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Mingxiang Cai">
       <meta itemprop="description" content="A learner, a hobbyist.">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="https://farm2.staticflickr.com/1731/40843005530_cbe70fa0da.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -507,6 +608,18 @@
           
 
           
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/03/27/Java-Review-7/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/03/27/Java-Review-7/" itemprop="commentCount"></span>
+                </a>
+              </span>
             
           
 
@@ -581,7 +694,7 @@
 </ul>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/03/27/Java-Review-7/#more" rel="contents">
+            <a class="btn" href="/2018/03/27/Java-Review-7/" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -642,7 +755,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Mingxiang Cai">
       <meta itemprop="description" content="A learner, a hobbyist.">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="https://farm2.staticflickr.com/1731/40843005530_cbe70fa0da.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -697,6 +810,18 @@
 
           
             
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/03/22/Java-Review-6/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/03/22/Java-Review-6/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -726,7 +851,7 @@
 <p><code>package</code> &amp; <code>import</code> are used to resolve repeated class names.</p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/03/22/Java-Review-6/#more" rel="contents">
+            <a class="btn" href="/2018/03/22/Java-Review-6/" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -787,7 +912,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Mingxiang Cai">
       <meta itemprop="description" content="A learner, a hobbyist.">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="https://farm2.staticflickr.com/1731/40843005530_cbe70fa0da.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -842,6 +967,18 @@
 
           
             
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/03/21/Gundam-MG-ZZ-processing/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/03/21/Gundam-MG-ZZ-processing/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -871,7 +1008,7 @@
 <p><a data-flickr-embed="true" href="https://www.flickr.com/photos/95862377@N08/albums/72157693995481194" title="[gundam] mg ZZ Process" target="_blank" rel="noopener"><img src="https://farm1.staticflickr.com/807/39135447700_347aabb7e2_z.jpg" width="640" height="362" alt="[gundam] mg ZZ Process"></a><script async src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script></p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/03/21/Gundam-MG-ZZ-processing/#more" rel="contents">
+            <a class="btn" href="/2018/03/21/Gundam-MG-ZZ-processing/" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -932,7 +1069,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Mingxiang Cai">
       <meta itemprop="description" content="A learner, a hobbyist.">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="https://farm2.staticflickr.com/1731/40843005530_cbe70fa0da.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -999,6 +1136,18 @@
 
           
             
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/03/16/Java-Review-5/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/03/16/Java-Review-5/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -1028,7 +1177,7 @@
 <p><a data-flickr-embed="true" href="https://www.flickr.com/photos/95862377@N08/40067829305/in/dateposted-public/" title="this" target="_blank" rel="noopener"><img src="https://farm1.staticflickr.com/803/40067829305_a3e7492501_c.jpg" width="800" height="450" alt="this"></a><script async src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script></p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/03/16/Java-Review-5/#more" rel="contents">
+            <a class="btn" href="/2018/03/16/Java-Review-5/" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -1089,7 +1238,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Mingxiang Cai">
       <meta itemprop="description" content="A learner, a hobbyist.">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="https://farm2.staticflickr.com/1731/40843005530_cbe70fa0da.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -1156,6 +1305,18 @@
 
           
             
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/03/16/Java-Review-4/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/03/16/Java-Review-4/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -1185,7 +1346,7 @@
 <h5 id="Step-by-step-ram-analysis"><a href="#Step-by-step-ram-analysis" class="headerlink" title="Step by step ram analysis"></a>Step by step ram analysis</h5><p><a data-flickr-embed="true" href="https://www.flickr.com/photos/95862377@N08/albums/72157691499163892" title="blog ram analysis" target="_blank" rel="noopener"><img src="https://farm1.staticflickr.com/814/25977647857_50267023c5.jpg" width="500" height="375" alt="blog ram analysis"></a><script async src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script></p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/03/16/Java-Review-4/#more" rel="contents">
+            <a class="btn" href="/2018/03/16/Java-Review-4/" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -1246,7 +1407,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Mingxiang Cai">
       <meta itemprop="description" content="A learner, a hobbyist.">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="https://farm2.staticflickr.com/1731/40843005530_cbe70fa0da.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -1301,6 +1462,18 @@
 
           
             
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/03/16/Notes-Parameters-Parsing/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/03/16/Notes-Parameters-Parsing/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -1330,7 +1503,7 @@
 <p><img src="https://farm1.staticflickr.com/804/25958379727_dd55c5a1bd_o.jpg" width="1457" height="945" alt="無標題"></p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/03/16/Notes-Parameters-Parsing/#more" rel="contents">
+            <a class="btn" href="/2018/03/16/Notes-Parameters-Parsing/" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -1391,7 +1564,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Mingxiang Cai">
       <meta itemprop="description" content="A learner, a hobbyist.">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="https://farm2.staticflickr.com/1731/40843005530_cbe70fa0da.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -1458,6 +1631,18 @@
 
           
             
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/03/15/Java-Review-3/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/03/15/Java-Review-3/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -1487,7 +1672,7 @@
 <h5 id=""><a href="#" class="headerlink" title=""></a>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/03/15/Java-Review-3/#more" rel="contents">
+            <a class="btn" href="/2018/03/15/Java-Review-3/" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -1548,7 +1733,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Mingxiang Cai">
       <meta itemprop="description" content="A learner, a hobbyist.">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="https://farm2.staticflickr.com/1731/40843005530_cbe70fa0da.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -1603,6 +1788,18 @@
 
           
             
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/03/15/Java-Review-2/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/03/15/Java-Review-2/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -1631,7 +1828,7 @@
           <div class="note default"><p>The  following notes are based on the book: &lt;&lt; Head First JAVA &gt;&gt; and video series: <a href="https://www.youtube.com/playlist?list=PL3rfV4zNE8CDOkk6xcm1AGDbxwnnVDBfs" target="_blank" rel="noopener">手把手教你用Java基础教程 - 北京尚学堂 - 马士兵</a></p></div>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/03/15/Java-Review-2/#more" rel="contents">
+            <a class="btn" href="/2018/03/15/Java-Review-2/" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -1692,7 +1889,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Mingxiang Cai">
       <meta itemprop="description" content="A learner, a hobbyist.">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="https://farm2.staticflickr.com/1731/40843005530_cbe70fa0da.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -1759,6 +1956,18 @@
 
           
             
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/03/14/Notes-Unicode/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/03/14/Notes-Unicode/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -1790,7 +1999,7 @@
 </blockquote>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/03/14/Notes-Unicode/#more" rel="contents">
+            <a class="btn" href="/2018/03/14/Notes-Unicode/" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -1866,6 +2075,10 @@
       <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="https://farm2.staticflickr.com/1731/40843005530_cbe70fa0da.jpg"
+                alt="Mingxiang Cai" />
             
               <p class="site-author-name" itemprop="name">Mingxiang Cai</p>
               <p class="site-description motion-element" itemprop="description">A learner, a hobbyist.</p>
@@ -2013,15 +2226,9 @@
 
 
 
-  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.6.0</div>
 
 
 
-  <span class="post-meta-divider">|</span>
-
-
-
-  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Gemini</a> v6.3.0</div>
 
 
 
@@ -2042,6 +2249,8 @@
     
       <div class="back-to-top">
         <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
         
       </div>
     
@@ -2068,6 +2277,8 @@
 
 
 
+
+  
 
 
 
@@ -2096,6 +2307,11 @@
   
   
     <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
   
 
 
@@ -2129,6 +2345,14 @@
 
   
 
+  
+    <script id="dsq-count-scr" src="https://marcopolo-1.disqus.com/count.js" async></script>
+  
+
+  
+
+
+
 
 
 	
@@ -2143,10 +2367,6 @@
 
 
 
-  
-
-
-
 
 
 
@@ -2156,6 +2376,326 @@
 
   
 
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
 
 
 
@@ -2165,6 +2705,21 @@
   
 
   
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
 
   
 
@@ -2174,6 +2729,9 @@
   
 
   
+  <script type="text/javascript" src="/js/src/js.cookie.js?v=6.3.0"></script>
+  <script type="text/javascript" src="/js/src/scroll-cookie.js?v=6.3.0"></script>
+
 
   
 
