@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[[LeetCode] Challenge log 788]]></title>
+    <url>%2F2018%2F06%2F10%2FLeetCode-Challenge-log-788%2F</url>
+    <content type="text"><![CDATA[788. Rotated DigitsIt is a logic problem. My solution is: If it contains 3 4 7, it is invalid. If it contains only 0 1 8, it is valid but not different. The rest cases are passed. X is a good number if after rotating each digit individually by 180 degrees, we get a valid number that is different from X. Each digit must be rotated - we cannot choose to leave it alone. A number is valid if each digit remains a digit after rotation. 0, 1, and 8 rotate to themselves; 2 and 5 rotate to each other; 6 and 9 rotate to each other, and the rest of the numbers do not rotate to any other number and become invalid. Now given a positive number N, how many numbers X from 1 to N are good? 123456Example:Input: 10Output: 4Explanation: There are four good numbers in the range [1, 10] : 2, 5, 6, 9.Note that 1 and 10 are not good numbers, since they remain unchanged after rotating. Note: N will be in range [1, 10000]. Soulution:12345678910111213141516class Solution: def rotatedDigits(self, N): """ :type N: int :rtype: int """ res = 0 for i in range(1, N+1): num = set(str(i)) if len(num &amp; &#123;'3', '4', '7'&#125;) &gt; 0: continue elif num &amp; &#123;'0', '1', '8'&#125; == num: continue else: res += 1 return res]]></content>
+      <tags>
+        <tag>code challenge</tag>
+        <tag>algorithm</tag>
+        <tag>leetcode</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[[LeetCode] Challenge log 448]]></title>
     <url>%2F2018%2F06%2F08%2FLeetCode-Challenge-log-448%2F</url>
     <content type="text"><![CDATA[448. Find All Numbers Disappeared in an ArrayThe quick and dirty solution is to use set/hashmap again. The other satisfied solution is using the sign of a number(+/-) to mark whether it shows up before, without extra space. Whoever came up with this really knows how to unitilize space… Given an array of integers where 1 ≤ a[i] ≤ n (n = size of array), some elements appear twice and others appear once. Find all the elements of [1, n] inclusive that do not appear in this array. Could you do it without extra space and in O(n) runtime? You may assume the returned list does not count as extra space. Example: 12345Input:[4,3,2,7,8,2,3,1]Output:[5,6] Soulution:1234567891011class Solution: def findDisappearedNumbers(self, nums): """ :type nums: List[int] :rtype: List[int] """ n = len(nums) for i in range(n): index = abs(nums[i])-1 nums[index] = -abs(nums[index]) return [x for x in range(1, n+1) if nums[x-1]&gt;0] 12345678910111213class Solution: def findDisappearedNumbers(self, nums): """ :type nums: List[int] :rtype: List[int] """ n = len(nums) nums = set(nums) res = [] for i in range(1, n + 1): if i not in nums: res.append(i) return res]]></content>
@@ -531,6 +541,18 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[[LeetCode] Challenge log 771]]></title>
+    <url>%2F2018%2F04%2F06%2FLeetCode-Challenge-log-771%2F</url>
+    <content type="text"><![CDATA[771. Jewels and Stoneshttps://leetcode.com/problems/jewels-and-stones/description/ Use hashing to achieve O(n+m). Use set as a dict without value to save space You’re given strings J representing the types of stones that are jewels, and S representing the stones you have. Each character in Sis a type of stone you have. You want to know how many of the stones you have are also jewels. The letters in J are guaranteed distinct, and all characters in J and S are letters. Letters are case sensitive, so &quot;a&quot; is considered a different type of stone from &quot;A&quot;. Example 1: 12Input: J = &quot;aA&quot;, S = &quot;aAAbbbb&quot;Output: 3 Example 2: 12Input: J = &quot;z&quot;, S = &quot;ZZ&quot;Output: 0 Note: S and J will consist of letters and have length at most 50. The characters in J are distinct. Soulution:Both O(1) 12345678910111213141516# use dictclass Solution: def numJewelsInStones(self, J, S): """ :type J: str :type S: str :rtype: int """ isJew = &#123;&#125; result = 0 for i in J: isJew[i] = 1 for i in S: if i in isJew: result += 1 return result 123456789# use setclass Solution: def numJewelsInStones(self, J, S): """ :type J: str :type S: str :rtype: int """ return sum([1 for s in S if s in set(J)])]]></content>
+      <tags>
+        <tag>code challenge</tag>
+        <tag>algorithm</tag>
+        <tag>leetcode</tag>
+        <tag>hash</tag>
+        <tag>set</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[[LeetCode] Challenge log 215]]></title>
     <url>%2F2018%2F04%2F06%2FLeetCode-Challenge-log-215%2F</url>
     <content type="text"><![CDATA[215. Kth Largest Element in an Arrayhttps://leetcode.com/problems/kth-largest-element-in-an-array/description/ Use len(k)-array to save the largest k elements Through binary search insertion to keep the array sorted. Find the kth largest element in an unsorted array. Note that it is the kth largest element in the sorted order, not the kth distinct element. For example,Given [3,2,1,5,6,4] and k = 2, return 5. Note: You may assume k is always valid, 1 ≤ k ≤ array’s length. Credits:Special thanks to @mithmatt for adding this problem and creating all test cases. Soulution:123456789101112131415161718192021222324252627282930313233# binary search insertionclass Solution: def findKthLargest(self, nums, k): """ :type nums: List[int] :type k: int :rtype: int """ if len(nums) == 1: return nums[0] arr = [] for ele in nums: if len(arr) == k: if ele &lt; arr[k-1]: continue elif ele &gt;= arr[0]: arr = [ele] + arr[:-1] continue arr = self.insert(arr, ele) if len(arr) &gt; k: arr = arr[:k] return arr[k-1] def insert(self, arr, ele): if arr == []: return [ele] p1 = 0 p2 = len(arr)-1 while p2 &gt;= p1: temp = (p1 + p2) // 2 if ele &gt;= arr[temp]: p2 = temp - 1 else: p1 = temp + 1 # print(p1,p2,ele) return arr[:p1] + [ele] + arr[p1:] 1# use set]]></content>
@@ -541,18 +563,6 @@
         <tag>need reviewed</tag>
         <tag>binary search</tag>
         <tag>sort</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[[LeetCode] Challenge log 771]]></title>
-    <url>%2F2018%2F04%2F06%2FLeetCode-Challenge-log-771%2F</url>
-    <content type="text"><![CDATA[771. Jewels and Stoneshttps://leetcode.com/problems/jewels-and-stones/description/ Use hashing to achieve O(n+m). Use set as a dict without value to save space You’re given strings J representing the types of stones that are jewels, and S representing the stones you have. Each character in Sis a type of stone you have. You want to know how many of the stones you have are also jewels. The letters in J are guaranteed distinct, and all characters in J and S are letters. Letters are case sensitive, so &quot;a&quot; is considered a different type of stone from &quot;A&quot;. Example 1: 12Input: J = &quot;aA&quot;, S = &quot;aAAbbbb&quot;Output: 3 Example 2: 12Input: J = &quot;z&quot;, S = &quot;ZZ&quot;Output: 0 Note: S and J will consist of letters and have length at most 50. The characters in J are distinct. Soulution:Both O(1) 12345678910111213141516# use dictclass Solution: def numJewelsInStones(self, J, S): """ :type J: str :type S: str :rtype: int """ isJew = &#123;&#125; result = 0 for i in J: isJew[i] = 1 for i in S: if i in isJew: result += 1 return result 123456789# use setclass Solution: def numJewelsInStones(self, J, S): """ :type J: str :type S: str :rtype: int """ return sum([1 for s in S if s in set(J)])]]></content>
-      <tags>
-        <tag>code challenge</tag>
-        <tag>algorithm</tag>
-        <tag>leetcode</tag>
-        <tag>hash</tag>
-        <tag>set</tag>
       </tags>
   </entry>
   <entry>
