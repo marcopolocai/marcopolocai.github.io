@@ -1,6 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Plotly: show page]]></title>
+    <url>%2F2018%2F06%2F15%2FPlotly-show-page%2F</url>
+    <content type="text"><![CDATA[window.PLOTLYENV=window.PLOTLYENV || {};window.PLOTLYENV.BASE_URL="https://plot.ly";Plotly.newPlot("b572f606-64c7-478a-89d9-f236a620b29c", [{"type": "scatter", "x": [1, 2, 3], "y": [3, 1, 6]}], {"title": "Simple example"}, {"showLink": true, "linkText": "Export to plot.ly"}) window.PLOTLYENV=window.PLOTLYENV || {};window.PLOTLYENV.BASE_URL="https://plot.ly";Plotly.newPlot("8d97d7bf-8774-4617-afdb-12d2c63e10fb", [{"marker": {"color": "rgb(55, 83, 109)"}, "type": "bar", "y": [219, 146, 112, 127, 124, 180, 236, 207, 236, 263, 350, 430, 474, 526, 488, 537, 500, 439], "x": [1995, 1996, 1997, 1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012], "name": "Rest of world"}, {"marker": {"color": "rgb(26, 118, 255)"}, "type": "bar", "y": [16, 13, 10, 11, 28, 37, 43, 55, 56, 88, 105, 156, 270, 299, 340, 403, 549, 499], "x": [1995, 1996, 1997, 1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012], "name": "China"}], {"legend": {"bgcolor": "rgba(255, 255, 255, 0)", "bordercolor": "rgba(255, 255, 255, 0)", "x": 0, "y": 1.0}, "yaxis": {"tickfont": {"color": "rgb(107, 107, 107)", "size": 14}, "title": "USD (millions)", "titlefont": {"color": "rgb(107, 107, 107)", "size": 16}}, "barmode": "group", "xaxis": {"tickfont": {"color": "rgb(107, 107, 107)", "size": 14}}, "bargroupgap": 0.1, "title": "US Export of Plastic Scrap", "bargap": 0.15}, {"showLink": true, "linkText": "Export to plot.ly"})window.addEventListener("resize", function(){Plotly.Plots.resize(document.getElementById("8d97d7bf-8774-4617-afdb-12d2c63e10fb"));});]]></content>
+      <tags>
+        <tag>plotly</tag>
+        <tag>graph</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[[Leetcode] Challenge log 696]]></title>
+    <url>%2F2018%2F06%2F14%2FLeetcode-Challenge-log-696%2F</url>
+    <content type="text"><![CDATA[696. Count Binary Substrings First solution first finds a boundary st.”01” and then extends the string to both sides to check if qualified. Optimal Solution keeps counting how many contegious ‘0’ and ‘1’ currently and previously to achieve O(n) time and O(1) space. Give a string s, count the number of non-empty (contiguous) substrings that have the same number of 0’s and 1’s, and all the 0’s and all the 1’s in these substrings are grouped consecutively. Substrings that occur multiple times are counted the number of times they occur. Example 1: 1234567Input: &quot;00110011&quot;Output: 6Explanation: There are 6 substrings that have equal number of consecutive 1&apos;s and 0&apos;s: &quot;0011&quot;, &quot;01&quot;, &quot;1100&quot;, &quot;10&quot;, &quot;0011&quot;, and &quot;01&quot;.Notice that some of these substrings repeat and are counted the number of times they occur.Also, &quot;00110011&quot; is not a valid substring because all the 0&apos;s (and 1&apos;s) are not grouped together. Example 2: 123Input: &quot;10101&quot;Output: 4Explanation: There are 4 substrings: &quot;10&quot;, &quot;01&quot;, &quot;10&quot;, &quot;01&quot; that have equal number of consecutive 1&apos;s and 0&apos;s. Note: s.length will be between 1 and 50,000. s will only consist of “0” or “1” characters. Soulution:123456789101112131415class Solution: def countBinarySubstrings(self, s): """ :type s: str :rtype: int """ res = 0 for i in range(len(s) - 1): if s[i] != s[i + 1]: res += 1 j = 1 while (i-j &gt;= 0) and (i+1+j &lt; len(s)) and (s[i-j] != s[i+1+j]) and (s[i-j] == s[i]): res += 1 j += 1 return res 123456789101112131415161718class Solution: def countBinarySubstrings(self, s): """ :type s: str :rtype: int """ res = 0 curLen = 1 preLen = 0 for i in range(1, len(s)): if s[i] == s[i-1]: curLen += 1 else: preLen = curLen curLen = 1 if curLen &lt;= preLen: res += 1 return res]]></content>
+      <tags>
+        <tag>code challenge</tag>
+        <tag>algorithm</tag>
+        <tag>leetcode</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[[LeetCode] Challenge log 788]]></title>
     <url>%2F2018%2F06%2F10%2FLeetCode-Challenge-log-788%2F</url>
     <content type="text"><![CDATA[788. Rotated DigitsIt is a logic problem. My solution is: If it contains 3 4 7, it is invalid. If it contains only 0 1 8, it is valid but not different. The rest cases are passed. X is a good number if after rotating each digit individually by 180 degrees, we get a valid number that is different from X. Each digit must be rotated - we cannot choose to leave it alone. A number is valid if each digit remains a digit after rotation. 0, 1, and 8 rotate to themselves; 2 and 5 rotate to each other; 6 and 9 rotate to each other, and the rest of the numbers do not rotate to any other number and become invalid. Now given a positive number N, how many numbers X from 1 to N are good? 123456Example:Input: 10Output: 4Explanation: There are four good numbers in the range [1, 10] : 2, 5, 6, 9.Note that 1 and 10 are not good numbers, since they remain unchanged after rotating. Note: N will be in range [1, 10000]. Soulution:12345678910111213141516class Solution: def rotatedDigits(self, N): """ :type N: int :rtype: int """ res = 0 for i in range(1, N+1): num = set(str(i)) if len(num &amp; &#123;'3', '4', '7'&#125;) &gt; 0: continue elif num &amp; &#123;'0', '1', '8'&#125; == num: continue else: res += 1 return res]]></content>
@@ -66,7 +85,7 @@
   <entry>
     <title><![CDATA[UCSD course plan]]></title>
     <url>%2F2018%2F06%2F07%2FUCSD-course-plan%2F</url>
-    <content type="text"><![CDATA[This is a note of the course plan for my master degree at UCSD. It’s planned to be finished in 4 quarters. The plan may change if I transfer to the Phd program. We will see. School: CSE@UCSD Major: CE75 Computer Science q1:obj: get used to new env get to know some prof, find research opportunity apply for phd practice on leetcode, prepare to apply for 2019 intern class: CSE 202 Algorithm Design &amp; Analysis Paturi Paturi CSE 254 Statistical Learning Dasgupta q2:q3:#####q4:]]></content>
+    <content type="text"><![CDATA[This is a note of the course plan for my master degree at UCSD. It’s planned to be finished in 4 quarters, temporarily. School: CSE@UCSD Major: CE75 Computer Science q1:obj: get used to new env get to know some prof, find research opportunity apply for phd practice on leetcode, prepare to apply for 2019 intern class: CSE 202 Algorithm Design &amp; Analysis Paturi Paturi CSE 254 Statistical Learning Dasgupta CSE 259 q2:q3:#####q4:]]></content>
       <tags>
         <tag>ucsd</tag>
         <tag>plan</tag>
@@ -541,18 +560,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[[LeetCode] Challenge log 771]]></title>
-    <url>%2F2018%2F04%2F06%2FLeetCode-Challenge-log-771%2F</url>
-    <content type="text"><![CDATA[771. Jewels and Stoneshttps://leetcode.com/problems/jewels-and-stones/description/ Use hashing to achieve O(n+m). Use set as a dict without value to save space You’re given strings J representing the types of stones that are jewels, and S representing the stones you have. Each character in Sis a type of stone you have. You want to know how many of the stones you have are also jewels. The letters in J are guaranteed distinct, and all characters in J and S are letters. Letters are case sensitive, so &quot;a&quot; is considered a different type of stone from &quot;A&quot;. Example 1: 12Input: J = &quot;aA&quot;, S = &quot;aAAbbbb&quot;Output: 3 Example 2: 12Input: J = &quot;z&quot;, S = &quot;ZZ&quot;Output: 0 Note: S and J will consist of letters and have length at most 50. The characters in J are distinct. Soulution:Both O(1) 12345678910111213141516# use dictclass Solution: def numJewelsInStones(self, J, S): """ :type J: str :type S: str :rtype: int """ isJew = &#123;&#125; result = 0 for i in J: isJew[i] = 1 for i in S: if i in isJew: result += 1 return result 123456789# use setclass Solution: def numJewelsInStones(self, J, S): """ :type J: str :type S: str :rtype: int """ return sum([1 for s in S if s in set(J)])]]></content>
-      <tags>
-        <tag>code challenge</tag>
-        <tag>algorithm</tag>
-        <tag>leetcode</tag>
-        <tag>hash</tag>
-        <tag>set</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[[LeetCode] Challenge log 215]]></title>
     <url>%2F2018%2F04%2F06%2FLeetCode-Challenge-log-215%2F</url>
     <content type="text"><![CDATA[215. Kth Largest Element in an Arrayhttps://leetcode.com/problems/kth-largest-element-in-an-array/description/ Use len(k)-array to save the largest k elements Through binary search insertion to keep the array sorted. Find the kth largest element in an unsorted array. Note that it is the kth largest element in the sorted order, not the kth distinct element. For example,Given [3,2,1,5,6,4] and k = 2, return 5. Note: You may assume k is always valid, 1 ≤ k ≤ array’s length. Credits:Special thanks to @mithmatt for adding this problem and creating all test cases. Soulution:123456789101112131415161718192021222324252627282930313233# binary search insertionclass Solution: def findKthLargest(self, nums, k): """ :type nums: List[int] :type k: int :rtype: int """ if len(nums) == 1: return nums[0] arr = [] for ele in nums: if len(arr) == k: if ele &lt; arr[k-1]: continue elif ele &gt;= arr[0]: arr = [ele] + arr[:-1] continue arr = self.insert(arr, ele) if len(arr) &gt; k: arr = arr[:k] return arr[k-1] def insert(self, arr, ele): if arr == []: return [ele] p1 = 0 p2 = len(arr)-1 while p2 &gt;= p1: temp = (p1 + p2) // 2 if ele &gt;= arr[temp]: p2 = temp - 1 else: p1 = temp + 1 # print(p1,p2,ele) return arr[:p1] + [ele] + arr[p1:] 1# use set]]></content>
@@ -566,6 +573,18 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[[LeetCode] Challenge log 771]]></title>
+    <url>%2F2018%2F04%2F06%2FLeetCode-Challenge-log-771%2F</url>
+    <content type="text"><![CDATA[771. Jewels and Stoneshttps://leetcode.com/problems/jewels-and-stones/description/ Use hashing to achieve O(n+m). Use set as a dict without value to save space You’re given strings J representing the types of stones that are jewels, and S representing the stones you have. Each character in Sis a type of stone you have. You want to know how many of the stones you have are also jewels. The letters in J are guaranteed distinct, and all characters in J and S are letters. Letters are case sensitive, so &quot;a&quot; is considered a different type of stone from &quot;A&quot;. Example 1: 12Input: J = &quot;aA&quot;, S = &quot;aAAbbbb&quot;Output: 3 Example 2: 12Input: J = &quot;z&quot;, S = &quot;ZZ&quot;Output: 0 Note: S and J will consist of letters and have length at most 50. The characters in J are distinct. Soulution:Both O(1) 12345678910111213141516# use dictclass Solution: def numJewelsInStones(self, J, S): """ :type J: str :type S: str :rtype: int """ isJew = &#123;&#125; result = 0 for i in J: isJew[i] = 1 for i in S: if i in isJew: result += 1 return result 123456789# use setclass Solution: def numJewelsInStones(self, J, S): """ :type J: str :type S: str :rtype: int """ return sum([1 for s in S if s in set(J)])]]></content>
+      <tags>
+        <tag>code challenge</tag>
+        <tag>algorithm</tag>
+        <tag>leetcode</tag>
+        <tag>hash</tag>
+        <tag>set</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[[Gundam] Metal Build F91]]></title>
     <url>%2F2018%2F04%2F06%2FGundam-Metal-Build-F91%2F</url>
     <content type="text"><![CDATA[A birthday gift from my important one. Gundam Formular 91 combines with the latest metal build techniques, filled with a sense of high bio tech.]]></content>
@@ -575,9 +594,9 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[[LeetCode] Challenge log 53]]></title>
-    <url>%2F2018%2F04%2F05%2FLeetCode-Challenge-log-53%2F</url>
-    <content type="text"><![CDATA[53. Maximium Subarrayhttps://leetcode.com/problems/maximum-subarray/description/ It is mainly a DP problem. Find the contiguous subarray within an array (containing at least one number) which has the largest sum. For example, given the array [-2,1,-3,4,-1,2,1,-5,4],the contiguous subarray [4,-1,2,1] has the largest sum = 6. Solution:DP thought: last represents the largest sum in the subarray that ends with current pointer. The key is last[p] = max(last[p-1], 0) + nums[p], meaning we only include last[p-1] if it is positive 12345678910111213class Solution: def maxSubArray(self, nums): """ :type nums: List[int] :rtype: int """ result = last = nums[0] p = 1 while p&lt;len(nums): last = nums[p] + max(last, 0) result = max(result, last) p += 1 return result]]></content>
+    <title><![CDATA[[LeetCode] Challenge log 152]]></title>
+    <url>%2F2018%2F04%2F05%2FLeetCode-Challenge-log-152%2F</url>
+    <content type="text"><![CDATA[152. Maximum Product Subarrayhttps://leetcode.com/problems/maximum-product-subarray/description/ It is a DP problem. Similar to 53. Find the contiguous subarray within an array (containing at least one number) which has the largest sum. For example, given the array [-2,1,-3,4,-1,2,1,-5,4],the contiguous subarray [4,-1,2,1] has the largest sum = 6. Solution:DP thought: use two slot to cache the max and the min products of the subarray that ends with current pointer. at each position, each time there are three possible numbers to choose from: current number current number X max product of last position current number X min product of last position so take the min and max of the three options to be current minP and maxP of current postion 12345678910111213141516171819class Solution: def maxProduct(self, nums): """ :type nums: List[int] :rtype: int """ maxP = nums[0] minP = nums[0] p = 1 result = nums[0] while p &lt; len(nums): tmp1 = max(nums[p], nums[p] * maxP, nums[p] * minP) tmp2 = min(nums[p], nums[p] * maxP, nums[p] * minP) maxP = tmp1 minP = tmp2 print(nums[p], maxP, minP) result = max(result, maxP) p += 1 return result]]></content>
       <tags>
         <tag>code challenge</tag>
         <tag>algorithm</tag>
@@ -587,9 +606,9 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[[LeetCode] Challenge log 152]]></title>
-    <url>%2F2018%2F04%2F05%2FLeetCode-Challenge-log-152%2F</url>
-    <content type="text"><![CDATA[152. Maximum Product Subarrayhttps://leetcode.com/problems/maximum-product-subarray/description/ It is a DP problem. Similar to 53. Find the contiguous subarray within an array (containing at least one number) which has the largest sum. For example, given the array [-2,1,-3,4,-1,2,1,-5,4],the contiguous subarray [4,-1,2,1] has the largest sum = 6. Solution:DP thought: use two slot to cache the max and the min products of the subarray that ends with current pointer. at each position, each time there are three possible numbers to choose from: current number current number X max product of last position current number X min product of last position so take the min and max of the three options to be current minP and maxP of current postion 12345678910111213141516171819class Solution: def maxProduct(self, nums): """ :type nums: List[int] :rtype: int """ maxP = nums[0] minP = nums[0] p = 1 result = nums[0] while p &lt; len(nums): tmp1 = max(nums[p], nums[p] * maxP, nums[p] * minP) tmp2 = min(nums[p], nums[p] * maxP, nums[p] * minP) maxP = tmp1 minP = tmp2 print(nums[p], maxP, minP) result = max(result, maxP) p += 1 return result]]></content>
+    <title><![CDATA[[LeetCode] Challenge log 53]]></title>
+    <url>%2F2018%2F04%2F05%2FLeetCode-Challenge-log-53%2F</url>
+    <content type="text"><![CDATA[53. Maximium Subarrayhttps://leetcode.com/problems/maximum-subarray/description/ It is mainly a DP problem. Find the contiguous subarray within an array (containing at least one number) which has the largest sum. For example, given the array [-2,1,-3,4,-1,2,1,-5,4],the contiguous subarray [4,-1,2,1] has the largest sum = 6. Solution:DP thought: last represents the largest sum in the subarray that ends with current pointer. The key is last[p] = max(last[p-1], 0) + nums[p], meaning we only include last[p-1] if it is positive 12345678910111213class Solution: def maxSubArray(self, nums): """ :type nums: List[int] :rtype: int """ result = last = nums[0] p = 1 while p&lt;len(nums): last = nums[p] + max(last, 0) result = max(result, last) p += 1 return result]]></content>
       <tags>
         <tag>code challenge</tag>
         <tag>algorithm</tag>
