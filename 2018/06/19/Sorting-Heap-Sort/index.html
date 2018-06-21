@@ -157,14 +157,14 @@
 
 
   <meta name="description" content="heap.img">
-<meta name="keywords" content="sorting,heap">
+<meta name="keywords" content="sorting,heap,piority queue">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[Sorting] Heap Sort">
 <meta property="og:url" content="https://marcopolocai.github.io/2018/06/19/Sorting-Heap-Sort/index.html">
 <meta property="og:site_name" content="The Travels of Marco Cai">
 <meta property="og:description" content="heap.img">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-06-20T23:34:19.327Z">
+<meta property="og:updated_time" content="2018-06-21T19:44:26.674Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[Sorting] Heap Sort">
 <meta name="twitter:description" content="heap.img">
@@ -444,7 +444,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2018-06-20 16:34:19" itemprop="dateModified" datetime="2018-06-20T16:34:19-07:00">2018-06-20</time>
+                <time title="Modified: 2018-06-21 12:44:26" itemprop="dateModified" datetime="2018-06-21T12:44:26-07:00">2018-06-21</time>
               
             
           </span>
@@ -499,13 +499,16 @@
 <li>K levels ⟺ 2^K-1 nodes. </li>
 </ul>
 <h3 id="Complete-binary-tree"><a href="#Complete-binary-tree" class="headerlink" title="Complete binary tree:"></a>Complete binary tree:</h3><ul>
-<li>Except the last level, all levels are full. </li>
-<li>Because of the above properties, it can be represented by an array, where <code>left = root*2</code>, <code>right = root*2 +1</code>, and <code>root  = kid // 2</code>. </li>
-<li><div class="note info"><p>Becasue of array is usually zero- based, the below formulas are used in heap instead: <code>left = root*2 + 1</code>, <code>right = root*2 + 2</code>, and <code>root  = (kid-1) // 2</code></p></div>
+<li><p>Except the last level, all levels are full. </p>
+</li>
+<li><p>Because of the above properties, it can be represented by an array, where <code>left = root*2</code>, <code>right = root*2 +1</code>, and <code>root  = kid // 2</code>. </p>
+</li>
+<li><div class="note danger"><p>Becasue of array is usually zero- based, the below formulas are used in heap instead: <code>left = root*2 + 1</code>, <code>right = root*2 + 2</code>, and <code>root  = (kid-1) // 2</code></p></div>
 </li>
 </ul>
-<h2 id="Heap"><a href="#Heap" class="headerlink" title="Heap"></a>Heap</h2><p>Max (min) Heap is a complete binary tree where father nodes must be greater (smaller) than their children nodes. </p>
+<h2 id="Heap"><a href="#Heap" class="headerlink" title="Heap"></a>Heap</h2><div class="note info"><p>Max (min) Heap is a complete binary tree where father nodes must be greater (smaller) than their children nodes. </p></div>
 <p>* the codes below use min heap for default. </p>
+<h2 id="Piority-queue"><a href="#Piority-queue" class="headerlink" title="Piority queue"></a>Piority queue</h2><div class="note info"><p>A piority queue, where its element are tuples like (piority, item), is just a special heap. In python, because tuple comparision is available, heap is quivalent piority queue!</p></div>
 <h2 id="Operations-on-Heap"><a href="#Operations-on-Heap" class="headerlink" title="Operations on Heap"></a>Operations on Heap</h2><h3 id="Heapify-array-i"><a href="#Heapify-array-i" class="headerlink" title="Heapify(array, i)"></a>Heapify(array, i)</h3><p>It adjust the tree under index i, making sure the i<sup>th</sup> element sinks down to its correct place. </p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># use recursion</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">heapify</span><span class="params">(arr, i)</span>:</span></span><br><span class="line">    root = i</span><br><span class="line">    left = <span class="number">2</span> * i + <span class="number">1</span></span><br><span class="line">    right = <span class="number">2</span> * i + <span class="number">2</span></span><br><span class="line">    <span class="keyword">if</span> right &lt; len(arr) <span class="keyword">and</span> arr[right] &lt; arr[left] <span class="keyword">and</span> arr[right] &lt; arr[root]:</span><br><span class="line">        <span class="comment"># swap root and right</span></span><br><span class="line">        arr[right], arr[root] = arr[root], arr[right]</span><br><span class="line">        heapify(arr, right)</span><br><span class="line">    <span class="keyword">elif</span> left &lt; len(arr) <span class="keyword">and</span> arr[left] &lt; arr[root]:</span><br><span class="line">        <span class="comment"># swap left and root</span></span><br><span class="line">        arr[left], arr[root] = arr[root], arr[left]</span><br><span class="line">        heapify(arr, left)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
 <p>or </p>
@@ -575,6 +578,8 @@
             <a href="/tags/sorting/" rel="tag"># sorting</a>
           
             <a href="/tags/heap/" rel="tag"># heap</a>
+          
+            <a href="/tags/piority-queue/" rel="tag"># piority queue</a>
           
         </div>
       
@@ -687,7 +692,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">92</span>
+                    <span class="site-state-item-count">93</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -788,7 +793,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">42</span>
+                      
+                    
+                    <span class="site-state-item-count">43</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
@@ -824,7 +831,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Pre-req"><span class="nav-text">Pre-req.</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Binary-tree"><span class="nav-text">Binary tree:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Full-binary-tree"><span class="nav-text">Full binary tree:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Complete-binary-tree"><span class="nav-text">Complete binary tree:</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Heap"><span class="nav-text">Heap</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Operations-on-Heap"><span class="nav-text">Operations on Heap</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Heapify-array-i"><span class="nav-text">Heapify(array, i)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Build-heap-array"><span class="nav-text">Build_heap(array)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Insert-array-ele"><span class="nav-text">Insert(array, ele)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Pop-array"><span class="nav-text">Pop(array)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Heapsort-array"><span class="nav-text">Heapsort(array):</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Performance"><span class="nav-text">Performance</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Ref"><span class="nav-text">Ref.</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Pre-req"><span class="nav-text">Pre-req.</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Binary-tree"><span class="nav-text">Binary tree:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Full-binary-tree"><span class="nav-text">Full binary tree:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Complete-binary-tree"><span class="nav-text">Complete binary tree:</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Heap"><span class="nav-text">Heap</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Piority-queue"><span class="nav-text">Piority queue</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Operations-on-Heap"><span class="nav-text">Operations on Heap</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Heapify-array-i"><span class="nav-text">Heapify(array, i)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Build-heap-array"><span class="nav-text">Build_heap(array)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Insert-array-ele"><span class="nav-text">Insert(array, ele)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Pop-array"><span class="nav-text">Pop(array)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Heapsort-array"><span class="nav-text">Heapsort(array):</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Performance"><span class="nav-text">Performance</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Ref"><span class="nav-text">Ref.</span></a></li></ol></div>
             
 
           </div>
