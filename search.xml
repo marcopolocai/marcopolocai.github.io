@@ -1,6 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Understanding '_' in Python]]></title>
+    <url>%2F2018%2F06%2F21%2FUnderstanding-in-Python%2F</url>
+    <content type="text"><![CDATA[When reading the python docs and source codes, I see there is lots of usage of “___” in naming and other places. So I google a bit and find two great articles for explanation. Here are the links and thank Chevalier and Shahriar for their great summaries : https://shahriar.svbtle.com/underscores-in-python https://segmentfault.com/a/1190000002611411]]></content>
+      <tags>
+        <tag>python</tag>
+        <tag>underline</tag>
+        <tag>underscore</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[[LeetCode] Challenge log 373]]></title>
+    <url>%2F2018%2F06%2F20%2FLeetCode-Challenge-log-373%2F</url>
+    <content type="text"><![CDATA[373. Find K Pairs with Smallest SumsTried many methods. Take it as a review to heap and piority queue… qsort —&gt; time limit exceed build min heap, pop the first k pairs —&gt; ac, beat 9% use max heap to maintain the k min pairs —&gt; ac, beat 14% use the fact that both arrays are presorted, and piority queue to maintain the candidates —&gt; ac, beat 52% use built-in library “heapq” —&gt; ac, beat 74% use set, instead of array to mark visted slots —&gt; ac, beat 95% You are given two integer arrays nums1 and nums2 sorted in ascending order and an integer k. Define a pair (u,v) which consists of one element from the first array and one element from the second array. Find the k pairs (u1,v1),(u2,v2) …(uk,vk) with the smallest sums. Example 1: 123456Given nums1 = [1,7,11], nums2 = [2,4,6], k = 3Return: [1,2],[1,4],[1,6]The first 3 pairs are returned from the sequence:[1,2],[1,4],[1,6],[7,2],[7,4],[11,2],[7,6],[11,4],[11,6] Example 2: 123456Given nums1 = [1,1,2], nums2 = [1,2,3], k = 2Return: [1,1],[1,1]The first 2 pairs are returned from the sequence:[1,1],[1,1],[1,2],[2,1],[1,2],[2,2],[1,3],[1,3],[2,3] Example 3: 123456Given nums1 = [1,2], nums2 = [3], k = 3 Return: [1,3],[2,3]All possible pairs are returned from the sequence:[1,3],[2,3] Credits:Special thanks to @elmirap and @StefanPochmann for adding this problem and creating all test cases. Soulution:First we can visualize the all pairs as below: 0 1 2 3 0 added added added candidate 1 added candidate 2 candidate We observes that, for (i, j), only when (i-1, j) and (i, j-1) are added then it can be a candidate. With this lead, my solution keeps a piority queue, from which the min pair is popped out and then added to the ouput each time. Meanwhile we check if (i, j+1) or (i+1, j) is a valid candidate. If so, add it to the queue. Repeat until ouput has k pairs. 123456789101112131415161718192021222324252627from heapq import *class Solution: def kSmallestPairs(self, nums1, nums2, k): """ :type nums1: List[int] :type nums2: List[int] :type k: int :rtype: List[List[int]] """ ncol = min(k, len(nums2)) nrow = min(k, len(nums1)) if ncol == 0 or nrow == 0:return [] mark = set() cand = [(nums1[0] + nums2[0] ,0,0)] res = [] while len(res) &lt; k and len(cand) &gt; 0: s, i, j = heappop(cand) res.append([nums1[i], nums2[j]]) mark.add((i, j)) if i+1 &lt; nrow and ((j-1&gt;=0 and (i+1, j-1) not in mark) or (j-1 &lt; 0)): heappush(cand, (nums1[i+1] + nums2[j], i+1, j)) if j+1 &lt; ncol and ((i-1&gt;=0 and (i-1, j+1) not in mark) or (i-1 &lt; 0)): heappush(cand, (nums1[i] + nums2[j+1], i, j+1)) return res]]></content>
+      <tags>
+        <tag>code challenge</tag>
+        <tag>algorithm</tag>
+        <tag>leetcode</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[[Sorting] Heap Sort]]></title>
     <url>%2F2018%2F06%2F19%2FSorting-Heap-Sort%2F</url>
     <content type="text"><![CDATA[heap.img Pre-req.Binary tree: Every node at most has two kids. Full binary tree: Every level is full. K levels ⟺ 2^K-1 nodes. Complete binary tree: Except the last level, all levels are full. Because of the above properties, it can be represented by an array, where left = root*2, right = root*2 +1, and root = kid // 2. Becasue of array is usually zero- based, the below formulas are used in heap instead: left = root*2 + 1, right = root*2 + 2, and root = (kid-1) // 2 HeapMax (min) Heap is a complete binary tree where father nodes must be greater (smaller) than their children nodes. * the codes below use min heap for default. Operations on HeapHeapify(array, i)It adjust the tree under index i, making sure the ith element sinks down to its correct place. 123456789101112131415# use recursiondef heapify(arr, i): root = i left = 2 * i + 1 right = 2 * i + 2 if right &lt; len(arr) and arr[right] &lt; arr[left] and arr[right] &lt; arr[root]: # swap root and right arr[right], arr[root] = arr[root], arr[right] heapify(arr, right) elif left &lt; len(arr) and arr[left] &lt; arr[root]: # swap left and root arr[left], arr[root] = arr[root], arr[left] heapify(arr, left) else: pass or 12345678910111213141516# use while loopdef heapify_loop(arr, i) root = i while root &lt; len(arr): left = 2 * root + 1 right = 2 * root + 2 if right &lt; len(arr) and arr[right] &lt; arr[left] and arr[right] &lt; arr[root]: # swap root and right arr[right], arr[root] = arr[root], arr[right] root = right elif left &lt; len(arr) and arr[left] &lt; arr[root]: # swap left and root arr[left], arr[root] = arr[root], arr[left] root = left else: break Build_heap(array)This done by calling heapify(arr, i) from the bottom to the top, ensureing the array satisfies the heap property. 123def build_heap(arr): for i in range( (len(arr)-1) // 2, -1, -1): heapify(arr, i) Insert(array, ele)This is done by adding the heap to the end, and sift it up to the correct position. 1# omiited Pop(array)This is done by: poping the root of the heap fill the root with the last element in the array heapify(arr, 0) 123456789def pop(arr): if arr == []: return None else: temp = arr[0] arr[0] = arr[-1] del arr[-1] heapify(arr, 0) return temp Notice keep popping will give a ordered array. Heapsort(array):The complete sorting process includes build the heap ouput the min(max) of the heap one at a time to form a ordered array 12345678def heapsort(arr): build_heap(arr) res = [] temp = pop(arr) while temp is not None: res.append(temp) temp = pop(arr) return res PerformanceEach Heapify is log(n). Building heap does n times of Heapify, hence nlog(n). Each Pop calls Heapify once, hence log(n). Totally there are n times of popping, hence nlog(n). ⬇︎⬇︎⬇︎⬇︎⬇︎⬇︎⬇︎⬇︎⬇︎⬇︎⬇︎⬇︎⬇︎⬇︎ Worst = 2*nlog(n) = O(nlog(n)) Ref. http://bubkoo.com/2014/01/14/sort-algorithm/heap-sort/ http://blog.51cto.com/jx610/1702260]]></content>
@@ -38,8 +58,8 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[[Leetcode] Challenge log 696]]></title>
-    <url>%2F2018%2F06%2F14%2FLeetcode-Challenge-log-696%2F</url>
+    <title><![CDATA[[LeetCode] Challenge log 696]]></title>
+    <url>%2F2018%2F06%2F14%2FLeetCode-Challenge-log-696%2F</url>
     <content type="text"><![CDATA[696. Count Binary Substrings First solution first finds a boundary st.”01” and then extends the string to both sides to check if qualified. Optimal Solution keeps counting how many contegious ‘0’ and ‘1’ currently and previously to achieve O(n) time and O(1) space. Give a string s, count the number of non-empty (contiguous) substrings that have the same number of 0’s and 1’s, and all the 0’s and all the 1’s in these substrings are grouped consecutively. Substrings that occur multiple times are counted the number of times they occur. Example 1: 1234567Input: &quot;00110011&quot;Output: 6Explanation: There are 6 substrings that have equal number of consecutive 1&apos;s and 0&apos;s: &quot;0011&quot;, &quot;01&quot;, &quot;1100&quot;, &quot;10&quot;, &quot;0011&quot;, and &quot;01&quot;.Notice that some of these substrings repeat and are counted the number of times they occur.Also, &quot;00110011&quot; is not a valid substring because all the 0&apos;s (and 1&apos;s) are not grouped together. Example 2: 123Input: &quot;10101&quot;Output: 4Explanation: There are 4 substrings: &quot;10&quot;, &quot;01&quot;, &quot;10&quot;, &quot;01&quot; that have equal number of consecutive 1&apos;s and 0&apos;s. Note: s.length will be between 1 and 50,000. s will only consist of “0” or “1” characters. Soulution:123456789101112131415class Solution: def countBinarySubstrings(self, s): """ :type s: str :rtype: int """ res = 0 for i in range(len(s) - 1): if s[i] != s[i + 1]: res += 1 j = 1 while (i-j &gt;= 0) and (i+1+j &lt; len(s)) and (s[i-j] != s[i+1+j]) and (s[i-j] == s[i]): res += 1 j += 1 return res 123456789101112131415161718class Solution: def countBinarySubstrings(self, s): """ :type s: str :rtype: int """ res = 0 curLen = 1 preLen = 0 for i in range(1, len(s)): if s[i] == s[i-1]: curLen += 1 else: preLen = curLen curLen = 1 if curLen &lt;= preLen: res += 1 return res]]></content>
       <tags>
         <tag>code challenge</tag>
@@ -588,18 +608,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[[LeetCode] Challenge log 771]]></title>
-    <url>%2F2018%2F04%2F06%2FLeetCode-Challenge-log-771%2F</url>
-    <content type="text"><![CDATA[771. Jewels and Stoneshttps://leetcode.com/problems/jewels-and-stones/description/ Use hashing to achieve O(n+m). Use set as a dict without value to save space You’re given strings J representing the types of stones that are jewels, and S representing the stones you have. Each character in Sis a type of stone you have. You want to know how many of the stones you have are also jewels. The letters in J are guaranteed distinct, and all characters in J and S are letters. Letters are case sensitive, so &quot;a&quot; is considered a different type of stone from &quot;A&quot;. Example 1: 12Input: J = &quot;aA&quot;, S = &quot;aAAbbbb&quot;Output: 3 Example 2: 12Input: J = &quot;z&quot;, S = &quot;ZZ&quot;Output: 0 Note: S and J will consist of letters and have length at most 50. The characters in J are distinct. Soulution:Both O(1) 12345678910111213141516# use dictclass Solution: def numJewelsInStones(self, J, S): """ :type J: str :type S: str :rtype: int """ isJew = &#123;&#125; result = 0 for i in J: isJew[i] = 1 for i in S: if i in isJew: result += 1 return result 123456789# use setclass Solution: def numJewelsInStones(self, J, S): """ :type J: str :type S: str :rtype: int """ return sum([1 for s in S if s in set(J)])]]></content>
-      <tags>
-        <tag>code challenge</tag>
-        <tag>algorithm</tag>
-        <tag>leetcode</tag>
-        <tag>hash</tag>
-        <tag>set</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[[LeetCode] Challenge log 215]]></title>
     <url>%2F2018%2F04%2F06%2FLeetCode-Challenge-log-215%2F</url>
     <content type="text"><![CDATA[215. Kth Largest Element in an Arrayhttps://leetcode.com/problems/kth-largest-element-in-an-array/description/ Use len(k)-array to save the largest k elements Through binary search insertion to keep the array sorted. Find the kth largest element in an unsorted array. Note that it is the kth largest element in the sorted order, not the kth distinct element. For example,Given [3,2,1,5,6,4] and k = 2, return 5. Note: You may assume k is always valid, 1 ≤ k ≤ array’s length. Credits:Special thanks to @mithmatt for adding this problem and creating all test cases. Soulution:123456789101112131415161718192021222324252627282930313233# binary search insertionclass Solution: def findKthLargest(self, nums, k): """ :type nums: List[int] :type k: int :rtype: int """ if len(nums) == 1: return nums[0] arr = [] for ele in nums: if len(arr) == k: if ele &lt; arr[k-1]: continue elif ele &gt;= arr[0]: arr = [ele] + arr[:-1] continue arr = self.insert(arr, ele) if len(arr) &gt; k: arr = arr[:k] return arr[k-1] def insert(self, arr, ele): if arr == []: return [ele] p1 = 0 p2 = len(arr)-1 while p2 &gt;= p1: temp = (p1 + p2) // 2 if ele &gt;= arr[temp]: p2 = temp - 1 else: p1 = temp + 1 # print(p1,p2,ele) return arr[:p1] + [ele] + arr[p1:] 1# use set]]></content>
@@ -610,6 +618,18 @@
         <tag>need reviewed</tag>
         <tag>binary search</tag>
         <tag>sort</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[[LeetCode] Challenge log 771]]></title>
+    <url>%2F2018%2F04%2F06%2FLeetCode-Challenge-log-771%2F</url>
+    <content type="text"><![CDATA[771. Jewels and Stoneshttps://leetcode.com/problems/jewels-and-stones/description/ Use hashing to achieve O(n+m). Use set as a dict without value to save space You’re given strings J representing the types of stones that are jewels, and S representing the stones you have. Each character in Sis a type of stone you have. You want to know how many of the stones you have are also jewels. The letters in J are guaranteed distinct, and all characters in J and S are letters. Letters are case sensitive, so &quot;a&quot; is considered a different type of stone from &quot;A&quot;. Example 1: 12Input: J = &quot;aA&quot;, S = &quot;aAAbbbb&quot;Output: 3 Example 2: 12Input: J = &quot;z&quot;, S = &quot;ZZ&quot;Output: 0 Note: S and J will consist of letters and have length at most 50. The characters in J are distinct. Soulution:Both O(1) 12345678910111213141516# use dictclass Solution: def numJewelsInStones(self, J, S): """ :type J: str :type S: str :rtype: int """ isJew = &#123;&#125; result = 0 for i in J: isJew[i] = 1 for i in S: if i in isJew: result += 1 return result 123456789# use setclass Solution: def numJewelsInStones(self, J, S): """ :type J: str :type S: str :rtype: int """ return sum([1 for s in S if s in set(J)])]]></content>
+      <tags>
+        <tag>code challenge</tag>
+        <tag>algorithm</tag>
+        <tag>leetcode</tag>
+        <tag>hash</tag>
+        <tag>set</tag>
       </tags>
   </entry>
   <entry>
