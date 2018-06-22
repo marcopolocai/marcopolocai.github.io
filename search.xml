@@ -1,6 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[[LeetCode] Challenge log 668]]></title>
+    <url>%2F2018%2F06%2F21%2FLeetCode-Challenge-log-668%2F</url>
+    <content type="text"><![CDATA[668. Kth Smallest Number in Multiplication TableSimilar to #378: http://localhost:4000/2018/06/21/LeetCode-Challenge-log-378/, except now we can count how many smaller faster in O(n) time! There is also two tricks to achieve 99% beaten: Switch m and n if m &gt; n. So it can count faster Do not use build-in min() but if statement. Too many function calls slows down the speed. Nearly every one have used the Multiplication Table. But could you find out the k-th smallest number quickly from the multiplication table? Given the height m and the length n of a m * n Multiplication Table, and a positive integer k, you need to return the k-th smallest number in this table. Example 1: 123456789Input: m = 3, n = 3, k = 5Output: Explanation: The Multiplication Table:1 2 32 4 63 6 9The 5-th smallest number is 3 (1, 2, 2, 3, 3). Example 2: 12345678Input: m = 2, n = 3, k = 6Output: Explanation: The Multiplication Table:1 2 32 4 6The 6-th smallest number is 6 (1, 2, 2, 3, 4, 6). Note: The m and n will be in the range [1, 30000]. The k will be in the range [1, m * n] Soulution:1234567891011121314151617181920212223242526272829from heapq import *class Solution: def findKthNumber(self, m, n, k): """ :type m: int :type n: int :type k: int :rtype: int """ def countLower(m, n, num): count = 0 for row in range(1, min(m, num) + 1): temp = num // row if temp &gt; n: count += n else: count += temp return count if m &gt; n: n, m = m, n high = m * n low = 1 while low &lt; high: mid = (low + high) // 2 if countLower(m, n, mid) &lt; k: low = mid + 1 else: high = mid return low]]></content>
+      <tags>
+        <tag>code challenge</tag>
+        <tag>algorithm</tag>
+        <tag>leetcode</tag>
+        <tag>binary search</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[[LeetCode] Challenge log 378]]></title>
+    <url>%2F2018%2F06%2F21%2FLeetCode-Challenge-log-378%2F</url>
+    <content type="text"><![CDATA[378. Kth Smallest Element in a Sorted MatrixSimilar to #373: https://marcopolocai.github.io/2018/06/20/LeetCode-Challenge-log-373/. However, because all we want is just the kth number, we can use a binary-search-like approach to make a guess and count if it has k-1 lower numbers. It is a faster approach but very tricky to implement, as you has to be very careful on the boundary. Given a n x n matrix where each of the rows and columns are sorted in ascending order, find the kth smallest element in the matrix. Note that it is the kth smallest element in the sorted order, not the kth distinct element. Example: 12345678matrix = [ [ 1, 5, 9], [10, 11, 13], [12, 13, 15]],k = 8,return 13. Note: You may assume k is always valid, 1 ≤ k ≤ n2. Soulution:12345678910111213141516171819202122232425# piority queue approachimport heapq as hqclass Solution: def kthSmallest(self, matrix, k): """ :type matrix: List[List[int]] :type k: int :rtype: int """ if not matrix: return None n = len(matrix) count = 0 visited = set() heap = [(matrix[0][0], 0, 0)] while count &lt; k and len(heap)&gt;0: num, i, j = hq.heappop(heap) if (i+1 &lt; n) &amp; ((i+1, j) not in visited): hq.heappush(heap, (matrix[i+1][j], i+1, j)) visited.add((i+1, j)) if (j+1 &lt; n) &amp; ((i, j+1) not in visited): hq.heappush(heap, (matrix[i][j+1], i, j+1)) visited.add((i, j+1)) count += 1 return num 123456789101112131415161718192021222324252627282930313233# binary seach class Solution: def kthSmallest(self, matrix, k): """ :type matrix: List[List[int]] :type k: int :rtype: int """ def countLower(num, n, m): row = 0 col = m - 1 count = 0 while row &lt; n and col &gt;= 0: if matrix[row][col] &lt;= mid: count += col + 1 row += 1 else: col -= 1 return count n = len(matrix) low = matrix[0][0] high = matrix[-1][-1] while low &lt; high: mid = (low + high) // 2 count = countLower(mid, n, n) print(low, high, mid,count) if count &gt;= k: high = mid else: low = mid + 1 return low]]></content>
+      <tags>
+        <tag>code challenge</tag>
+        <tag>algorithm</tag>
+        <tag>leetcode</tag>
+        <tag>heap</tag>
+        <tag>priority queue</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Understanding _ in Python]]></title>
     <url>%2F2018%2F06%2F21%2FUnderstanding-in-Python%2F</url>
     <content type="text"><![CDATA[When reading the python docs and source codes, I see there is lots of usage of “___” in naming and other places. So I google a bit and find two great articles for explanation. Here are the links and thank Chevalier and Shahriar for their great summaries : https://shahriar.svbtle.com/underscores-in-python https://segmentfault.com/a/1190000002611411]]></content>
@@ -18,6 +41,8 @@
         <tag>code challenge</tag>
         <tag>algorithm</tag>
         <tag>leetcode</tag>
+        <tag>heap</tag>
+        <tag>priority queue</tag>
       </tags>
   </entry>
   <entry>
@@ -25,9 +50,9 @@
     <url>%2F2018%2F06%2F19%2FSorting-Heap-Sort%2F</url>
     <content type="text"><![CDATA[heap.img Pre-req.Binary tree: Every node at most has two kids. Full binary tree: Every level is full. K levels ⟺ 2^K-1 nodes. Complete binary tree: Except the last level, all levels are full. Because of the above properties, it can be represented by an array, where left = root*2, right = root*2 +1, and root = kid // 2. Becasue of array is usually zero- based, the below formulas are used in heap instead: left = root*2 + 1, right = root*2 + 2, and root = (kid-1) // 2 HeapMax (min) Heap is a complete binary tree where father nodes must be greater (smaller) than their children nodes. * the codes below use min heap for default. Piority queueA piority queue, where its element are tuples like (piority, item), is just a special heap. In python, because tuple comparision is available, heap is quivalent piority queue! Operations on HeapHeapify(array, i)It adjust the tree under index i, making sure the ith element sinks down to its correct place. 123456789101112131415# use recursiondef heapify(arr, i): root = i left = 2 * i + 1 right = 2 * i + 2 if right &lt; len(arr) and arr[right] &lt; arr[left] and arr[right] &lt; arr[root]: # swap root and right arr[right], arr[root] = arr[root], arr[right] heapify(arr, right) elif left &lt; len(arr) and arr[left] &lt; arr[root]: # swap left and root arr[left], arr[root] = arr[root], arr[left] heapify(arr, left) else: pass or 12345678910111213141516# use while loopdef heapify_loop(arr, i) root = i while root &lt; len(arr): left = 2 * root + 1 right = 2 * root + 2 if right &lt; len(arr) and arr[right] &lt; arr[left] and arr[right] &lt; arr[root]: # swap root and right arr[right], arr[root] = arr[root], arr[right] root = right elif left &lt; len(arr) and arr[left] &lt; arr[root]: # swap left and root arr[left], arr[root] = arr[root], arr[left] root = left else: break Build_heap(array)This done by calling heapify(arr, i) from the bottom to the top, ensureing the array satisfies the heap property. 123def build_heap(arr): for i in range( (len(arr)-1) // 2, -1, -1): heapify(arr, i) Insert(array, ele)This is done by adding the heap to the end, and sift it up to the correct position. 1# omiited Pop(array)This is done by: poping the root of the heap fill the root with the last element in the array heapify(arr, 0) 123456789def pop(arr): if arr == []: return None else: temp = arr[0] arr[0] = arr[-1] del arr[-1] heapify(arr, 0) return temp Notice keep popping will give a ordered array. Heapsort(array):The complete sorting process includes build the heap ouput the min(max) of the heap one at a time to form a ordered array 12345678def heapsort(arr): build_heap(arr) res = [] temp = pop(arr) while temp is not None: res.append(temp) temp = pop(arr) return res PerformanceEach Heapify is log(n). Building heap does n times of Heapify, hence nlog(n). Each Pop calls Heapify once, hence log(n). Totally there are n times of popping, hence nlog(n). ⬇︎⬇︎⬇︎⬇︎⬇︎⬇︎⬇︎⬇︎⬇︎⬇︎⬇︎⬇︎⬇︎⬇︎ Worst = 2*nlog(n) = O(nlog(n)) Ref. http://bubkoo.com/2014/01/14/sort-algorithm/heap-sort/ http://blog.51cto.com/jx610/1702260]]></content>
       <tags>
-        <tag>sorting</tag>
         <tag>heap</tag>
-        <tag>piority queue</tag>
+        <tag>priority queue</tag>
+        <tag>sorting</tag>
       </tags>
   </entry>
   <entry>
@@ -609,18 +634,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[[LeetCode] Challenge log 771]]></title>
-    <url>%2F2018%2F04%2F06%2FLeetCode-Challenge-log-771%2F</url>
-    <content type="text"><![CDATA[771. Jewels and Stoneshttps://leetcode.com/problems/jewels-and-stones/description/ Use hashing to achieve O(n+m). Use set as a dict without value to save space You’re given strings J representing the types of stones that are jewels, and S representing the stones you have. Each character in Sis a type of stone you have. You want to know how many of the stones you have are also jewels. The letters in J are guaranteed distinct, and all characters in J and S are letters. Letters are case sensitive, so &quot;a&quot; is considered a different type of stone from &quot;A&quot;. Example 1: 12Input: J = &quot;aA&quot;, S = &quot;aAAbbbb&quot;Output: 3 Example 2: 12Input: J = &quot;z&quot;, S = &quot;ZZ&quot;Output: 0 Note: S and J will consist of letters and have length at most 50. The characters in J are distinct. Soulution:Both O(1) 12345678910111213141516# use dictclass Solution: def numJewelsInStones(self, J, S): """ :type J: str :type S: str :rtype: int """ isJew = &#123;&#125; result = 0 for i in J: isJew[i] = 1 for i in S: if i in isJew: result += 1 return result 123456789# use setclass Solution: def numJewelsInStones(self, J, S): """ :type J: str :type S: str :rtype: int """ return sum([1 for s in S if s in set(J)])]]></content>
-      <tags>
-        <tag>code challenge</tag>
-        <tag>algorithm</tag>
-        <tag>leetcode</tag>
-        <tag>hash</tag>
-        <tag>set</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[[LeetCode] Challenge log 215]]></title>
     <url>%2F2018%2F04%2F06%2FLeetCode-Challenge-log-215%2F</url>
     <content type="text"><![CDATA[215. Kth Largest Element in an Arrayhttps://leetcode.com/problems/kth-largest-element-in-an-array/description/ Use len(k)-array to save the largest k elements Through binary search insertion to keep the array sorted. Find the kth largest element in an unsorted array. Note that it is the kth largest element in the sorted order, not the kth distinct element. For example,Given [3,2,1,5,6,4] and k = 2, return 5. Note: You may assume k is always valid, 1 ≤ k ≤ array’s length. Credits:Special thanks to @mithmatt for adding this problem and creating all test cases. Soulution:123456789101112131415161718192021222324252627282930313233# binary search insertionclass Solution: def findKthLargest(self, nums, k): """ :type nums: List[int] :type k: int :rtype: int """ if len(nums) == 1: return nums[0] arr = [] for ele in nums: if len(arr) == k: if ele &lt; arr[k-1]: continue elif ele &gt;= arr[0]: arr = [ele] + arr[:-1] continue arr = self.insert(arr, ele) if len(arr) &gt; k: arr = arr[:k] return arr[k-1] def insert(self, arr, ele): if arr == []: return [ele] p1 = 0 p2 = len(arr)-1 while p2 &gt;= p1: temp = (p1 + p2) // 2 if ele &gt;= arr[temp]: p2 = temp - 1 else: p1 = temp + 1 # print(p1,p2,ele) return arr[:p1] + [ele] + arr[p1:] 1# use set]]></content>
@@ -631,6 +644,18 @@
         <tag>need reviewed</tag>
         <tag>binary search</tag>
         <tag>sort</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[[LeetCode] Challenge log 771]]></title>
+    <url>%2F2018%2F04%2F06%2FLeetCode-Challenge-log-771%2F</url>
+    <content type="text"><![CDATA[771. Jewels and Stoneshttps://leetcode.com/problems/jewels-and-stones/description/ Use hashing to achieve O(n+m). Use set as a dict without value to save space You’re given strings J representing the types of stones that are jewels, and S representing the stones you have. Each character in Sis a type of stone you have. You want to know how many of the stones you have are also jewels. The letters in J are guaranteed distinct, and all characters in J and S are letters. Letters are case sensitive, so &quot;a&quot; is considered a different type of stone from &quot;A&quot;. Example 1: 12Input: J = &quot;aA&quot;, S = &quot;aAAbbbb&quot;Output: 3 Example 2: 12Input: J = &quot;z&quot;, S = &quot;ZZ&quot;Output: 0 Note: S and J will consist of letters and have length at most 50. The characters in J are distinct. Soulution:Both O(1) 12345678910111213141516# use dictclass Solution: def numJewelsInStones(self, J, S): """ :type J: str :type S: str :rtype: int """ isJew = &#123;&#125; result = 0 for i in J: isJew[i] = 1 for i in S: if i in isJew: result += 1 return result 123456789# use setclass Solution: def numJewelsInStones(self, J, S): """ :type J: str :type S: str :rtype: int """ return sum([1 for s in S if s in set(J)])]]></content>
+      <tags>
+        <tag>code challenge</tag>
+        <tag>algorithm</tag>
+        <tag>leetcode</tag>
+        <tag>hash</tag>
+        <tag>set</tag>
       </tags>
   </entry>
   <entry>
