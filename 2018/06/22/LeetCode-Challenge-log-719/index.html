@@ -156,25 +156,25 @@
 
 
 
-  <meta name="description" content="Found this super powerful graphing tool by chance. It satisfies a few key demands:  It builds interative beautiful plots. It can output as html or embeddable html code.  It also offer a online mode to">
-<meta name="keywords" content="plotly,graph">
+  <meta name="description" content="719. Find K-th Smallest Pair DistanceRelated problem: #378, # 668. The difference is how to count how many smaller. To count quickly, you need to:  Sort the array first. Do a while loop within a for l">
+<meta name="keywords" content="code challenge,algorithm,leetcode,binary search">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Plotly: beautiful graph-building tool">
-<meta property="og:url" content="https://marcopolocai.github.io/2018/06/15/Plotly-beautiful-graph-building-tool/index.html">
+<meta property="og:title" content="[LeetCode] Challenge log 719">
+<meta property="og:url" content="https://marcopolocai.github.io/2018/06/22/LeetCode-Challenge-log-719/index.html">
 <meta property="og:site_name" content="The Travels of Marco Cai">
-<meta property="og:description" content="Found this super powerful graphing tool by chance. It satisfies a few key demands:  It builds interative beautiful plots. It can output as html or embeddable html code.  It also offer a online mode to">
+<meta property="og:description" content="719. Find K-th Smallest Pair DistanceRelated problem: #378, # 668. The difference is how to count how many smaller. To count quickly, you need to:  Sort the array first. Do a while loop within a for l">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-06-16T00:39:46.273Z">
+<meta property="og:updated_time" content="2018-06-22T21:11:02.669Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Plotly: beautiful graph-building tool">
-<meta name="twitter:description" content="Found this super powerful graphing tool by chance. It satisfies a few key demands:  It builds interative beautiful plots. It can output as html or embeddable html code.  It also offer a online mode to">
+<meta name="twitter:title" content="[LeetCode] Challenge log 719">
+<meta name="twitter:description" content="719. Find K-th Smallest Pair DistanceRelated problem: #378, # 668. The difference is how to count how many smaller. To count quickly, you need to:  Sort the array first. Do a while loop within a for l">
 
 
 
 
 
 
-  <link rel="canonical" href="https://marcopolocai.github.io/2018/06/15/Plotly-beautiful-graph-building-tool/"/>
+  <link rel="canonical" href="https://marcopolocai.github.io/2018/06/22/LeetCode-Challenge-log-719/"/>
 
 
 
@@ -184,7 +184,7 @@
   };
 </script>
 
-  <title>Plotly: beautiful graph-building tool | The Travels of Marco Cai</title>
+  <title>[LeetCode] Challenge log 719 | The Travels of Marco Cai</title>
   
 
 
@@ -385,7 +385,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://marcopolocai.github.io/2018/06/15/Plotly-beautiful-graph-building-tool/">
+    <link itemprop="mainEntityOfPage" href="https://marcopolocai.github.io/2018/06/22/LeetCode-Challenge-log-719/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Mingxiang Cai">
@@ -402,7 +402,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Plotly: beautiful graph-building tool
+          <h1 class="post-title" itemprop="name headline">[LeetCode] Challenge log 719
               
             
           </h1>
@@ -427,9 +427,13 @@
                 
               
 
-              <time title="Created: 2018-06-15 17:39:46" itemprop="dateCreated datePublished" datetime="2018-06-15T17:39:46-07:00">2018-06-15</time>
+              <time title="Created: 2018-06-22 13:57:40 / Modified: 14:11:02" itemprop="dateCreated datePublished" datetime="2018-06-22T13:57:40-07:00">2018-06-22</time>
             
 
+            
+              
+
+              
             
           </span>
 
@@ -442,10 +446,10 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/06/15/Plotly-beautiful-graph-building-tool/#comments" itemprop="discussionUrl">
+                <a href="/2018/06/22/LeetCode-Challenge-log-719/#comments" itemprop="discussionUrl">
                 
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/06/15/Plotly-beautiful-graph-building-tool/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2018/06/22/LeetCode-Challenge-log-719/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -473,24 +477,24 @@
       
 
       
-        <p>Found this super powerful graphing tool by chance. It satisfies a few key demands:</p>
-<div class="note info"><ol>
-<li>It builds interative beautiful plots.</li>
-<li>It can output as html or embeddable html code. </li>
-<li>It also offer a online mode to view plots through a dashboard and to embed plots through its api, if data safety is not a big concern. </li>
+        <h5 id="719-Find-K-th-Smallest-Pair-Distance"><a href="#719-Find-K-th-Smallest-Pair-Distance" class="headerlink" title="719. Find K-th Smallest Pair Distance"></a><a href="https://leetcode.com/problems/find-k-th-smallest-pair-distance/description/" target="_blank" rel="noopener">719. Find K-th Smallest Pair Distance</a></h5><p>Related problem: #378, # 668. The difference is how to count how many smaller. To count quickly, you need to:</p>
+<div class="note primary"><ol>
+<li>Sort the array first.</li>
+<li>Do a while loop within a for loop; Each time the element that just gives enough distance to the one that in the outer loop; For next iteration, start looking from the last element found to save time.</li>
 </ol></div>
-<p>Ref:</p>
-<div class="note primary"><ul>
-<li><a href="https://plot.ly/python/#fundamentals" target="_blank" rel="noopener">https://plot.ly/python/#fundamentals</a></li>
-<li><a href="https://images.plot.ly/plotly-documentation/images/python_cheat_sheet.pdf" target="_blank" rel="noopener">https://images.plot.ly/plotly-documentation/images/python_cheat_sheet.pdf</a></li>
-</ul></div>
-<p>Below are some small example usage…</p>
 <a id="more"></a>
-<h5 id="I-juhpyter-notebook-inline"><a href="#I-juhpyter-notebook-inline" class="headerlink" title="I. juhpyter notebook inline"></a>I. juhpyter notebook inline</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> plotly</span><br><span class="line"><span class="keyword">import</span> plotly.offline <span class="keyword">as</span> py</span><br><span class="line"><span class="keyword">from</span> plotly <span class="keyword">import</span> graph_objs <span class="keyword">as</span> go</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">py.init_notebook_mode(connected=<span class="keyword">True</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Simple sine function</span></span><br><span class="line">x = np.linspace(<span class="number">0</span>,<span class="number">2</span>*np.pi)</span><br><span class="line">y = np.sin(x)</span><br><span class="line">trace = go.Scatter(x=x,y=y)</span><br><span class="line">layout = go.Layout(title = <span class="string">'title goes here'</span>)</span><br><span class="line">fig = go.Figure(data = [trace], layout = layout)</span><br><span class="line">py.iplot(fig)</span><br></pre></td></tr></table></figure>
-<h5 id="II-output-as-html"><a href="#II-output-as-html" class="headerlink" title="II. output as html"></a>II. output as html</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span>  plotly</span><br><span class="line"><span class="keyword">import</span>  plotly.graph_objs <span class="keyword">as</span> go</span><br><span class="line"><span class="keyword">import</span> plotly.plotly <span class="keyword">as</span> py</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">plotly.offline.plot(&#123;</span><br><span class="line">    <span class="string">"data"</span>: [go.Scatter(x=[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>], y=[<span class="number">4</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>])],</span><br><span class="line">    <span class="string">"layout"</span>: go.Layout(title=<span class="string">"hello world"</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<h5 id="III-aquire-embeddable-html-code"><a href="#III-aquire-embeddable-html-code" class="headerlink" title="III. aquire embeddable html code"></a>III. aquire embeddable html code</h5><p>*for example page, check “Plotly: show page.html”</p>
-<p>*to embed, must include .js link in the head of  the html</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span>  plotly</span><br><span class="line"><span class="keyword">import</span>  plotly.graph_objs <span class="keyword">as</span> go</span><br><span class="line"></span><br><span class="line">data = [&#123;<span class="string">"x"</span>: [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], <span class="string">"y"</span>: [<span class="number">3</span>, <span class="number">1</span>, <span class="number">6</span>]&#125;]</span><br><span class="line">layout = go.Layout(</span><br><span class="line">    title=<span class="string">'Simple example'</span>)</span><br><span class="line">fig = go.Figure(data=data, layout=layout)</span><br><span class="line">plotly.offline.plot(fig, include_plotlyjs=<span class="keyword">False</span>, output_type=<span class="string">'div'</span>)</span><br></pre></td></tr></table></figure>
+<hr>
+<p>Given an integer array, return the k-th smallest <strong>distance</strong> among all the pairs. The distance of a pair (A, B) is defined as the absolute difference between A and B.</p>
+<p><strong>Example 1:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Input:</span><br><span class="line">nums = [1,3,1]</span><br><span class="line">k = 1</span><br><span class="line">Output: 0 </span><br><span class="line">Explanation:</span><br><span class="line">Here are all the pairs:</span><br><span class="line">(1,3) -&gt; 2</span><br><span class="line">(1,1) -&gt; 0</span><br><span class="line">(3,1) -&gt; 2</span><br><span class="line">Then the 1st smallest distance pair is (1,1), and its distance is 0.</span><br></pre></td></tr></table></figure>
+<p><strong>Note:</strong></p>
+<ol>
+<li><code>2 &lt;= len(nums) &lt;= 10000</code>.</li>
+<li><code>0 &lt;= nums[i] &lt; 1000000</code>.</li>
+<li><code>1 &lt;= k &lt;= len(nums) * (len(nums) - 1) / 2</code>.</li>
+</ol>
+<hr>
+<h5 id="Soulution"><a href="#Soulution" class="headerlink" title="Soulution:"></a>Soulution:</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">smallestDistancePair</span><span class="params">(self, nums, k)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type nums: List[int]</span></span><br><span class="line"><span class="string">        :type k: int</span></span><br><span class="line"><span class="string">        :rtype: int</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        nums = sorted(nums)</span><br><span class="line">        n = len(nums)</span><br><span class="line">        </span><br><span class="line">        <span class="comment">### Important part</span></span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">countLower</span><span class="params">(mid)</span>:</span></span><br><span class="line">            count = <span class="number">0</span></span><br><span class="line">            lb = <span class="number">0</span></span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> range(n): </span><br><span class="line">                <span class="keyword">while</span> nums[i] - nums[lb] &gt; mid:</span><br><span class="line">                    lb += <span class="number">1</span></span><br><span class="line">                count += (i - lb)</span><br><span class="line">            <span class="keyword">return</span> count</span><br><span class="line">        <span class="comment">### ----------------</span></span><br><span class="line">        </span><br><span class="line">        low = <span class="number">0</span></span><br><span class="line">        high = nums[<span class="number">-1</span>] - nums[<span class="number">0</span>]</span><br><span class="line">        <span class="keyword">while</span> low &lt; high:</span><br><span class="line">            mid = (low + high) // <span class="number">2</span></span><br><span class="line">            <span class="keyword">if</span> countLower(mid) &lt; k:</span><br><span class="line">                low = mid + <span class="number">1</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                high = mid</span><br><span class="line">        <span class="keyword">return</span> low</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -512,7 +516,7 @@
     <strong>Post author:  </strong>Mingxiang Cai</li>
   <li class="post-copyright-link">
     <strong>Post link: </strong>
-    <a href="https://marcopolocai.github.io/2018/06/15/Plotly-beautiful-graph-building-tool/" title="Plotly: beautiful graph-building tool">https://marcopolocai.github.io/2018/06/15/Plotly-beautiful-graph-building-tool/</a>
+    <a href="https://marcopolocai.github.io/2018/06/22/LeetCode-Challenge-log-719/" title="[LeetCode] Challenge log 719">https://marcopolocai.github.io/2018/06/22/LeetCode-Challenge-log-719/</a>
   </li>
   <li class="post-copyright-license">
     <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> unless stating additionally.</li>
@@ -525,9 +529,13 @@
       
         <div class="post-tags">
           
-            <a href="/tags/plotly/" rel="tag"># plotly</a>
+            <a href="/tags/code-challenge/" rel="tag"># code challenge</a>
           
-            <a href="/tags/graph/" rel="tag"># graph</a>
+            <a href="/tags/algorithm/" rel="tag"># algorithm</a>
+          
+            <a href="/tags/leetcode/" rel="tag"># leetcode</a>
+          
+            <a href="/tags/binary-search/" rel="tag"># binary search</a>
           
         </div>
       
@@ -540,8 +548,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/06/15/Plotly-show-page/" rel="next" title="Plotly: show page">
-                <i class="fa fa-chevron-left"></i> Plotly: show page
+              <a href="/2018/06/21/LeetCode-Challenge-log-668/" rel="next" title="[LeetCode] Challenge log 668">
+                <i class="fa fa-chevron-left"></i> [LeetCode] Challenge log 668
               </a>
             
           </div>
@@ -549,10 +557,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/06/18/Leetcode-Challenge-log-606/" rel="prev" title="[Leetcode] Challenge log 606">
-                [Leetcode] Challenge log 606 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -779,7 +783,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#I-juhpyter-notebook-inline"><span class="nav-text">I. juhpyter notebook inline</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#II-output-as-html"><span class="nav-text">II. output as html</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#III-aquire-embeddable-html-code"><span class="nav-text">III. aquire embeddable html code</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#719-Find-K-th-Smallest-Pair-Distance"><span class="nav-text">719. Find K-th Smallest Pair Distance</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Soulution"><span class="nav-text">Soulution:</span></a></li></ol></div>
             
 
           </div>
@@ -943,9 +947,9 @@
   
     <script type="text/javascript">
       var disqus_config = function () {
-        this.page.url = 'https://marcopolocai.github.io/2018/06/15/Plotly-beautiful-graph-building-tool/';
-        this.page.identifier = '2018/06/15/Plotly-beautiful-graph-building-tool/';
-        this.page.title = 'Plotly: beautiful graph-building tool';
+        this.page.url = 'https://marcopolocai.github.io/2018/06/22/LeetCode-Challenge-log-719/';
+        this.page.identifier = '2018/06/22/LeetCode-Challenge-log-719/';
+        this.page.title = '[LeetCode] Challenge log 719';
         };
       function loadComments () {
         var d = document, s = d.createElement('script');

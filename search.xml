@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[[LeetCode] Challenge log 719]]></title>
+    <url>%2F2018%2F06%2F22%2FLeetCode-Challenge-log-719%2F</url>
+    <content type="text"><![CDATA[719. Find K-th Smallest Pair DistanceRelated problem: #378, # 668. The difference is how to count how many smaller. To count quickly, you need to: Sort the array first. Do a while loop within a for loop; Each time the element that just gives enough distance to the one that in the outer loop; For next iteration, start looking from the last element found to save time. Given an integer array, return the k-th smallest distance among all the pairs. The distance of a pair (A, B) is defined as the absolute difference between A and B. Example 1: 12345678910Input:nums = [1,3,1]k = 1Output: 0 Explanation:Here are all the pairs:(1,3) -&gt; 2(1,1) -&gt; 0(3,1) -&gt; 2Then the 1st smallest distance pair is (1,1), and its distance is 0. Note: 2 &lt;= len(nums) &lt;= 10000. 0 &lt;= nums[i] &lt; 1000000. 1 &lt;= k &lt;= len(nums) * (len(nums) - 1) / 2. Soulution:123456789101112131415161718192021222324252627282930class Solution: def smallestDistancePair(self, nums, k): """ :type nums: List[int] :type k: int :rtype: int """ nums = sorted(nums) n = len(nums) ### Important part def countLower(mid): count = 0 lb = 0 for i in range(n): while nums[i] - nums[lb] &gt; mid: lb += 1 count += (i - lb) return count ### ---------------- low = 0 high = nums[-1] - nums[0] while low &lt; high: mid = (low + high) // 2 if countLower(mid) &lt; k: low = mid + 1 else: high = mid return low]]></content>
+      <tags>
+        <tag>code challenge</tag>
+        <tag>algorithm</tag>
+        <tag>leetcode</tag>
+        <tag>binary search</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[[LeetCode] Challenge log 668]]></title>
     <url>%2F2018%2F06%2F21%2FLeetCode-Challenge-log-668%2F</url>
     <content type="text"><![CDATA[668. Kth Smallest Number in Multiplication TableSimilar to #378: http://localhost:4000/2018/06/21/LeetCode-Challenge-log-378/, except now we can count how many smaller faster in O(n) time! There is also two tricks to achieve 99% beaten: Switch m and n if m &gt; n. So it can count faster Do not use build-in min() but if statement. Too many function calls slows down the speed. Nearly every one have used the Multiplication Table. But could you find out the k-th smallest number quickly from the multiplication table? Given the height m and the length n of a m * n Multiplication Table, and a positive integer k, you need to return the k-th smallest number in this table. Example 1: 123456789Input: m = 3, n = 3, k = 5Output: Explanation: The Multiplication Table:1 2 32 4 63 6 9The 5-th smallest number is 3 (1, 2, 2, 3, 3). Example 2: 12345678Input: m = 2, n = 3, k = 6Output: Explanation: The Multiplication Table:1 2 32 4 6The 6-th smallest number is 6 (1, 2, 2, 3, 4, 6). Note: The m and n will be in the range [1, 30000]. The k will be in the range [1, m * n] Soulution:1234567891011121314151617181920212223242526272829from heapq import *class Solution: def findKthNumber(self, m, n, k): """ :type m: int :type n: int :type k: int :rtype: int """ def countLower(m, n, num): count = 0 for row in range(1, min(m, num) + 1): temp = num // row if temp &gt; n: count += n else: count += temp return count if m &gt; n: n, m = m, n high = m * n low = 1 while low &lt; high: mid = (low + high) // 2 if countLower(m, n, mid) &lt; k: low = mid + 1 else: high = mid return low]]></content>
