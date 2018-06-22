@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[[LeetCode] Challenge log 658]]></title>
+    <url>%2F2018%2F06%2F22%2FLeetCode-Challenge-log-658%2F</url>
+    <content type="text"><![CDATA[658. Find K Closest ElementsIt has some problems with test cases so can’t get it ac. Whatever, I have the correct code anyway… Binary search to locate the position Create a len(k) sliding window start from the position, slide it left until the furthest distance starts to increase. Given a sorted array, two integers k and x, find the k closest elements to x in the array. The result should also be sorted in ascending order. If there is a tie, the smaller elements are always preferred. Example 1: 12Input: [1,2,3,4,5], k=4, x=3Output: [1,2,3,4] Example 2: 12Input: [1,2,3,4,5], k=4, x=-1Output: [1,2,3,4] Note: The value k is positive and will always be smaller than the length of the sorted array. Length of the given array is positive and will not exceed 104 Absolute value of elements in the array and x will not exceed 104 Soulution:1234567891011121314151617181920212223242526272829303132333435363738class Solution: def findClosestElements(self, arr, k, x): """ :type arr: List[int] :type k: int :type x: int :rtype: List[int] """ def bs(arr, x): low = 0 high = len(arr) - 1 while low &lt; high: mid = (low + high) // 2 if arr[mid] &lt; x: low = mid + 1 else: high = mid return low # slide window pivot = bs(arr, x) left = pivot right = left + k - 1 if right &gt;= len(arr): left = left - (right - (len(arr) - 1)) right = len(arr) - 1 min_dis = max(abs(arr[left]-x), abs(arr[right] -x)) while left &gt;= 0 and right &gt;= pivot - 1: cur_dis = max(abs(arr[left]-x), abs(arr[right] -x)) # print(left, right, cur_dis) if cur_dis &lt;= min_dis: min_dis = cur_dis left -= 1 right -= 1 else: break return arr[left + 1: right + 2]]]></content>
+      <tags>
+        <tag>code challenge</tag>
+        <tag>algorithm</tag>
+        <tag>leetcode</tag>
+        <tag>bs</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[[LeetCode] Challenge log 719]]></title>
     <url>%2F2018%2F06%2F22%2FLeetCode-Challenge-log-719%2F</url>
     <content type="text"><![CDATA[719. Find K-th Smallest Pair DistanceRelated problem: #378, # 668. The difference is how to count how many smaller. To count quickly, you need to: Sort the array first. Do a while loop within a for loop; Each time the element that just gives enough distance to the one that in the outer loop; For next iteration, start looking from the last element found to save time. Given an integer array, return the k-th smallest distance among all the pairs. The distance of a pair (A, B) is defined as the absolute difference between A and B. Example 1: 12345678910Input:nums = [1,3,1]k = 1Output: 0 Explanation:Here are all the pairs:(1,3) -&gt; 2(1,1) -&gt; 0(3,1) -&gt; 2Then the 1st smallest distance pair is (1,1), and its distance is 0. Note: 2 &lt;= len(nums) &lt;= 10000. 0 &lt;= nums[i] &lt; 1000000. 1 &lt;= k &lt;= len(nums) * (len(nums) - 1) / 2. Soulution:123456789101112131415161718192021222324252627282930class Solution: def smallestDistancePair(self, nums, k): """ :type nums: List[int] :type k: int :rtype: int """ nums = sorted(nums) n = len(nums) ### Important part def countLower(mid): count = 0 lb = 0 for i in range(n): while nums[i] - nums[lb] &gt; mid: lb += 1 count += (i - lb) return count ### ---------------- low = 0 high = nums[-1] - nums[0] while low &lt; high: mid = (low + high) // 2 if countLower(mid) &lt; k: low = mid + 1 else: high = mid return low]]></content>
@@ -679,9 +690,9 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[[LeetCode] Challenge log 53]]></title>
-    <url>%2F2018%2F04%2F05%2FLeetCode-Challenge-log-53%2F</url>
-    <content type="text"><![CDATA[53. Maximium Subarrayhttps://leetcode.com/problems/maximum-subarray/description/ It is mainly a DP problem. Find the contiguous subarray within an array (containing at least one number) which has the largest sum. For example, given the array [-2,1,-3,4,-1,2,1,-5,4],the contiguous subarray [4,-1,2,1] has the largest sum = 6. Solution:DP thought: last represents the largest sum in the subarray that ends with current pointer. The key is last[p] = max(last[p-1], 0) + nums[p], meaning we only include last[p-1] if it is positive 12345678910111213class Solution: def maxSubArray(self, nums): """ :type nums: List[int] :rtype: int """ result = last = nums[0] p = 1 while p&lt;len(nums): last = nums[p] + max(last, 0) result = max(result, last) p += 1 return result]]></content>
+    <title><![CDATA[[LeetCode] Challenge log 152]]></title>
+    <url>%2F2018%2F04%2F05%2FLeetCode-Challenge-log-152%2F</url>
+    <content type="text"><![CDATA[152. Maximum Product Subarrayhttps://leetcode.com/problems/maximum-product-subarray/description/ It is a DP problem. Similar to 53. Find the contiguous subarray within an array (containing at least one number) which has the largest sum. For example, given the array [-2,1,-3,4,-1,2,1,-5,4],the contiguous subarray [4,-1,2,1] has the largest sum = 6. Solution:DP thought: use two slot to cache the max and the min products of the subarray that ends with current pointer. at each position, each time there are three possible numbers to choose from: current number current number X max product of last position current number X min product of last position so take the min and max of the three options to be current minP and maxP of current postion 12345678910111213141516171819class Solution: def maxProduct(self, nums): """ :type nums: List[int] :rtype: int """ maxP = nums[0] minP = nums[0] p = 1 result = nums[0] while p &lt; len(nums): tmp1 = max(nums[p], nums[p] * maxP, nums[p] * minP) tmp2 = min(nums[p], nums[p] * maxP, nums[p] * minP) maxP = tmp1 minP = tmp2 print(nums[p], maxP, minP) result = max(result, maxP) p += 1 return result]]></content>
       <tags>
         <tag>code challenge</tag>
         <tag>algorithm</tag>
@@ -691,9 +702,9 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[[LeetCode] Challenge log 152]]></title>
-    <url>%2F2018%2F04%2F05%2FLeetCode-Challenge-log-152%2F</url>
-    <content type="text"><![CDATA[152. Maximum Product Subarrayhttps://leetcode.com/problems/maximum-product-subarray/description/ It is a DP problem. Similar to 53. Find the contiguous subarray within an array (containing at least one number) which has the largest sum. For example, given the array [-2,1,-3,4,-1,2,1,-5,4],the contiguous subarray [4,-1,2,1] has the largest sum = 6. Solution:DP thought: use two slot to cache the max and the min products of the subarray that ends with current pointer. at each position, each time there are three possible numbers to choose from: current number current number X max product of last position current number X min product of last position so take the min and max of the three options to be current minP and maxP of current postion 12345678910111213141516171819class Solution: def maxProduct(self, nums): """ :type nums: List[int] :rtype: int """ maxP = nums[0] minP = nums[0] p = 1 result = nums[0] while p &lt; len(nums): tmp1 = max(nums[p], nums[p] * maxP, nums[p] * minP) tmp2 = min(nums[p], nums[p] * maxP, nums[p] * minP) maxP = tmp1 minP = tmp2 print(nums[p], maxP, minP) result = max(result, maxP) p += 1 return result]]></content>
+    <title><![CDATA[[LeetCode] Challenge log 53]]></title>
+    <url>%2F2018%2F04%2F05%2FLeetCode-Challenge-log-53%2F</url>
+    <content type="text"><![CDATA[53. Maximium Subarrayhttps://leetcode.com/problems/maximum-subarray/description/ It is mainly a DP problem. Find the contiguous subarray within an array (containing at least one number) which has the largest sum. For example, given the array [-2,1,-3,4,-1,2,1,-5,4],the contiguous subarray [4,-1,2,1] has the largest sum = 6. Solution:DP thought: last represents the largest sum in the subarray that ends with current pointer. The key is last[p] = max(last[p-1], 0) + nums[p], meaning we only include last[p-1] if it is positive 12345678910111213class Solution: def maxSubArray(self, nums): """ :type nums: List[int] :rtype: int """ result = last = nums[0] p = 1 while p&lt;len(nums): last = nums[p] + max(last, 0) result = max(result, last) p += 1 return result]]></content>
       <tags>
         <tag>code challenge</tag>
         <tag>algorithm</tag>

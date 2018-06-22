@@ -156,27 +156,25 @@
 
 
 
-  <meta name="description" content="Diffrent languages  has diffrent features about parsing parameters. There exists a lot of cofusion around this topic, especailly as people tends to  use words like  “parsing reference” and “parsing va">
-<meta name="keywords" content="java,python">
+  <meta name="description" content="658. Find K Closest ElementsIt has some problems with test cases so can’t get it ac. Whatever, I have the correct code anyway…  Binary search to locate the position Create a len(k) sliding window star">
+<meta name="keywords" content="code challenge,algorithm,leetcode,bs">
 <meta property="og:type" content="article">
-<meta property="og:title" content="[Notes] Parameters Parsing">
-<meta property="og:url" content="https://marcopolocai.github.io/2018/03/16/Notes-Parameters-Parsing/index.html">
+<meta property="og:title" content="[LeetCode] Challenge log 658">
+<meta property="og:url" content="https://marcopolocai.github.io/2018/06/22/LeetCode-Challenge-log-658/index.html">
 <meta property="og:site_name" content="The Travels of Marco Cai">
-<meta property="og:description" content="Diffrent languages  has diffrent features about parsing parameters. There exists a lot of cofusion around this topic, especailly as people tends to  use words like  “parsing reference” and “parsing va">
+<meta property="og:description" content="658. Find K Closest ElementsIt has some problems with test cases so can’t get it ac. Whatever, I have the correct code anyway…  Binary search to locate the position Create a len(k) sliding window star">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="https://farm1.staticflickr.com/804/25958379727_dd55c5a1bd_o.jpg">
-<meta property="og:updated_time" content="2018-03-17T02:52:08.205Z">
+<meta property="og:updated_time" content="2018-06-22T23:46:47.624Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="[Notes] Parameters Parsing">
-<meta name="twitter:description" content="Diffrent languages  has diffrent features about parsing parameters. There exists a lot of cofusion around this topic, especailly as people tends to  use words like  “parsing reference” and “parsing va">
-<meta name="twitter:image" content="https://farm1.staticflickr.com/804/25958379727_dd55c5a1bd_o.jpg">
+<meta name="twitter:title" content="[LeetCode] Challenge log 658">
+<meta name="twitter:description" content="658. Find K Closest ElementsIt has some problems with test cases so can’t get it ac. Whatever, I have the correct code anyway…  Binary search to locate the position Create a len(k) sliding window star">
 
 
 
 
 
 
-  <link rel="canonical" href="https://marcopolocai.github.io/2018/03/16/Notes-Parameters-Parsing/"/>
+  <link rel="canonical" href="https://marcopolocai.github.io/2018/06/22/LeetCode-Challenge-log-658/"/>
 
 
 
@@ -186,7 +184,7 @@
   };
 </script>
 
-  <title>[Notes] Parameters Parsing | The Travels of Marco Cai</title>
+  <title>[LeetCode] Challenge log 658 | The Travels of Marco Cai</title>
   
 
 
@@ -387,7 +385,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://marcopolocai.github.io/2018/03/16/Notes-Parameters-Parsing/">
+    <link itemprop="mainEntityOfPage" href="https://marcopolocai.github.io/2018/06/22/LeetCode-Challenge-log-658/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Mingxiang Cai">
@@ -404,7 +402,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">[Notes] Parameters Parsing
+          <h1 class="post-title" itemprop="name headline">[LeetCode] Challenge log 658
               
             
           </h1>
@@ -429,7 +427,7 @@
                 
               
 
-              <time title="Created: 2018-03-16 15:21:07 / Modified: 19:52:08" itemprop="dateCreated datePublished" datetime="2018-03-16T15:21:07-07:00">2018-03-16</time>
+              <time title="Created: 2018-06-22 16:42:26 / Modified: 16:46:47" itemprop="dateCreated datePublished" datetime="2018-06-22T16:42:26-07:00">2018-06-22</time>
             
 
             
@@ -448,10 +446,10 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/03/16/Notes-Parameters-Parsing/#comments" itemprop="discussionUrl">
+                <a href="/2018/06/22/LeetCode-Challenge-log-658/#comments" itemprop="discussionUrl">
                 
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/03/16/Notes-Parameters-Parsing/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2018/06/22/LeetCode-Challenge-log-658/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -479,21 +477,27 @@
       
 
       
-        <p>Diffrent languages  has diffrent features about parsing parameters. There exists a lot of cofusion around this topic, especailly as people tends to  use words like  <strong>“parsing reference”</strong> and <strong>“parsing values”</strong> trying simplify the problem. Unfortunately, it only leads to more confusion. We need to understand the lower layer. </p>
-<p><img src="https://farm1.staticflickr.com/804/25958379727_dd55c5a1bd_o.jpg" width="1457" height="945" alt="無標題"></p>
-<a id="more"></a> 
-<h5 id="Java"><a href="#Java" class="headerlink" title="Java"></a>Java</h5><ul>
-<li>All are parsed by values.</li>
-<li>Eight <strong>primitive data types</strong> (<code>char, byte, short, int, long, float, double, boolean</code>) are saved in <strong>stack</strong>. When called, the <strong>value</strong> of the data is parsed.</li>
-<li>Refrence data types (<code>object, array</code>) are saved in heap, referred by a address saved in stack. When called, the <strong>address value</strong> is parsed. </li>
-<li>Special notice: a <code>String</code>, although being a object, can be viewed as same as ptimitive data type. Because the content in a <strong>String is immutable</strong>. </li>
-</ul>
-<h5 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h5><ul>
-<li><strong>Mutable data type</strong>: list, dict and others are parsed by reference.</li>
-<li><strong>Immutable data type</strong>: number, string and tuple type are parsed by value.</li>
-<li>…</li>
-</ul>
-<h5 id="to-be-continued"><a href="#to-be-continued" class="headerlink" title="to be continued"></a>to be continued</h5>
+        <h5 id="658-Find-K-Closest-Elements"><a href="#658-Find-K-Closest-Elements" class="headerlink" title="658. Find K Closest Elements"></a><a href="https://leetcode.com/problems/find-k-closest-elements/description/" target="_blank" rel="noopener">658. Find K Closest Elements</a></h5><p>It has some problems with test cases so can’t get it ac. Whatever, I have the correct code anyway…</p>
+<div class="note primary"><ol>
+<li>Binary search to locate the position</li>
+<li>Create a len(k) sliding window start from the position, slide it left until the furthest distance starts to increase.</li>
+</ol></div>
+<a id="more"></a>
+<hr>
+<p>Given a sorted array, two integers <code>k</code> and <code>x</code>, find the <code>k</code> closest elements to <code>x</code> in the array. The result should also be sorted in ascending order. If there is a tie, the smaller elements are always preferred.</p>
+<p><strong>Example 1:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: [1,2,3,4,5], k=4, x=3</span><br><span class="line">Output: [1,2,3,4]</span><br></pre></td></tr></table></figure>
+<p><strong>Example 2:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: [1,2,3,4,5], k=4, x=-1</span><br><span class="line">Output: [1,2,3,4]</span><br></pre></td></tr></table></figure>
+<p><strong>Note:</strong></p>
+<ol>
+<li>The value k is positive and will always be smaller than the length of the sorted array.</li>
+<li>Length of the given array is positive and will not exceed 104</li>
+<li>Absolute value of elements in the array and x will not exceed 104</li>
+</ol>
+<hr>
+<h5 id="Soulution"><a href="#Soulution" class="headerlink" title="Soulution:"></a>Soulution:</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">findClosestElements</span><span class="params">(self, arr, k, x)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type arr: List[int]</span></span><br><span class="line"><span class="string">        :type k: int</span></span><br><span class="line"><span class="string">        :type x: int</span></span><br><span class="line"><span class="string">        :rtype: List[int]</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">bs</span><span class="params">(arr, x)</span>:</span></span><br><span class="line">            low = <span class="number">0</span></span><br><span class="line">            high = len(arr) - <span class="number">1</span></span><br><span class="line">            <span class="keyword">while</span> low &lt; high:</span><br><span class="line">                mid = (low + high) // <span class="number">2</span></span><br><span class="line">                <span class="keyword">if</span> arr[mid] &lt; x:</span><br><span class="line">                    low = mid + <span class="number">1</span></span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    high = mid</span><br><span class="line">            <span class="keyword">return</span> low</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># slide window</span></span><br><span class="line">        pivot = bs(arr, x)</span><br><span class="line">        left = pivot</span><br><span class="line">        right = left + k - <span class="number">1</span></span><br><span class="line">        <span class="keyword">if</span> right &gt;= len(arr):</span><br><span class="line">            left = left - (right - (len(arr) - <span class="number">1</span>))</span><br><span class="line">            right = len(arr) - <span class="number">1</span> </span><br><span class="line">        min_dis = max(abs(arr[left]-x), abs(arr[right] -x))</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">while</span> left &gt;= <span class="number">0</span> <span class="keyword">and</span> right &gt;= pivot - <span class="number">1</span>:</span><br><span class="line">            cur_dis = max(abs(arr[left]-x), abs(arr[right] -x))</span><br><span class="line">            <span class="comment"># print(left, right, cur_dis)</span></span><br><span class="line">            <span class="keyword">if</span> cur_dis &lt;= min_dis:</span><br><span class="line">                min_dis = cur_dis</span><br><span class="line">                left -= <span class="number">1</span></span><br><span class="line">                right -= <span class="number">1</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">        <span class="keyword">return</span> arr[left + <span class="number">1</span>: right + <span class="number">2</span>]</span><br></pre></td></tr></table></figure>
+
       
     </div>
 
@@ -514,7 +518,7 @@
     <strong>Post author:  </strong>Mingxiang Cai</li>
   <li class="post-copyright-link">
     <strong>Post link: </strong>
-    <a href="https://marcopolocai.github.io/2018/03/16/Notes-Parameters-Parsing/" title="[Notes] Parameters Parsing">https://marcopolocai.github.io/2018/03/16/Notes-Parameters-Parsing/</a>
+    <a href="https://marcopolocai.github.io/2018/06/22/LeetCode-Challenge-log-658/" title="[LeetCode] Challenge log 658">https://marcopolocai.github.io/2018/06/22/LeetCode-Challenge-log-658/</a>
   </li>
   <li class="post-copyright-license">
     <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> unless stating additionally.</li>
@@ -527,9 +531,13 @@
       
         <div class="post-tags">
           
-            <a href="/tags/java/" rel="tag"># java</a>
+            <a href="/tags/code-challenge/" rel="tag"># code challenge</a>
           
-            <a href="/tags/python/" rel="tag"># python</a>
+            <a href="/tags/algorithm/" rel="tag"># algorithm</a>
+          
+            <a href="/tags/leetcode/" rel="tag"># leetcode</a>
+          
+            <a href="/tags/bs/" rel="tag"># bs</a>
           
         </div>
       
@@ -542,8 +550,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/03/15/Java-Review-3/" rel="next" title="[Java Review] 3: Object oriented programming">
-                <i class="fa fa-chevron-left"></i> [Java Review] 3: Object oriented programming
+              <a href="/2018/06/22/LeetCode-Challenge-log-719/" rel="next" title="[LeetCode] Challenge log 719">
+                <i class="fa fa-chevron-left"></i> [LeetCode] Challenge log 719
               </a>
             
           </div>
@@ -551,10 +559,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/03/16/Java-Review-4/" rel="prev" title="[Java Review] 4: Ram analysis">
-                [Java Review] 4: Ram analysis <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -783,7 +787,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#Java"><span class="nav-text">Java</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Python"><span class="nav-text">Python</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#to-be-continued"><span class="nav-text">to be continued</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#658-Find-K-Closest-Elements"><span class="nav-text">658. Find K Closest Elements</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Soulution"><span class="nav-text">Soulution:</span></a></li></ol></div>
             
 
           </div>
@@ -947,9 +951,9 @@
   
     <script type="text/javascript">
       var disqus_config = function () {
-        this.page.url = 'https://marcopolocai.github.io/2018/03/16/Notes-Parameters-Parsing/';
-        this.page.identifier = '2018/03/16/Notes-Parameters-Parsing/';
-        this.page.title = '[Notes] Parameters Parsing';
+        this.page.url = 'https://marcopolocai.github.io/2018/06/22/LeetCode-Challenge-log-658/';
+        this.page.identifier = '2018/06/22/LeetCode-Challenge-log-658/';
+        this.page.title = '[LeetCode] Challenge log 658';
         };
       function loadComments () {
         var d = document, s = d.createElement('script');
