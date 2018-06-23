@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[[LeetCode] Challenge log 374]]></title>
+    <url>%2F2018%2F06%2F22%2FLeetCode-Challenge-log-374%2F</url>
+    <content type="text"><![CDATA[374. Guess Number Higher or LowerNo explainaton needed. It is a good code template for BS. We are playing the Guess Game. The game is as follows: I pick a number from 1 to n. You have to guess which number I picked. Every time you guess wrong, I’ll tell you whether the number is higher or lower. You call a pre-defined API guess(int num) which returns 3 possible results (-1, 1, or 0): 123-1 : My number is lower 1 : My number is higher 0 : Congrats! You got it! Example: 123n = 10, I pick 6.Return 6. Soulution:1234567891011121314151617181920212223# The guess API is already defined for you.# @param num, your guess# @return -1 if my number is lower, 1 if my number is higher, otherwise return 0# def guess(num):class Solution(object): def guessNumber(self, n): """ :type n: int :rtype: int """ low = 1 high = n while low &lt; high: mid = (low + high) // 2 g = guess(mid) if g == 0: return mid elif g == 1: low = mid + 1 else: high = mid return low]]></content>
+      <tags>
+        <tag>code challenge</tag>
+        <tag>algorithm</tag>
+        <tag>leetcode</tag>
+        <tag>binary search</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[[LeetCode] Challenge log 658]]></title>
     <url>%2F2018%2F06%2F22%2FLeetCode-Challenge-log-658%2F</url>
     <content type="text"><![CDATA[658. Find K Closest ElementsIt has some problems with test cases so can’t get it ac. Whatever, I have the correct code anyway… Binary search to locate the position Create a len(k) sliding window start from the position, slide it left until the furthest distance starts to increase. Given a sorted array, two integers k and x, find the k closest elements to x in the array. The result should also be sorted in ascending order. If there is a tie, the smaller elements are always preferred. Example 1: 12Input: [1,2,3,4,5], k=4, x=3Output: [1,2,3,4] Example 2: 12Input: [1,2,3,4,5], k=4, x=-1Output: [1,2,3,4] Note: The value k is positive and will always be smaller than the length of the sorted array. Length of the given array is positive and will not exceed 104 Absolute value of elements in the array and x will not exceed 104 Soulution:1234567891011121314151617181920212223242526272829303132333435363738class Solution: def findClosestElements(self, arr, k, x): """ :type arr: List[int] :type k: int :type x: int :rtype: List[int] """ def bs(arr, x): low = 0 high = len(arr) - 1 while low &lt; high: mid = (low + high) // 2 if arr[mid] &lt; x: low = mid + 1 else: high = mid return low # slide window pivot = bs(arr, x) left = pivot right = left + k - 1 if right &gt;= len(arr): left = left - (right - (len(arr) - 1)) right = len(arr) - 1 min_dis = max(abs(arr[left]-x), abs(arr[right] -x)) while left &gt;= 0 and right &gt;= pivot - 1: cur_dis = max(abs(arr[left]-x), abs(arr[right] -x)) # print(left, right, cur_dis) if cur_dis &lt;= min_dis: min_dis = cur_dis left -= 1 right -= 1 else: break return arr[left + 1: right + 2]]]></content>
@@ -656,6 +667,18 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[[LeetCode] Challenge log 771]]></title>
+    <url>%2F2018%2F04%2F06%2FLeetCode-Challenge-log-771%2F</url>
+    <content type="text"><![CDATA[771. Jewels and Stoneshttps://leetcode.com/problems/jewels-and-stones/description/ Use hashing to achieve O(n+m). Use set as a dict without value to save space You’re given strings J representing the types of stones that are jewels, and S representing the stones you have. Each character in Sis a type of stone you have. You want to know how many of the stones you have are also jewels. The letters in J are guaranteed distinct, and all characters in J and S are letters. Letters are case sensitive, so &quot;a&quot; is considered a different type of stone from &quot;A&quot;. Example 1: 12Input: J = &quot;aA&quot;, S = &quot;aAAbbbb&quot;Output: 3 Example 2: 12Input: J = &quot;z&quot;, S = &quot;ZZ&quot;Output: 0 Note: S and J will consist of letters and have length at most 50. The characters in J are distinct. Soulution:Both O(1) 12345678910111213141516# use dictclass Solution: def numJewelsInStones(self, J, S): """ :type J: str :type S: str :rtype: int """ isJew = &#123;&#125; result = 0 for i in J: isJew[i] = 1 for i in S: if i in isJew: result += 1 return result 123456789# use setclass Solution: def numJewelsInStones(self, J, S): """ :type J: str :type S: str :rtype: int """ return sum([1 for s in S if s in set(J)])]]></content>
+      <tags>
+        <tag>code challenge</tag>
+        <tag>algorithm</tag>
+        <tag>leetcode</tag>
+        <tag>hash</tag>
+        <tag>set</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[[LeetCode] Challenge log 215]]></title>
     <url>%2F2018%2F04%2F06%2FLeetCode-Challenge-log-215%2F</url>
     <content type="text"><![CDATA[215. Kth Largest Element in an Arrayhttps://leetcode.com/problems/kth-largest-element-in-an-array/description/ Use len(k)-array to save the largest k elements Through binary search insertion to keep the array sorted. Find the kth largest element in an unsorted array. Note that it is the kth largest element in the sorted order, not the kth distinct element. For example,Given [3,2,1,5,6,4] and k = 2, return 5. Note: You may assume k is always valid, 1 ≤ k ≤ array’s length. Credits:Special thanks to @mithmatt for adding this problem and creating all test cases. Soulution:123456789101112131415161718192021222324252627282930313233# binary search insertionclass Solution: def findKthLargest(self, nums, k): """ :type nums: List[int] :type k: int :rtype: int """ if len(nums) == 1: return nums[0] arr = [] for ele in nums: if len(arr) == k: if ele &lt; arr[k-1]: continue elif ele &gt;= arr[0]: arr = [ele] + arr[:-1] continue arr = self.insert(arr, ele) if len(arr) &gt; k: arr = arr[:k] return arr[k-1] def insert(self, arr, ele): if arr == []: return [ele] p1 = 0 p2 = len(arr)-1 while p2 &gt;= p1: temp = (p1 + p2) // 2 if ele &gt;= arr[temp]: p2 = temp - 1 else: p1 = temp + 1 # print(p1,p2,ele) return arr[:p1] + [ele] + arr[p1:] 1# use set]]></content>
@@ -666,18 +689,6 @@
         <tag>need reviewed</tag>
         <tag>binary search</tag>
         <tag>sort</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[[LeetCode] Challenge log 771]]></title>
-    <url>%2F2018%2F04%2F06%2FLeetCode-Challenge-log-771%2F</url>
-    <content type="text"><![CDATA[771. Jewels and Stoneshttps://leetcode.com/problems/jewels-and-stones/description/ Use hashing to achieve O(n+m). Use set as a dict without value to save space You’re given strings J representing the types of stones that are jewels, and S representing the stones you have. Each character in Sis a type of stone you have. You want to know how many of the stones you have are also jewels. The letters in J are guaranteed distinct, and all characters in J and S are letters. Letters are case sensitive, so &quot;a&quot; is considered a different type of stone from &quot;A&quot;. Example 1: 12Input: J = &quot;aA&quot;, S = &quot;aAAbbbb&quot;Output: 3 Example 2: 12Input: J = &quot;z&quot;, S = &quot;ZZ&quot;Output: 0 Note: S and J will consist of letters and have length at most 50. The characters in J are distinct. Soulution:Both O(1) 12345678910111213141516# use dictclass Solution: def numJewelsInStones(self, J, S): """ :type J: str :type S: str :rtype: int """ isJew = &#123;&#125; result = 0 for i in J: isJew[i] = 1 for i in S: if i in isJew: result += 1 return result 123456789# use setclass Solution: def numJewelsInStones(self, J, S): """ :type J: str :type S: str :rtype: int """ return sum([1 for s in S if s in set(J)])]]></content>
-      <tags>
-        <tag>code challenge</tag>
-        <tag>algorithm</tag>
-        <tag>leetcode</tag>
-        <tag>hash</tag>
-        <tag>set</tag>
       </tags>
   </entry>
   <entry>
