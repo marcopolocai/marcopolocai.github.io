@@ -1,6 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[[LeetCode] Challenge log 148]]></title>
+    <url>%2F2018%2F07%2F13%2FLeetCode-Challenge-log-148%2F</url>
+    <content type="text"><![CDATA[148. Sort ListMerge sort: if head or head.next is none, return head. split the list from middle into A and B recursively merge sort A and B merge sorted A and sorted B Complexity: time: Nlog(N) space: recursion call is at most log(N) deep, hence log(N) Sort a linked list in O(n log n) time using constant space complexity. Example 1: 12Input: 4-&gt;2-&gt;1-&gt;3Output: 1-&gt;2-&gt;3-&gt;4 Example 2: 12Input: -1-&gt;5-&gt;3-&gt;4-&gt;0Output: -1-&gt;0-&gt;3-&gt;4-&gt;5 Soulution:123456789101112131415161718192021222324252627282930313233343536373839404142434445464748class Solution(object): def sortList(self, head): """ :type head: ListNode :rtype: ListNode """ # split and return two heads def split(head): if head is None: return None, None slow = fast = head while fast.next and fast.next.next: fast = fast.next.next slow = slow.next ha = head hb = slow.next slow.next = None return ha, hb # merge two list def merge(ha, hb): if not ha and not hb: return None head = ListNode(0) cur = head while ha and hb: if ha.val &lt;= hb.val: cur.next = ha ha = ha.next else: cur.next = hb hb = hb.next cur = cur.next if ha: cur.next = ha elif hb: cur.next = hb return head.next # sort def sort(head): if head is None or head.next is None: return head else: ha, hb = split(head) sa = sort(ha) sb = sort(hb) return merge(sa,sb) return sort(head)]]></content>
+      <tags>
+        <tag>code challenge</tag>
+        <tag>algorithm</tag>
+        <tag>leetcode</tag>
+        <tag>linklist</tag>
+        <tag>merge sort</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[[LeetCode] Challenge log 146]]></title>
+    <url>%2F2018%2F07%2F12%2FLeetCode-Challenge-log-146%2F</url>
+    <content type="text"><![CDATA[146. LRU CacheAnalysis: Although the problem only asks for implementing two operaions. It actually requires more than that. The two obvious and a few hidden required operations are: get: access value by key in O(1) and update its “freshness” put: add (key, value) pair in data structure and set it to be the freshest delete: delete the least recently used pair update: update pair’s value and “freshness” = delete and move to end First, if we want “get” to be done in O(1), hashing is a must. And we need to keep track of the “least recently used” element, hence a queue (FIFO) is considered. But if queue is used, updating the freshness of the pair will cost linear time, which is why a linklist should be used. So we can use hashing to map key to a node, where the value is saved. To update a node’s freshness from the linklist, we need to delete it from its original position, for which we need to not only know its next but also its pre — so we need to used double linklist! Finally, to delete the LRU from the hash table, we also need the key stored in the coresponding node. So now we have somthing like: hash key 1 key 2 key 3 … double linklist (k1, v1) (k2, v2) (k3, v3) … Trick: Python has a class collections.OrderedDict(), which is a dict that keeps track of the insertion order… Design and implement a data structure for Least Recently Used (LRU) cache. It should support the following operations: get and put. get(key) - Get the value (will always be positive) of the key if the key exists in the cache, otherwise return -1.put(key, value) - Set or insert the value if the key is not already present. When the cache reached its capacity, it should invalidate the least recently used item before inserting a new item. Follow up:Could you do both operations in O(1) time complexity? Example: 1234567891011LRUCache cache = new LRUCache( 2 /* capacity */ );cache.put(1, 1);cache.put(2, 2);cache.get(1); // returns 1cache.put(3, 3); // evicts key 2cache.get(2); // returns -1 (not found)cache.put(4, 4); // evicts key 1cache.get(1); // returns -1 (not found)cache.get(3); // returns 3cache.get(4); // returns 4 Soulution:123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354class ListNode: def __init__(self, k, v): self.next = None self.pre = None self.key = k self.val = v class LRUCache: def __init__(self, capacity): self.map = &#123;&#125; self.cap = capacity self.head = h = ListNode(None, None) self.tail = t = ListNode(None, None) h.next = t t.pre = h def get(self, key): if key not in self.map: return -1 else: node = self.map[key] self._delete(node) self._add(node) return node.val def put(self, key, value): # delete old key if exists if key in self.map: node = self.map[key] self._delete(node) del self.map[key] # delete LRU if full if len(self.map) == self.cap: lru = self.head.next self._delete(lru) del self.map[lru.key] # add it node = ListNode(key, value) self._add(node) self.map[key] = node def _delete(self, node): node.pre.next = node.next node.next.pre = node.pre def _add(self, node): n = self.tail p = self.tail.pre node.next = n node.pre = p p.next = node n.pre = node 123456789101112131415161718192021# collections.OrderedDict()class LRUCache: def __init__(self, capacity): self.map = collections.OrderedDict() self.cap = capacity def get(self, key): if key not in self.map: return -1 else: self.map.move_to_end(key) return self.map[key] def put(self, key, value): if key in self.map: self.map.move_to_end(key) self.map[key] = value else: if len(self.map) == self.cap: self.map.popitem(last = False) self.map[key] = value]]></content>
+      <tags>
+        <tag>code challenge</tag>
+        <tag>algorithm</tag>
+        <tag>leetcode</tag>
+        <tag>linklist</tag>
+        <tag>hash</tag>
+        <tag>double linklist</tag>
+        <tag>great problem</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[[LeetCode] Challenge log 142]]></title>
+    <url>%2F2018%2F07%2F12%2FLeetCode-Challenge-log-142%2F</url>
+    <content type="text"><![CDATA[142. Linked List Cycle II Algorithm: find the loop and record where slow and fast hit set slow = head start traverse again, until the pointers hit again Analysis: When they first hit, fast is x steps ahead of slow, where x = k * len(loop). So in the second traverse, when slow first enter the loop, fast is exatcly k circles ahead and hit slow again. Given a linked list, return the node where the cycle begins. If there is no cycle, return null. Note: Do not modify the linked list. Follow up:Can you solve it without using extra space? Soulution:1234567891011121314151617181920212223242526class Solution(object): def detectCycle(self, head): """ :type head: ListNode :rtype: ListNode """ if not head: return None # find loop and note that pos[where they hit] - pos[head] = k*len(loop) loop = False slow = fast = head while fast.next and fast.next.next: fast = fast.next.next slow = slow.next if slow == fast: loop = True break if not loop: return None # find entry fast = slow slow = head while slow != fast: fast = fast.next slow = slow.next return slow]]></content>
+      <tags>
+        <tag>code challenge</tag>
+        <tag>algorithm</tag>
+        <tag>leetcode</tag>
+        <tag>linklist</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[[LeetCode] Challenge log 147]]></title>
+    <url>%2F2018%2F07%2F12%2FLeetCode-Challenge-log-147%2F</url>
+    <content type="text"><![CDATA[147. Insertion Sort ListAlgorithm: Insertion sort Trick: If a node is greater than the sorted tail, make it the new tail and move on to next. Sort a linked list using insertion sort. A graphical example of insertion sort. The partial sorted list (black) initially contains only the first element in the list.With each iteration one element (red) is removed from the input data and inserted in-place into the sorted list Algorithm of Insertion Sort: Insertion sort iterates, consuming one input element each repetition, and growing a sorted output list. At each iteration, insertion sort removes one element from the input data, finds the location it belongs within the sorted list, and inserts it there. It repeats until no input elements remain. Example 1: 12Input: 4-&gt;2-&gt;1-&gt;3Output: 1-&gt;2-&gt;3-&gt;4 Example 2: 12Input: -1-&gt;5-&gt;3-&gt;4-&gt;0Output: -1-&gt;0-&gt;3-&gt;4-&gt;5 Soulution:1234567891011121314151617181920212223242526272829303132333435class Solution: def insertionSortList(self, head): """ :type head: ListNode :rtype: ListNode """ if not head: return None newhead = ListNode(0) newhead.next = head sort = head cur = head.next while cur: # quick check if cur &gt; sort if cur.val &gt; sort.val: sort = cur cur = cur.next continue # delete cur nxt = cur.next sort.next = nxt # insert cur pos = newhead while pos != sort and cur.val &gt; pos.next.val: pos = pos.next temp = pos.next pos.next = cur cur.next = temp # update cur cur = nxt return newhead.next]]></content>
+      <tags>
+        <tag>code challenge</tag>
+        <tag>algorithm</tag>
+        <tag>leetcode</tag>
+        <tag>linklist</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[[LeetCode] Challenge log 160]]></title>
     <url>%2F2018%2F07%2F11%2FLeetCode-Challenge-log-160%2F</url>
     <content type="text"><![CDATA[160. Intersection of Two Linked Lists Algorithm1: traverse both lists and count len(a) and len(b) chop |len(b) - len(a)| nodes from the head of the longer list travese both lists simutaneously until two pointers hit Algorithm2: let A = A+B, B = B+A such that two lists are alighn by their tails travese both lists simutaneously until two pointers hit Analysis: Both algs align the two lists by their tails. Write a program to find the node at which the intersection of two singly linked lists begins. For example, the following two linked lists: 12345A: a1 → a2 ↘ c1 → c2 → c3 ↗ B: b1 → b2 → b3 begin to intersect at node c1. Notes: If the two linked lists have no intersection at all, return null. The linked lists must retain their original structure after the function returns. You may assume there are no cycles anywhere in the entire linked structure. Your code should preferably run in O(n) time and use only O(1) memory. Soulution:123456789101112131415161718192021222324252627282930313233343536373839# alg 1class Solution(object): def getIntersectionNode(self, headA, headB): """ :type head1, head1: ListNode :rtype: ListNode """ # measure len cur = headA lenA = 0 while cur: lenA += 1 cur = cur.next cur = headB lenB = 0 while cur: lenB += 1 cur = cur.next # make 2 the same len if lenA &gt; lenB: while lenA &gt; lenB: headA = headA.next lenA -= 1 else: while lenB &gt; lenA: headB = headB.next lenB -= 1 # check one by one: while headA: if headA == headB: return headA else: headA = headA.next headB = headB.next return None 12345678910111213141516171819# alg 2class Solution(object): def getIntersectionNode(self, headA, headB): """ :type head1, head1: ListNode :rtype: ListNode """ if not headA or not headB: return None pa = headA pb = headB while pa != pb: # either hit or end up both None if not pa: pa = headB else: pa = pa.next if not pb: pb = headA else: pb = pb.next return pa]]></content>
@@ -843,9 +891,9 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[[LeetCode] Challenge log 53]]></title>
-    <url>%2F2018%2F04%2F05%2FLeetCode-Challenge-log-53%2F</url>
-    <content type="text"><![CDATA[53. Maximium Subarrayhttps://leetcode.com/problems/maximum-subarray/description/ It is mainly a DP problem. Find the contiguous subarray within an array (containing at least one number) which has the largest sum. For example, given the array [-2,1,-3,4,-1,2,1,-5,4],the contiguous subarray [4,-1,2,1] has the largest sum = 6. Solution:DP thought: last represents the largest sum in the subarray that ends with current pointer. The key is last[p] = max(last[p-1], 0) + nums[p], meaning we only include last[p-1] if it is positive 12345678910111213class Solution: def maxSubArray(self, nums): """ :type nums: List[int] :rtype: int """ result = last = nums[0] p = 1 while p&lt;len(nums): last = nums[p] + max(last, 0) result = max(result, last) p += 1 return result]]></content>
+    <title><![CDATA[[LeetCode] Challenge log 152]]></title>
+    <url>%2F2018%2F04%2F05%2FLeetCode-Challenge-log-152%2F</url>
+    <content type="text"><![CDATA[152. Maximum Product Subarrayhttps://leetcode.com/problems/maximum-product-subarray/description/ It is a DP problem. Similar to 53. Find the contiguous subarray within an array (containing at least one number) which has the largest sum. For example, given the array [-2,1,-3,4,-1,2,1,-5,4],the contiguous subarray [4,-1,2,1] has the largest sum = 6. Solution:DP thought: use two slot to cache the max and the min products of the subarray that ends with current pointer. at each position, each time there are three possible numbers to choose from: current number current number X max product of last position current number X min product of last position so take the min and max of the three options to be current minP and maxP of current postion 12345678910111213141516171819class Solution: def maxProduct(self, nums): """ :type nums: List[int] :rtype: int """ maxP = nums[0] minP = nums[0] p = 1 result = nums[0] while p &lt; len(nums): tmp1 = max(nums[p], nums[p] * maxP, nums[p] * minP) tmp2 = min(nums[p], nums[p] * maxP, nums[p] * minP) maxP = tmp1 minP = tmp2 print(nums[p], maxP, minP) result = max(result, maxP) p += 1 return result]]></content>
       <tags>
         <tag>code challenge</tag>
         <tag>algorithm</tag>
@@ -855,9 +903,9 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[[LeetCode] Challenge log 152]]></title>
-    <url>%2F2018%2F04%2F05%2FLeetCode-Challenge-log-152%2F</url>
-    <content type="text"><![CDATA[152. Maximum Product Subarrayhttps://leetcode.com/problems/maximum-product-subarray/description/ It is a DP problem. Similar to 53. Find the contiguous subarray within an array (containing at least one number) which has the largest sum. For example, given the array [-2,1,-3,4,-1,2,1,-5,4],the contiguous subarray [4,-1,2,1] has the largest sum = 6. Solution:DP thought: use two slot to cache the max and the min products of the subarray that ends with current pointer. at each position, each time there are three possible numbers to choose from: current number current number X max product of last position current number X min product of last position so take the min and max of the three options to be current minP and maxP of current postion 12345678910111213141516171819class Solution: def maxProduct(self, nums): """ :type nums: List[int] :rtype: int """ maxP = nums[0] minP = nums[0] p = 1 result = nums[0] while p &lt; len(nums): tmp1 = max(nums[p], nums[p] * maxP, nums[p] * minP) tmp2 = min(nums[p], nums[p] * maxP, nums[p] * minP) maxP = tmp1 minP = tmp2 print(nums[p], maxP, minP) result = max(result, maxP) p += 1 return result]]></content>
+    <title><![CDATA[[LeetCode] Challenge log 53]]></title>
+    <url>%2F2018%2F04%2F05%2FLeetCode-Challenge-log-53%2F</url>
+    <content type="text"><![CDATA[53. Maximium Subarrayhttps://leetcode.com/problems/maximum-subarray/description/ It is mainly a DP problem. Find the contiguous subarray within an array (containing at least one number) which has the largest sum. For example, given the array [-2,1,-3,4,-1,2,1,-5,4],the contiguous subarray [4,-1,2,1] has the largest sum = 6. Solution:DP thought: last represents the largest sum in the subarray that ends with current pointer. The key is last[p] = max(last[p-1], 0) + nums[p], meaning we only include last[p-1] if it is positive 12345678910111213class Solution: def maxSubArray(self, nums): """ :type nums: List[int] :rtype: int """ result = last = nums[0] p = 1 while p&lt;len(nums): last = nums[p] + max(last, 0) result = max(result, last) p += 1 return result]]></content>
       <tags>
         <tag>code challenge</tag>
         <tag>algorithm</tag>
