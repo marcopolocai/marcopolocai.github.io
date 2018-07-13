@@ -1,6 +1,105 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[[LeetCode] Challenge log 160]]></title>
+    <url>%2F2018%2F07%2F11%2FLeetCode-Challenge-log-160%2F</url>
+    <content type="text"><![CDATA[160. Intersection of Two Linked Lists Algorithm1: traverse both lists and count len(a) and len(b) chop |len(b) - len(a)| nodes from the head of the longer list travese both lists simutaneously until two pointers hit Algorithm2: let A = A+B, B = B+A such that two lists are alighn by their tails travese both lists simutaneously until two pointers hit Analysis: Both algs align the two lists by their tails. Write a program to find the node at which the intersection of two singly linked lists begins. For example, the following two linked lists: 12345A: a1 → a2 ↘ c1 → c2 → c3 ↗ B: b1 → b2 → b3 begin to intersect at node c1. Notes: If the two linked lists have no intersection at all, return null. The linked lists must retain their original structure after the function returns. You may assume there are no cycles anywhere in the entire linked structure. Your code should preferably run in O(n) time and use only O(1) memory. Soulution:123456789101112131415161718192021222324252627282930313233343536373839# alg 1class Solution(object): def getIntersectionNode(self, headA, headB): """ :type head1, head1: ListNode :rtype: ListNode """ # measure len cur = headA lenA = 0 while cur: lenA += 1 cur = cur.next cur = headB lenB = 0 while cur: lenB += 1 cur = cur.next # make 2 the same len if lenA &gt; lenB: while lenA &gt; lenB: headA = headA.next lenA -= 1 else: while lenB &gt; lenA: headB = headB.next lenB -= 1 # check one by one: while headA: if headA == headB: return headA else: headA = headA.next headB = headB.next return None 12345678910111213141516171819# alg 2class Solution(object): def getIntersectionNode(self, headA, headB): """ :type head1, head1: ListNode :rtype: ListNode """ if not headA or not headB: return None pa = headA pb = headB while pa != pb: # either hit or end up both None if not pa: pa = headB else: pa = pa.next if not pb: pb = headA else: pb = pb.next return pa]]></content>
+      <tags>
+        <tag>code challenge</tag>
+        <tag>algorithm</tag>
+        <tag>leetcode</tag>
+        <tag>linklist</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[[LeetCode] Challenge log 141]]></title>
+    <url>%2F2018%2F07%2F11%2FLeetCode-Challenge-log-141%2F</url>
+    <content type="text"><![CDATA[141. Linked List Cycle Classic application of two pointers: slow and fast. Algorithm: when fast catches up with slow, there is cycle. Given a linked list, determine if it has a cycle in it. Follow up:Can you solve it without using extra space? Soulution:1234567891011121314151617class Solution(object): def hasCycle(self, head): """ :type head: ListNode :rtype: bool """ if not head: return False slow = head fast = head while fast.next and fast.next.next: fast = fast.next.next slow = slow.next if fast == slow: return True return False]]></content>
+      <tags>
+        <tag>code challenge</tag>
+        <tag>algorithm</tag>
+        <tag>leetcode</tag>
+        <tag>linklist</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[[LeetCode] Challenge log 21]]></title>
+    <url>%2F2018%2F07%2F11%2FLeetCode-Challenge-log-21%2F</url>
+    <content type="text"><![CDATA[21. Merge Two Sorted ListsBasic linklist operation. Merge two sorted linked lists and return it as a new list. The new list should be made by splicing together the nodes of the first two lists. Example: 12Input: 1-&gt;2-&gt;4, 1-&gt;3-&gt;4Output: 1-&gt;1-&gt;2-&gt;3-&gt;4-&gt;4 Soulution:123456789101112131415161718192021class Solution: def mergeTwoLists(self, l1, l2): """ :type l1: ListNode :type l2: ListNode :rtype: ListNode """ res = ListNode(0) cur = res while l1 and l2: if l1.val &lt;= l2.val: cur.next = l1 cur = cur.next l1 = l1.next else: cur.next = l2 cur = cur.next l2 = l2.next if l1: cur.next = l1 if l2: cur.next = l2 return res.next]]></content>
+      <tags>
+        <tag>code challenge</tag>
+        <tag>algorithm</tag>
+        <tag>leetcode</tag>
+        <tag>linklist</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[[LeetCode] Challenge log 143]]></title>
+    <url>%2F2018%2F07%2F11%2FLeetCode-Challenge-log-143%2F</url>
+    <content type="text"><![CDATA[143. Reorder ListAlgorithm: split the linklist reverse the second half merge one by one Given a singly linked list L: L0→L1→…→L**n-1→Ln,reorder it to: L0→L**n→L1→L**n-1→L2→L**n-2→… You may not modify the values in the list’s nodes, only nodes itself may be changed. Example 1: 1Given 1-&gt;2-&gt;3-&gt;4, reorder it to 1-&gt;4-&gt;2-&gt;3. Example 2: 1Given 1-&gt;2-&gt;3-&gt;4-&gt;5, reorder it to 1-&gt;5-&gt;2-&gt;4-&gt;3. Soulution:123456789101112131415161718192021222324252627282930313233343536373839404142434445class Solution: def reorderList(self, head): """ :type head: ListNode :rtype: void Do not return anything, modify head in-place instead. """ if not head or not head.next: pass else: # return node at len // 2 newHead = ListNode(0) newHead.next = head slow = newHead fast = newHead while fast.next and fast.next.next: fast = fast.next.next slow = slow.next mid = slow # reverse the second half as head2 tail = None cur = mid.next mid.next = None # important! aviod cycle!!! while cur: nxt = cur.next cur.next = tail tail = cur cur = nxt head2 = tail # link one by one p1 = head p2 = head2 res = ListNode(0) cur = res while p1 or p2: if p1: cur.next = p1 cur = cur.next p1 = p1.next if p2: cur.next = p2 cur = cur.next p2 = p2.next]]></content>
+      <tags>
+        <tag>code challenge</tag>
+        <tag>algorithm</tag>
+        <tag>leetcode</tag>
+        <tag>linklist</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[[LeetCode] Challenge log 61]]></title>
+    <url>%2F2018%2F07%2F11%2FLeetCode-Challenge-log-61%2F</url>
+    <content type="text"><![CDATA[61. Rotate ListAnalysis: It is equivalent to finding the last k nodes and make them the head. If k &gt; len(list), k = k % len(list) Algorithm: let fast be k steps ahead of slow. forward both pointer until fast is the last node now slow is the pre of the last kth node Given a linked list, rotate the list to the right by k places, where k is non-negative. Example 1: 12345Input: 1-&gt;2-&gt;3-&gt;4-&gt;5-&gt;NULL, k = 2Output: 4-&gt;5-&gt;1-&gt;2-&gt;3-&gt;NULLExplanation:rotate 1 steps to the right: 5-&gt;1-&gt;2-&gt;3-&gt;4-&gt;NULLrotate 2 steps to the right: 4-&gt;5-&gt;1-&gt;2-&gt;3-&gt;NULL Example 2: 1234567Input: 0-&gt;1-&gt;2-&gt;NULL, k = 4Output: 2-&gt;0-&gt;1-&gt;NULLExplanation:rotate 1 steps to the right: 2-&gt;0-&gt;1-&gt;NULLrotate 2 steps to the right: 1-&gt;2-&gt;0-&gt;NULLrotate 3 steps to the right: 0-&gt;1-&gt;2-&gt;NULLrotate 4 steps to the right: 2-&gt;0-&gt;1-&gt;NULL Soulution:123456789101112131415161718192021222324252627282930313233343536373839class Solution: def rotateRight(self, head, k): """ :type head: ListNode :type k: int :rtype: ListNode """ if k == 0 or not head: return head newHead = ListNode(0) newHead.next = head # fast is k ahead of slow slow = newHead fast = newHead count = 0 while count &lt; k: if fast.next: fast = fast.next count += 1 else: fast = newHead k = k % count count = 0 if k == 0: return head # slow is the pre of the new head while fast.next: fast = fast.next slow = slow.next # paste if slow == newHead: return head else: fast.next = head res = slow.next slow.next = None return res]]></content>
+      <tags>
+        <tag>code challenge</tag>
+        <tag>algorithm</tag>
+        <tag>leetcode</tag>
+        <tag>linklist</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[[LeetCode] Challenge log 92]]></title>
+    <url>%2F2018%2F07%2F11%2FLeetCode-Challenge-log-92%2F</url>
+    <content type="text"><![CDATA[92. Reverse Linked List IIAlgorithm: find (m-1)th node reverse (n-m+1) nodes Reverse a linked list from position m to n. Do it in one-pass. Note: 1 ≤ m ≤ n ≤ length of list. Example: 12Input: 1-&gt;2-&gt;3-&gt;4-&gt;5-&gt;NULL, m = 2, n = 4Output: 1-&gt;4-&gt;3-&gt;2-&gt;5-&gt;NULL Soulution:123456789101112131415161718192021222324252627282930313233343536class Solution: def reverseBetween(self, head, m, n): """ :type head: ListNode :type m: int :type n: int :rtype: ListNode """ if not head or not head.next: return head # build virture head to aviod bound problem virtureHead = ListNode(0) virtureHead.next = head head = virtureHead # find (m-1)th pre = head for i in range(m-1): pre = pre.next # reverse n-m+1 following elements tail = None cur = pre.next count = 0 while count &lt; n - m + 1: nxt = cur.next cur.next = tail tail = cur cur = nxt count += 1 # pm + tail + cur pre.next.next = cur pre.next = tail return head.next]]></content>
+      <tags>
+        <tag>code challenge</tag>
+        <tag>algorithm</tag>
+        <tag>leetcode</tag>
+        <tag>linklist</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[[LeetCode] Challenge log 206]]></title>
+    <url>%2F2018%2F07%2F11%2FLeetCode-Challenge-log-206%2F</url>
+    <content type="text"><![CDATA[206. Reverse Linked ListBasic linklist operation. It can be done either recursively or iteritively. Reverse a singly linked list. Example: 12Input: 1-&gt;2-&gt;3-&gt;4-&gt;5-&gt;NULLOutput: 5-&gt;4-&gt;3-&gt;2-&gt;1-&gt;NULL Follow up: A linked list can be reversed either iteratively or recursively. Could you implement both? Soulution:1234567891011121314# Recursiveclass Solution: def reverseList(self, head): """ :type head: ListNode :rtype: ListNode """ # reverse and return head and tail if not head or not head.next: return head newHead = self.reverseList(head.next) head.next.next = head head.next = None return newHead 123456789101112131415# iterativelyclass Solution: def reverseList(self, head): """ :type head: ListNode :rtype: ListNode """ cur = head tail = None while cur: nxt = cur.next cur.next = tail tail = cur cur = nxt return tail]]></content>
+      <tags>
+        <tag>code challenge</tag>
+        <tag>algorithm</tag>
+        <tag>leetcode</tag>
+        <tag>linklist</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[[LeetCode] Challenge log 83]]></title>
+    <url>%2F2018%2F07%2F11%2FLeetCode-Challenge-log-83%2F</url>
+    <content type="text"><![CDATA[83. Remove Duplicates from Sorted ListAlgorithms: while traverse the link, delete cur if cur == cur.next. Given a sorted linked list, delete all duplicates such that each element appear only once. Example 1: 12Input: 1-&gt;1-&gt;2Output: 1-&gt;2 Example 2: 12Input: 1-&gt;1-&gt;2-&gt;3-&gt;3Output: 1-&gt;2-&gt;3 Soulution:1234567891011121314151617181920# Definition for singly-linked list.# class ListNode:# def __init__(self, x):# self.val = x# self.next = Noneclass Solution: def deleteDuplicates(self, head): """ :type head: ListNode :rtype: ListNode """ if not head: return head cur = head while cur and cur.next: if cur.next.val == cur.val: cur.next = cur.next.next else: cur = cur.next return head]]></content>
+      <tags>
+        <tag>code challenge</tag>
+        <tag>algorithm</tag>
+        <tag>leetcode</tag>
+        <tag>linklist</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[[LeetCode] Challenge log 19]]></title>
+    <url>%2F2018%2F07%2F11%2FLeetCode-Challenge-log-19%2F</url>
+    <content type="text"><![CDATA[19. Remove Nth Node From End of ListThe trick is to create two pointers. One is n steps faster. Given a linked list, remove the n-th node from the end of list and return its head. Example: 123Given linked list: 1-&gt;2-&gt;3-&gt;4-&gt;5, and n = 2.After removing the second node from the end, the linked list becomes 1-&gt;2-&gt;3-&gt;5. Note: Given n will always be valid. Follow up: Could you do this in one pass? Soulution:12345678910111213141516171819202122232425262728293031# Definition for singly-linked list.# class ListNode:# def __init__(self, x):# self.val = x# self.next = Noneclass Solution: def removeNthFromEnd(self, head, n): """ :type head: ListNode :type n: int :rtype: ListNode """ if head is None: return None # slow = fast - n fast = head slow = head while n &gt; 0: fast = fast.next n -= 1 if fast is None: # if head is to be delete return head.next else: # otherwise while fast.next: fast = fast.next slow = slow.next slow.next = slow.next.next return head]]></content>
+      <tags>
+        <tag>code challenge</tag>
+        <tag>algorithm</tag>
+        <tag>leetcode</tag>
+        <tag>linklist</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[[LeetCode] Challenge log 7]]></title>
     <url>%2F2018%2F07%2F05%2FLeetCode-Challenge-log-7%2F</url>
     <content type="text"><![CDATA[7. Reverse IntegerNormal question, but be aware of the upper bound and lower bound. Given a 32-bit signed integer, reverse digits of an integer. Example 1: 12Input: 123Output: 321 Example 2: 12Input: -123Output: -321 Example 3: 12Input: 120Output: 21 Note:Assume we are dealing with an environment which could only store integers within the 32-bit signed integer range: [−231, 231 − 1]. For the purpose of this problem, assume that your function returns 0 when the reversed integer overflows. Soulution:123456789101112131415161718192021222324252627class Solution: def reverse(self, x): """ :type x: int :rtype: int """ def maxint(): m = 1 for i in range(31): m = m &lt;&lt; 1 return -m, m-1 s = str(x) if s[0] == '-': sign = -1 s = s[1:] else: sign = +1 lb, ub = maxint() # print(lb, ub) x = int(s[::-1]) x = sign * x if x &lt; lb or x&gt; ub: x = 0 return x]]></content>
