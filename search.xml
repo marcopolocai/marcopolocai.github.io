@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Robot Sketch: ZOK]]></title>
+    <url>%2F2018%2F07%2F15%2FRobot-Sketch-ZOK%2F</url>
+    <content type="text"><![CDATA[media: IPAD pro app: Procreate]]></content>
+      <tags>
+        <tag>gundam</tag>
+        <tag>sketch</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[[LeetCode] Challenge log 148]]></title>
     <url>%2F2018%2F07%2F13%2FLeetCode-Challenge-log-148%2F</url>
     <content type="text"><![CDATA[148. Sort ListMerge sort: if head or head.next is none, return head. split the list from middle into A and B recursively merge sort A and B merge sorted A and sorted B Complexity: time: Nlog(N) space: recursion call is at most log(N) deep, hence log(N) Sort a linked list in O(n log n) time using constant space complexity. Example 1: 12Input: 4-&gt;2-&gt;1-&gt;3Output: 1-&gt;2-&gt;3-&gt;4 Example 2: 12Input: -1-&gt;5-&gt;3-&gt;4-&gt;0Output: -1-&gt;0-&gt;3-&gt;4-&gt;5 Soulution:123456789101112131415161718192021222324252627282930313233343536373839404142434445464748class Solution(object): def sortList(self, head): """ :type head: ListNode :rtype: ListNode """ # split and return two heads def split(head): if head is None: return None, None slow = fast = head while fast.next and fast.next.next: fast = fast.next.next slow = slow.next ha = head hb = slow.next slow.next = None return ha, hb # merge two list def merge(ha, hb): if not ha and not hb: return None head = ListNode(0) cur = head while ha and hb: if ha.val &lt;= hb.val: cur.next = ha ha = ha.next else: cur.next = hb hb = hb.next cur = cur.next if ha: cur.next = ha elif hb: cur.next = hb return head.next # sort def sort(head): if head is None or head.next is None: return head else: ha, hb = split(head) sa = sort(ha) sb = sort(hb) return merge(sa,sb) return sort(head)]]></content>
