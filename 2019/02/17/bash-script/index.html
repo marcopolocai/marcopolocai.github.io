@@ -156,18 +156,18 @@
 
 
 
-  <meta name="description" content="Some often used bash scripts techniques. Also an example script I wrote for my network homework which does some auto download testing. 1​``` to start a script: !/bin/bash​assign variable: (notice no s">
+  <meta name="description" content="Some often used bash scripts techniques. Also an example script I wrote for my network homework which does some auto download testing. 1234567891011121314151617### to start a script:# !/bin/bash### to">
 <meta name="keywords" content="-linux -bash -script">
 <meta property="og:type" content="article">
 <meta property="og:title" content="bash script">
 <meta property="og:url" content="https://marcopolocai.github.io/2019/02/17/bash-script/index.html">
 <meta property="og:site_name" content="The Travels of Marco Cai">
-<meta property="og:description" content="Some often used bash scripts techniques. Also an example script I wrote for my network homework which does some auto download testing. 1​``` to start a script: !/bin/bash​assign variable: (notice no s">
+<meta property="og:description" content="Some often used bash scripts techniques. Also an example script I wrote for my network homework which does some auto download testing. 1234567891011121314151617### to start a script:# !/bin/bash### to">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-02-18T07:17:49.417Z">
+<meta property="og:updated_time" content="2019-02-18T07:22:53.539Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="bash script">
-<meta name="twitter:description" content="Some often used bash scripts techniques. Also an example script I wrote for my network homework which does some auto download testing. 1​``` to start a script: !/bin/bash​assign variable: (notice no s">
+<meta name="twitter:description" content="Some often used bash scripts techniques. Also an example script I wrote for my network homework which does some auto download testing. 1234567891011121314151617### to start a script:# !/bin/bash### to">
 
 
 
@@ -438,7 +438,7 @@
                 
               
 
-              <time title="Created: 2019-02-17 22:38:28 / Modified: 23:17:49" itemprop="dateCreated datePublished" datetime="2019-02-17T22:38:28-08:00">2019-02-17</time>
+              <time title="Created: 2019-02-17 22:38:28 / Modified: 23:22:53" itemprop="dateCreated datePublished" datetime="2019-02-17T22:38:28-08:00">2019-02-17</time>
             
 
             
@@ -489,16 +489,12 @@
 
       
         <p>Some often used bash scripts techniques. Also an example script I wrote for my network homework which does some auto download testing.</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">​``` to start a script:</span><br></pre></td></tr></table></figure>
-<h1 id="bin-bash"><a href="#bin-bash" class="headerlink" title="!/bin/bash"></a>!/bin/bash</h1><p>​<figure class="highlight plain"><figcaption><span>assign variable: (notice no space in between)```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">vname1=&apos;str&apos;</span><br><span class="line">vname2=1</span><br><span class="line"></span><br><span class="line">​```use assigned variable:</span><br></pre></td></tr></table></figure></p>
-<p>echo $vname1</p>
-<p>​<figure class="highlight plain"><figcaption><span>loop```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">while(( $int&lt;=100))</span><br><span class="line">do</span><br><span class="line">  echo $int</span><br><span class="line">  ```do something here</span><br></pre></td></tr></table></figure></p>
-<p>  let “int++”<br>done<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">Suppose we name out script as `myscript.sh`, to run it, fisrt we givie it permission:</span><br></pre></td></tr></table></figure></p>
-<p>$ chmod 755 myscript.sh<br>$ ./myscript.sh<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">Some some techniques (more will be added):</span><br><span class="line">```bash</span><br><span class="line">​```string quotes</span><br></pre></td></tr></table></figure></p>
-<p>NAME=”John”<br>echo “Hi $NAME”  #=&gt; Hi John<br>echo ‘Hi $NAME’  #=&gt; Hi $NAME</p>
-<p>​<figure class="highlight plain"><figcaption><span>execution:```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git commit; git push </span><br><span class="line">git commit &amp;&amp; git push </span><br><span class="line">git commit || echo &quot;Commit failed&quot;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">### to start a script:</span></span><br><span class="line"><span class="comment"># !/bin/bash</span></span><br><span class="line"></span><br><span class="line"><span class="comment">### to assign variable: (notice no space in between)</span></span><br><span class="line">vname1=<span class="string">'str'</span></span><br><span class="line">vname2=1</span><br><span class="line"></span><br><span class="line"><span class="comment">### use assigned variable:</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$vname1</span></span><br><span class="line"></span><br><span class="line"><span class="comment">### simple loop</span></span><br><span class="line"><span class="keyword">while</span>(( <span class="variable">$int</span>&lt;=100))</span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">  <span class="built_in">echo</span> <span class="variable">$int</span></span><br><span class="line">  <span class="comment"># do something here</span></span><br><span class="line">  <span class="built_in">let</span> <span class="string">"int++"</span></span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>
+<p>Suppose we name out script as <code>myscript.sh</code>, to run it, fisrt we givie it permission:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ chmod 755 myscript.sh</span><br><span class="line">$ ./myscript.sh</span><br></pre></td></tr></table></figure>
+<p>Some some techniques (more will be added):<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">### string quotes</span></span><br><span class="line">NAME=<span class="string">"John"</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"Hi <span class="variable">$NAME</span>"</span>  <span class="comment">#=&gt; Hi John</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">'Hi $NAME'</span>  <span class="comment">#=&gt; Hi $NAME</span></span><br><span class="line"></span><br><span class="line"><span class="comment">### Conditional execution:</span></span><br><span class="line">git commit; git push </span><br><span class="line">git commit &amp;&amp; git push </span><br><span class="line">git commit || <span class="built_in">echo</span> <span class="string">"Commit failed"</span></span><br></pre></td></tr></table></figure></p>
 <p>Now an example:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># !/bin/bash</span></span><br><span class="line"><span class="built_in">echo</span> start creating files</span><br><span class="line"></span><br><span class="line"><span class="comment"># create 25 4kb files</span></span><br><span class="line">int=1</span><br><span class="line"><span class="keyword">while</span>(( <span class="variable">$int</span>&lt;=25 ))</span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">  <span class="built_in">echo</span> <span class="variable">$int</span></span><br><span class="line">  dd <span class="keyword">if</span>=/dev/urandom of=<span class="built_in">test</span>/t<span class="variable">$int</span> bs=1000 count=4</span><br><span class="line">  <span class="built_in">let</span> <span class="string">"int++"</span></span><br><span class="line"><span class="keyword">done</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># create 25 60kb files</span></span><br><span class="line">int=1</span><br><span class="line"><span class="keyword">while</span>(( <span class="variable">$int</span>&lt;=25 ))</span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">  <span class="built_in">echo</span> <span class="variable">$int</span></span><br><span class="line">  dd <span class="keyword">if</span>=/dev/urandom of=<span class="built_in">test</span>/tt<span class="variable">$int</span> bs=1000 count=60</span><br><span class="line">  <span class="built_in">let</span> <span class="string">"int++"</span></span><br><span class="line"><span class="keyword">done</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="keyword">done</span> creating files</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># !/bin/bash</span></span><br><span class="line"><span class="built_in">echo</span> start creating files</span><br><span class="line"></span><br><span class="line"><span class="comment">### create 25 4kb files</span></span><br><span class="line">int=1</span><br><span class="line"><span class="keyword">while</span>(( <span class="variable">$int</span>&lt;=25 ))</span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">  <span class="built_in">echo</span> <span class="variable">$int</span></span><br><span class="line">  dd <span class="keyword">if</span>=/dev/urandom of=<span class="built_in">test</span>/t<span class="variable">$int</span> bs=1000 count=4</span><br><span class="line">  <span class="built_in">let</span> <span class="string">"int++"</span></span><br><span class="line"><span class="keyword">done</span></span><br><span class="line"></span><br><span class="line"><span class="comment">### create 25 60kb files</span></span><br><span class="line">int=1</span><br><span class="line"><span class="keyword">while</span>(( <span class="variable">$int</span>&lt;=25 ))</span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">  <span class="built_in">echo</span> <span class="variable">$int</span></span><br><span class="line">  dd <span class="keyword">if</span>=/dev/urandom of=<span class="built_in">test</span>/tt<span class="variable">$int</span> bs=1000 count=60</span><br><span class="line">  <span class="built_in">let</span> <span class="string">"int++"</span></span><br><span class="line"><span class="keyword">done</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="keyword">done</span> creating files</span><br></pre></td></tr></table></figure>
 <p>At the end, a very good reference link: <a href="https://devhints.io/bash" target="_blank" rel="noopener">https://devhints.io/bash</a></p>
 
       
@@ -614,17 +610,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Overview
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -826,22 +813,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#bin-bash"><span class="nav-text">!/bin/bash</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       

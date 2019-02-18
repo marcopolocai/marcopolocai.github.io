@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[bash script]]></title>
     <url>%2F2019%2F02%2F17%2Fbash-script%2F</url>
-    <content type="text"><![CDATA[Some often used bash scripts techniques. Also an example script I wrote for my network homework which does some auto download testing. 1​``` to start a script: !/bin/bash​assign variable: (notice no space in between)```1234vname1=&apos;str&apos;vname2=1​```use assigned variable: echo $vname1 ​loop```1234while(( $int&lt;=100))do echo $int ```do something here let “int++”done12Suppose we name out script as `myscript.sh`, to run it, fisrt we givie it permission: $ chmod 755 myscript.sh$ ./myscript.sh1234Some some techniques (more will be added):```bash​```string quotes NAME=”John”echo “Hi $NAME” #=&gt; Hi Johnecho ‘Hi $NAME’ #=&gt; Hi $NAME ​execution:```123git commit; git push git commit &amp;&amp; git push git commit || echo &quot;Commit failed&quot; Now an example: 12345678910111213141516171819202122# !/bin/bashecho start creating files# create 25 4kb filesint=1while(( $int&lt;=25 ))do echo $int dd if=/dev/urandom of=test/t$int bs=1000 count=4 let "int++"done# create 25 60kb filesint=1while(( $int&lt;=25 ))do echo $int dd if=/dev/urandom of=test/tt$int bs=1000 count=60 let "int++"doneecho done creating files At the end, a very good reference link: https://devhints.io/bash]]></content>
+    <content type="text"><![CDATA[Some often used bash scripts techniques. Also an example script I wrote for my network homework which does some auto download testing. 1234567891011121314151617### to start a script:# !/bin/bash### to assign variable: (notice no space in between)vname1='str'vname2=1### use assigned variable:echo $vname1### simple loopwhile(( $int&lt;=100))do echo $int # do something here let "int++"done Suppose we name out script as myscript.sh, to run it, fisrt we givie it permission: 12$ chmod 755 myscript.sh$ ./myscript.sh Some some techniques (more will be added):123456789### string quotesNAME="John"echo "Hi $NAME" #=&gt; Hi Johnecho 'Hi $NAME' #=&gt; Hi $NAME### Conditional execution:git commit; git push git commit &amp;&amp; git push git commit || echo "Commit failed" Now an example: 12345678910111213141516171819202122# !/bin/bashecho start creating files### create 25 4kb filesint=1while(( $int&lt;=25 ))do echo $int dd if=/dev/urandom of=test/t$int bs=1000 count=4 let "int++"done### create 25 60kb filesint=1while(( $int&lt;=25 ))do echo $int dd if=/dev/urandom of=test/tt$int bs=1000 count=60 let "int++"doneecho done creating files At the end, a very good reference link: https://devhints.io/bash]]></content>
       <tags>
         <tag>-linux -bash -script</tag>
       </tags>
@@ -1006,6 +1006,18 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[[LeetCode] Challenge log 771]]></title>
+    <url>%2F2018%2F04%2F06%2FLeetCode-Challenge-log-771%2F</url>
+    <content type="text"><![CDATA[771. Jewels and Stoneshttps://leetcode.com/problems/jewels-and-stones/description/ Use hashing to achieve O(n+m). Use set as a dict without value to save space You’re given strings J representing the types of stones that are jewels, and S representing the stones you have. Each character in Sis a type of stone you have. You want to know how many of the stones you have are also jewels. The letters in J are guaranteed distinct, and all characters in J and S are letters. Letters are case sensitive, so &quot;a&quot; is considered a different type of stone from &quot;A&quot;. Example 1: 12Input: J = &quot;aA&quot;, S = &quot;aAAbbbb&quot;Output: 3 Example 2: 12Input: J = &quot;z&quot;, S = &quot;ZZ&quot;Output: 0 Note: S and J will consist of letters and have length at most 50. The characters in J are distinct. Soulution:Both O(1) 12345678910111213141516# use dictclass Solution: def numJewelsInStones(self, J, S): """ :type J: str :type S: str :rtype: int """ isJew = &#123;&#125; result = 0 for i in J: isJew[i] = 1 for i in S: if i in isJew: result += 1 return result 123456789# use setclass Solution: def numJewelsInStones(self, J, S): """ :type J: str :type S: str :rtype: int """ return sum([1 for s in S if s in set(J)])]]></content>
+      <tags>
+        <tag>code challenge</tag>
+        <tag>algorithm</tag>
+        <tag>leetcode</tag>
+        <tag>hash</tag>
+        <tag>set</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[[LeetCode] Challenge log 215]]></title>
     <url>%2F2018%2F04%2F06%2FLeetCode-Challenge-log-215%2F</url>
     <content type="text"><![CDATA[215. Kth Largest Element in an Arrayhttps://leetcode.com/problems/kth-largest-element-in-an-array/description/ Use len(k)-array to save the largest k elements Through binary search insertion to keep the array sorted. Find the kth largest element in an unsorted array. Note that it is the kth largest element in the sorted order, not the kth distinct element. For example,Given [3,2,1,5,6,4] and k = 2, return 5. Note: You may assume k is always valid, 1 ≤ k ≤ array’s length. Credits:Special thanks to @mithmatt for adding this problem and creating all test cases. Soulution:123456789101112131415161718192021222324252627282930313233# binary search insertionclass Solution: def findKthLargest(self, nums, k): """ :type nums: List[int] :type k: int :rtype: int """ if len(nums) == 1: return nums[0] arr = [] for ele in nums: if len(arr) == k: if ele &lt; arr[k-1]: continue elif ele &gt;= arr[0]: arr = [ele] + arr[:-1] continue arr = self.insert(arr, ele) if len(arr) &gt; k: arr = arr[:k] return arr[k-1] def insert(self, arr, ele): if arr == []: return [ele] p1 = 0 p2 = len(arr)-1 while p2 &gt;= p1: temp = (p1 + p2) // 2 if ele &gt;= arr[temp]: p2 = temp - 1 else: p1 = temp + 1 # print(p1,p2,ele) return arr[:p1] + [ele] + arr[p1:] 1# use set]]></content>
@@ -1016,18 +1028,6 @@
         <tag>need reviewed</tag>
         <tag>binary search</tag>
         <tag>sort</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[[LeetCode] Challenge log 771]]></title>
-    <url>%2F2018%2F04%2F06%2FLeetCode-Challenge-log-771%2F</url>
-    <content type="text"><![CDATA[771. Jewels and Stoneshttps://leetcode.com/problems/jewels-and-stones/description/ Use hashing to achieve O(n+m). Use set as a dict without value to save space You’re given strings J representing the types of stones that are jewels, and S representing the stones you have. Each character in Sis a type of stone you have. You want to know how many of the stones you have are also jewels. The letters in J are guaranteed distinct, and all characters in J and S are letters. Letters are case sensitive, so &quot;a&quot; is considered a different type of stone from &quot;A&quot;. Example 1: 12Input: J = &quot;aA&quot;, S = &quot;aAAbbbb&quot;Output: 3 Example 2: 12Input: J = &quot;z&quot;, S = &quot;ZZ&quot;Output: 0 Note: S and J will consist of letters and have length at most 50. The characters in J are distinct. Soulution:Both O(1) 12345678910111213141516# use dictclass Solution: def numJewelsInStones(self, J, S): """ :type J: str :type S: str :rtype: int """ isJew = &#123;&#125; result = 0 for i in J: isJew[i] = 1 for i in S: if i in isJew: result += 1 return result 123456789# use setclass Solution: def numJewelsInStones(self, J, S): """ :type J: str :type S: str :rtype: int """ return sum([1 for s in S if s in set(J)])]]></content>
-      <tags>
-        <tag>code challenge</tag>
-        <tag>algorithm</tag>
-        <tag>leetcode</tag>
-        <tag>hash</tag>
-        <tag>set</tag>
       </tags>
   </entry>
   <entry>
