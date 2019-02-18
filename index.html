@@ -395,6 +395,169 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://marcopolocai.github.io/2019/02/17/bash-script/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mingxiang Cai">
+      <meta itemprop="description" content="A learner, a hobbyist.">
+      <meta itemprop="image" content="https://farm2.staticflickr.com/1731/40843005530_cbe70fa0da.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="The Travels of Marco Cai">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/02/17/bash-script/" itemprop="url">
+                  bash script
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-02-17 22:38:28 / Modified: 23:17:49" itemprop="dateCreated datePublished" datetime="2019-02-17T22:38:28-08:00">2019-02-17</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/02/17/bash-script/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2019/02/17/bash-script/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>Some often used bash scripts techniques. Also an example script I wrote for my network homework which does some auto download testing.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">​``` to start a script:</span><br></pre></td></tr></table></figure>
+<h1 id="bin-bash"><a href="#bin-bash" class="headerlink" title="!/bin/bash"></a>!/bin/bash</h1><p>​<figure class="highlight plain"><figcaption><span>assign variable: (notice no space in between)```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">vname1=&apos;str&apos;</span><br><span class="line">vname2=1</span><br><span class="line"></span><br><span class="line">​```use assigned variable:</span><br></pre></td></tr></table></figure></p>
+<p>echo $vname1</p>
+<p>​<figure class="highlight plain"><figcaption><span>loop```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">while(( $int&lt;=100))</span><br><span class="line">do</span><br><span class="line">  echo $int</span><br><span class="line">  ```do something here</span><br></pre></td></tr></table></figure></p>
+<p>  let “int++”<br>done<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">Suppose we name out script as `myscript.sh`, to run it, fisrt we givie it permission:</span><br></pre></td></tr></table></figure></p>
+<p>$ chmod 755 myscript.sh<br>$ ./myscript.sh<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">Some some techniques (more will be added):</span><br><span class="line">```bash</span><br><span class="line">​```string quotes</span><br></pre></td></tr></table></figure></p>
+<p>NAME=”John”<br>echo “Hi $NAME”  #=&gt; Hi John<br>echo ‘Hi $NAME’  #=&gt; Hi $NAME</p>
+<p>​<figure class="highlight plain"><figcaption><span>execution:```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git commit; git push </span><br><span class="line">git commit &amp;&amp; git push </span><br><span class="line">git commit || echo &quot;Commit failed&quot;</span><br></pre></td></tr></table></figure></p>
+<p>Now an example:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># !/bin/bash</span></span><br><span class="line"><span class="built_in">echo</span> start creating files</span><br><span class="line"></span><br><span class="line"><span class="comment"># create 25 4kb files</span></span><br><span class="line">int=1</span><br><span class="line"><span class="keyword">while</span>(( <span class="variable">$int</span>&lt;=25 ))</span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">  <span class="built_in">echo</span> <span class="variable">$int</span></span><br><span class="line">  dd <span class="keyword">if</span>=/dev/urandom of=<span class="built_in">test</span>/t<span class="variable">$int</span> bs=1000 count=4</span><br><span class="line">  <span class="built_in">let</span> <span class="string">"int++"</span></span><br><span class="line"><span class="keyword">done</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># create 25 60kb files</span></span><br><span class="line">int=1</span><br><span class="line"><span class="keyword">while</span>(( <span class="variable">$int</span>&lt;=25 ))</span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">  <span class="built_in">echo</span> <span class="variable">$int</span></span><br><span class="line">  dd <span class="keyword">if</span>=/dev/urandom of=<span class="built_in">test</span>/tt<span class="variable">$int</span> bs=1000 count=60</span><br><span class="line">  <span class="built_in">let</span> <span class="string">"int++"</span></span><br><span class="line"><span class="keyword">done</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="keyword">done</span> creating files</span><br></pre></td></tr></table></figure>
+<p>At the end, a very good reference link: <a href="https://devhints.io/bash" target="_blank" rel="noopener">https://devhints.io/bash</a></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://marcopolocai.github.io/2019/02/17/git-command/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -441,7 +604,7 @@
                 
               
 
-              <time title="Created: 2019-02-17 00:05:40 / Modified: 00:14:11" itemprop="dateCreated datePublished" datetime="2019-02-17T00:05:40-08:00">2019-02-17</time>
+              <time title="Created: 2019-02-17 00:05:40 / Modified: 09:44:21" itemprop="dateCreated datePublished" datetime="2019-02-17T00:05:40-08:00">2019-02-17</time>
             
 
             
@@ -494,7 +657,7 @@
         
           
             <h1 id="Git-commands"><a href="#Git-commands" class="headerlink" title="Git commands"></a>Git commands</h1><p>Often used commands:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">### 创建</span><br><span class="line">git clone &lt;link&gt; &lt;dir&gt;</span><br><span class="line">git init</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">### 互动</span><br><span class="line">git status</span><br><span class="line">git add &lt;file&gt;</span><br><span class="line">git commit -m &lt;message&gt;</span><br><span class="line">git commit -m -a &lt;message&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">### 分支</span><br><span class="line">git branch # 列出分支</span><br><span class="line">git branch &lt;branch name&gt; # 创建</span><br><span class="line">git branch -d &lt;brach name&gt; # 删除</span><br><span class="line"></span><br><span class="line">git checkout &lt;branch name&gt; # 转移</span><br><span class="line">git checkout -b &lt;branch name&gt; # 创建并转移</span><br><span class="line"></span><br><span class="line">git merge &lt;branch name&gt; # 合并</span><br><span class="line"></span><br><span class="line">### 记录</span><br><span class="line">git log</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">### 创建</span><br><span class="line">git clone &lt;link&gt; &lt;dir&gt;</span><br><span class="line">git init</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">### 互动</span><br><span class="line">git status</span><br><span class="line">git add &lt;file&gt;</span><br><span class="line">git commit -m &lt;message&gt;</span><br><span class="line">git commit -m -a &lt;message&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">### 分支</span><br><span class="line">git branch # 列出分支</span><br><span class="line">git branch &lt;branch name&gt; # 创建</span><br><span class="line">git branch -d &lt;brach name&gt; # 删除</span><br><span class="line"></span><br><span class="line">git checkout &lt;branch name&gt; # 转移</span><br><span class="line">git checkout -b &lt;branch name&gt; # 创建并转移</span><br><span class="line"></span><br><span class="line">git merge &lt;branch name&gt; # 合并</span><br><span class="line"></span><br><span class="line">### 记录</span><br><span class="line">git log</span><br><span class="line"></span><br><span class="line">### 同步</span><br><span class="line">git pull # 同步且merge至当前branch</span><br><span class="line">git fetch # 仅同步</span><br></pre></td></tr></table></figure>
 
           
         
@@ -1801,162 +1964,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://marcopolocai.github.io/2018/07/17/LeetCode-Challenge-log-47/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Mingxiang Cai">
-      <meta itemprop="description" content="A learner, a hobbyist.">
-      <meta itemprop="image" content="https://farm2.staticflickr.com/1731/40843005530_cbe70fa0da.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="The Travels of Marco Cai">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/07/17/LeetCode-Challenge-log-47/" itemprop="url">
-                  [LeetCode] Challenge log 47
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2018-07-17 15:25:30 / Modified: 15:32:16" itemprop="dateCreated datePublished" datetime="2018-07-17T15:25:30-07:00">2018-07-17</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/07/17/LeetCode-Challenge-log-47/#comments" itemprop="discussionUrl">
-                
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/07/17/LeetCode-Challenge-log-47/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h5 id="47-Permutations-II"><a href="#47-Permutations-II" class="headerlink" title="47. Permutations II"></a><a href="https://leetcode.com/problems/permutations-ii/description/" target="_blank" rel="noopener">47. Permutations II</a></h5><div class="note primary"><p>DFS problem. Same as 46, just to make sure at one level do not repeat duplicates. </p></div>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/07/17/LeetCode-Challenge-log-47/" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2008,7 +2015,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">127</span>
+                    <span class="site-state-item-count">128</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -2139,7 +2146,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">55</span>
+                      
+                    
+                    <span class="site-state-item-count">56</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
